@@ -1,0 +1,294 @@
+/* ============================================================
+   Sans Kutusu (kiosk) — sayfanin tek interaktif ogesi.
+
+   Sozlesme: sayfa ACILISINDA yalnizca makine sprite'i (804 B) yuklenir.
+   Kart yuzleri ve paket gorselleri (1.4 MB) makineye TIKLANANA kadar
+   istenmez; ritual 3.6 sn surdugu icin indirme penceresi zaten orada.
+
+   Renk degiskenleri index.html'deki :root'tan gelir (--mat, --cream,
+   --ink, --gold, --px). Kiosk yeni palet TANIMLAMAZ.
+   ============================================================ */
+
+/* --- 1) Dinlenme halindeki makine (yalniz genis ekran) -------- */
+/* Mobilde makine HIC cizilmez: tek kolon akista sol bosluk yok ve
+   3.6 sn'lik ritual icin ne yer ne sabir var. Orada girisi .plaque
+   ustlenir (kiosk.js ekler). */
+.kiosk-machine{ display:none; }
+
+/* SECICI `.page > .kiosk-machine` OLMAK ZORUNDA, duz `.kiosk-machine` DEGIL.
+   index.html'de `.page > *{ position:relative; z-index:3 }` var; o kural ayni
+   ozgullukte (0,1,0) ve inline <style> bu dosyadan SONRA geldigi icin kaynak
+   sirasiyla kazaniyordu. Sonuc: makine `relative` kalip `bottom:64px`i
+   `top:-64px` olarak uyguluyor ve ekranin ustune, plaketlerin altina kaciyordu
+   (olculdu: y=-65). Ozgullugu (0,2,0)'a cikarmak <link> sirasindan bagimsiz cozer. */
+@media (min-width:880px) and (min-height:700px){
+  .page > .kiosk-machine{
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    position:absolute; left:clamp(14px,2.4vw,34px); bottom:clamp(58px,9vh,96px);
+    z-index:4; background:none; border:0; padding:0; cursor:pointer;
+    /* .fg (binder) 62vw genislikte ve ortada; dar masaustunde makine ona
+       girmesin diye sol kenara YAPISIR ve 1100px altinda kuculur. */
+    width:128px;
+  }
+  /* 880-1100 arasi: binder ile makine arasindaki bosluk daralir —
+     makineyi kucultmek carpismayi onler (Faz 6'da olculdu). */
+  @media (max-width:1100px){
+    .page > .kiosk-machine{ width:96px; bottom:clamp(50px,7vh,72px); }
+  }
+}
+
+/* Mobil girisi: sitenin .plaque desenine katilir ama <a> degil <button>
+   oldugu icin tarayici varsayilanlari sifirlanmali. Masaustunde makine
+   zaten gorunur oldugundan plaket GIZLENIR — iki giris mukerrer olurdu. */
+/* Yine `.plaques > ...` ile yaziliyor: index.html'deki `.plaque{display:inline-flex}`
+   ayni ozgullukte ve inline <style> sonra geldigi icin duz `.kiosk-plaque{display:none}`
+   kaybediyordu (olculdu: masaustunde plaket makineyle birlikte gorunuyordu). */
+.kiosk-plaque{ border:0; cursor:pointer; font-family:'Silkscreen',ui-monospace,monospace; }
+.kiosk-plaque[disabled]{ opacity:.5; cursor:default; }
+@media (min-width:880px) and (min-height:700px){
+  .plaques > .kiosk-plaque{ display:none; }
+}
+
+.kiosk-machine img{
+  width:100%; height:auto; image-rendering:pixelated;
+  filter:drop-shadow(3px 4px 0 rgba(0,0,0,.5));
+  transition:transform .08s steps(2);
+}
+.kiosk-machine:hover img{ transform:translateY(-3px); }
+/* RITUAL BOYUNCA GECIS KAPALI. Yukaridaki .08s steps(2) hover icin; sarsinti
+   her karede yeni bir hedef yazdigi icin gecis hicbirine yetismiyor ve steps(2)
+   ara degeri tutuyordu. Olculdu: inline transform +-12 px salinirken EKRANA
+   BOYANAN konum yalnizca 1.5 px oynuyordu — yani sarsinti gorunmuyordu. */
+.kiosk-machine.shaking img{ transition:none; }
+.kiosk-machine.shaking:hover img{ transform:none; }
+.kiosk-machine:focus-visible{ outline:none; }
+.kiosk-machine:focus-visible img{ filter:drop-shadow(0 0 0 var(--gold)) drop-shadow(0 0 6px var(--gold)); }
+
+/* Kalici etiket — hover tooltip DEGIL. Silinen magaza seridinde ogrenildi:
+   dokunmatikte hover yok, ustelik komsu ogenin filter'i yigin baglami
+   actigi icin tooltip arkada kaliyor ve z-index cozmuyor. */
+.kiosk-label{
+  font-family:'Silkscreen',ui-monospace,monospace; font-size:9px; letter-spacing:1px;
+  color:var(--cream); text-shadow:0 2px 0 #000; text-align:center; line-height:1.5;
+  pointer-events:none;
+}
+.kiosk-label b{ color:var(--gold); font-weight:400; }
+/* --- cagri metni: "ŞANSINI DENE" + makineyi gosteren ok ------- */
+/* Makinenin USTUNDE durur (bottom:100%), yani makineyi ya da etiketi itmez.
+   Ritual basladiginda ve hak bittiginde kaybolur: o anlarda soyleyecek bir sey
+   yok, ustelik ucan paket ve dolum cubugu ayni alani kullaniyor. */
+.kiosk-cta{
+  position:absolute; left:50%; bottom:100%; margin-bottom:6px;
+  transform:translateX(-50%); pointer-events:none; white-space:nowrap;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  transition:opacity .18s;
+  animation:kctabob 1.9s ease-in-out infinite;
+}
+.kiosk-cta span{
+  font-family:'Silkscreen',ui-monospace,monospace; font-size:9px; letter-spacing:1px;
+  color:var(--ink); background:var(--gold); padding:5px 9px 4px;
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink),
+             3px 3px 0 rgba(0,0,0,.45);
+}
+.kiosk-cta-arrow{ color:var(--gold); font-size:12px; line-height:1; text-shadow:0 2px 0 #000; }
+@keyframes kctabob{ 0%,100%{ transform:translate(-50%,0); } 50%{ transform:translate(-50%,-4px); } }
+
+/* ritual oynarken ve hak bitince gizli */
+.kiosk-machine.shaking .kiosk-cta,
+.kiosk-machine[disabled] .kiosk-cta{ opacity:0; }
+
+.kiosk-machine[disabled]{ cursor:default; }
+.kiosk-machine[disabled] img{ filter:grayscale(.65) brightness(.72) drop-shadow(3px 4px 0 rgba(0,0,0,.5)); }
+.kiosk-machine[disabled]:hover img{ transform:none; }
+
+/* --- 2) Ritual: makine sarsilir, paket firlar ----------------- */
+/* Sarsinti/ucus JS'ten rAF ile surulur (oyunun World.VFX egrileriyle
+   AYNI matematik), CSS yalniz sahneyi kurar. */
+.kiosk-pack{
+  position:absolute; left:50%; top:0; width:76px; z-index:5;
+  image-rendering:pixelated; pointer-events:none;
+  transform:translate(-50%,0); transform-origin:50% 50%;
+}
+.kiosk-glow{
+  position:absolute; left:50%; top:0; width:120px; height:120px; z-index:4;
+  transform:translate(-50%,-50%); pointer-events:none; opacity:0;
+  background:radial-gradient(circle, rgba(255,244,190,.55) 0%, rgba(255,244,190,0) 70%);
+}
+.kiosk-shadow{
+  position:absolute; left:50%; z-index:3; height:2px; background:#000;
+  transform:translateX(-50%); pointer-events:none; opacity:.28;
+}
+/* Dolum cubugu — makinenin USTUNDE, zorlanma fazi boyunca dolar.
+   NOT: oyunda BOYLE BIR CUBUK YOK (drawVendingFx'i kare kare izleyip dogrulandi);
+   burada var cunku sitede kilitlenecek bir karakter yok ve 1 saniyelik sarsintinin
+   "bir sey birikiyor" okumasi baska turlu kurulmuyor. */
+.kiosk-charge{
+  position:absolute; left:50%; z-index:5; width:78%; height:6px;
+  transform:translate(-50%,-50%); pointer-events:none; opacity:0;
+  background:rgba(0,0,0,.6);
+  box-shadow:0 0 0 2px var(--ink);
+  transition:opacity .12s;
+}
+.kiosk-charge i{
+  display:block; height:100%; width:0;
+  background:linear-gradient(90deg,#ffd977,#ff9860);
+}
+
+/* --- 3) Modal: yirtma + acilis ------------------------------- */
+/* Arka plan oyunun paket ekraniyla BIREBIR: style.css `.packopenscr`.
+   Once koyu yesil playmat kullanildi ve yanlisti — kartin kendi siyah konturu
+   arka plana karisip kenarlari belirsizlestiriyordu. Mor radyal, kartin altin/
+   krem cercevesini ayirir; oyunun bu rengi secmesinin sebebi de bu. */
+.kiosk-modal{
+  position:fixed; inset:0; z-index:60; display:grid; place-items:center;
+  background:radial-gradient(ellipse at center, #3a3060 0%, #171422 75%);
+  animation:kfade .18s steps(3) both;
+}
+@keyframes kfade{ from{ opacity:0 } to{ opacity:1 } }
+
+.kiosk-stage{
+  position:relative; display:flex; flex-direction:column; align-items:center;
+  gap:clamp(8px,2vh,16px); width:min(560px,92vw); padding:12px;
+  touch-action:none;               /* surukleyerek yirtma sayfayi kaydirmasin */
+}
+.kiosk-hint{
+  font-family:'Silkscreen',ui-monospace,monospace; font-size:clamp(9px,2.6vw,11px);
+  letter-spacing:1px; color:var(--cream); opacity:.8; text-align:center;
+  text-shadow:0 2px 0 #000; min-height:1.4em;
+}
+.kiosk-count{
+  font-family:'Silkscreen',ui-monospace,monospace; font-size:clamp(10px,2.8vw,12px);
+  letter-spacing:2px; color:var(--gold); text-shadow:0 2px 0 #000;
+  margin-top:10px;                 /* .kiosk-tag karttan asagi tastigi icin */
+}
+
+/* Yirtilacak paket — oyunla ayni: kaynak 216x300, 1:1 GOSTERILIR (style.css .bigpack).
+   Kucultmek paketin kendi piksel izgarasini bozuyordu. Egim gorselin KENDISINDE
+   (event/collector paketleri egik cizilmis), CSS rotasyonu degil — bu yuzden her
+   paketin yirtma cizgisi farkli (`tear` pool.js'te olculmus geliyor). */
+.kiosk-bigpack{
+  width:216px; max-width:88vw; height:auto; image-rendering:pixelated; cursor:grab;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.6));
+  transition:transform .4s, filter .4s;
+}
+.kiosk-bigpack:active{ cursor:grabbing; }
+/* Yirtilinca paket hafif devrilir ve parlar — oyundaki `.bigpack.torn`. */
+.kiosk-bigpack.torn{
+  clip-path:polygon(var(--tearpoly));
+  transform:rotate(6deg) translateY(16px);
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.6)) brightness(1.2);
+}
+.kiosk-tearbar{
+  width:min(260px,80vw); height:10px; border-radius:5px; overflow:hidden;
+  background:rgba(255,255,255,.15);
+}
+.kiosk-tearfill{ height:100%; width:0; background:linear-gradient(90deg,#ffd977,#ff9860); transition:width .05s linear; }
+
+/* --- 4) Kart destesi ----------------------------------------- */
+/* Deste DERINLIGE dizilir, yukari yelpazelenmez. Oyun `--sz`yi translateZ olarak
+   kullaniyor (style.css `.stackcard`); ben translateY sanip yukari yelpazelemistim,
+   o yuzden arkadaki kartlar ipucu metnini ortuyordu ve destenin okunusu yanlisti.
+   translateZ ile arka kartlar perspektifle kuculup ONDEKININ ARKASINDA kalir. */
+.kiosk-scene{
+  position:relative; width:var(--kw); height:calc(var(--kw)*1.5);
+  --kw:clamp(150px,40vw,192px);
+  perspective:1100px; touch-action:none; cursor:grab;
+}
+.kiosk-scene:active{ cursor:grabbing; }
+.kiosk-stack{
+  position:absolute; inset:0; transform-style:preserve-3d;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.kiosk-card{
+  position:absolute; inset:0; cursor:pointer;
+  transform:translateZ(var(--sz,0px)) translateX(var(--sx,0px)) translateY(var(--sy,0px));
+  transition:transform .32s cubic-bezier(.2,.7,.3,1), opacity .32s, box-shadow .3s;
+}
+/* Kart yuzu 192 px pisirilir ve EN FAZLA 192 px gosterilir: BUYUTME YOK, o yuzden
+   1:1'de olcekleme artefakti de yok. Dar ekranda kuculur ve orada `auto` gerekir --
+   `pixelated` ile kucultmek piksel atlatip tirtikli kenar veriyor (oyun da
+   kucultme yolunda smoothing kullaniyor: 288 kaynak, 214 gosterim). */
+/* -webkit-user-drag ZORUNLU. Bir <img>'i surukleyince tarayici KENDI resim
+   surukleme jestini baslatiyor ve pointer akisini `pointercancel` ile kesiyor:
+   olculdu -> pointerdown, tek pointermove, sonra pointercancel. Sonuc: deste
+   egilmiyor, surukleyerek yirtma da calismiyordu. Paket hala <img>. */
+.kiosk-bigpack{
+  -webkit-user-drag:none; -khtml-user-drag:none; user-select:none; -webkit-user-select:none;
+}
+/* Kart bir TUVAL: shader (fxgl.js) her karede pisirilmis yuzun ustune biniyor,
+   oyunun kendi yaptigi gibi. Tuval suruklenemez, o yuzden yukaridaki tuzak
+   burada yok. */
+.kiosk-card canvas{ width:100%; height:auto; display:block; user-select:none; }
+.kiosk-card.flyoff{
+  transform:translateX(var(--fx,540px)) translateY(-36px) translateZ(46px) rotate(var(--fr,16deg));
+  opacity:0; transition:transform .22s ease-out, opacity .22s ease-out;
+}
+/* epic ve ustu one geldiginde kisa zipla + kivilcim (oyundaki `rare-pop`).
+   Yalniz ON karta uygulanir; onun --sx/--sy/--sz'si zaten 0, o yuzden animasyonun
+   transform'u ezmesi bir sey bozmaz. */
+.kiosk-card.rare-pop{ animation:krarepop .7s; }
+@keyframes krarepop{ 0%{ transform:scale(1); } 40%{ transform:scale(1.28); } 100%{ transform:scale(1); } }
+.kiosk-spark{
+  position:absolute; width:5px; height:5px; border-radius:50%; pointer-events:none;
+  animation:ksparkfly 1.3s ease-out forwards;
+}
+@keyframes ksparkfly{
+  0%{ transform:translate(0,0) scale(1); opacity:1; }
+  100%{ transform:translate(calc(-40px + 80px*var(--r,.5)), -70px) scale(0); opacity:0; }
+}
+
+/* YEDEK parlama. Asil yol oyunun kendi WebGL katmani (fxgl.js, kiosk.js'teki
+   shader koprusu). Bu sinif yalniz shader gelmediginde (WebGL yok, script
+   inmedi) takili kalir; shader hazir olur olmaz kiosk.js sinifi SOKER, yoksa
+   iki parlama ust uste binerdi. */
+.kiosk-card.foil::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg,
+    transparent 20%, rgba(255,120,190,.42) 35%, rgba(120,220,255,.42) 45%,
+    rgba(190,255,150,.42) 55%, transparent 70%);
+  background-size:260% 260%;
+  mix-blend-mode:color-dodge;
+  animation:kfoil 3.4s ease-in-out infinite;
+}
+@keyframes kfoil{ 0%,100%{ background-position:0% 50% } 50%{ background-position:100% 50% } }
+
+/* Kartin altindaki isim etiketi KALDIRILDI — ad zaten kartin uzerinde yaziyor. */
+
+/* --- 5) Kontroller ------------------------------------------- */
+.kiosk-bar{ display:flex; gap:8px; align-items:center; }
+.kiosk-btn{
+  font-family:'Silkscreen',ui-monospace,monospace; font-size:10px; letter-spacing:1px;
+  padding:8px 12px 7px; background:var(--cream); color:var(--ink); border:0; cursor:pointer;
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink),
+             3px 3px 0 rgba(0,0,0,.45);
+}
+.kiosk-btn:hover{ background:var(--gold); transform:translate(2px,2px);
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink); }
+
+/* Ses anahtari modalin kosesinde durur (stage'in icinde DEGIL) ki hem yirtma
+   hem acilis fazinda gorunsun. */
+.kiosk-mute{
+  position:absolute; top:clamp(12px,2vh,20px); right:clamp(12px,2vw,20px);
+  font-size:9px; padding:7px 10px 6px;
+}
+/* Kapat dugmesi ses anahtarinin karsi kosesinde. Arka plana tiklayarak kapatma
+   KALDIRILDI (paket acilirken bosluga denk gelen tek tik kalan kartlari cope
+   atiyordu), o yuzden bu dugme her iki fazda da gorunur olmak ZORUNDA. */
+.kiosk-close{
+  position:absolute; top:clamp(12px,2vh,20px); left:clamp(12px,2vw,20px);
+  font-size:11px; padding:6px 11px 5px; line-height:1;
+}
+
+/* --- 6) Hareket azaltma -------------------------------------- */
+/* Ritual atlanir (kiosk.js dogrudan modala gecer); burada kalan
+   surekli animasyonlar da susturulur. */
+@media (prefers-reduced-motion:reduce){
+  .kiosk-card.foil::after{ animation:none; background-position:50% 50%; }
+  .kiosk-modal{ animation:none; }
+  .kiosk-card{ transition:none; }
+  .kiosk-card.rare-pop{ animation:none; }
+  .kiosk-spark{ display:none; }
+  .kiosk-bigpack{ transition:none; }
+  .kiosk-stack{ transition:none; }
+  .kiosk-cta{ animation:none; }
+}

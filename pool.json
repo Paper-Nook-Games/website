@@ -1,0 +1,21 @@
+{
+  "_": "Kiosk vitrin havuzu. ELLE YAZILIR — cards.js'ten TURETILMEZ. build_kiosk.py bu listeyi okur, her id icin 96x144 kart yuzunu pisirir. URETIM GIRDISIDIR: sunucuya YUKLENMEZ (assets/_palette.png ve sign_raw.png ile ayni kural).",
+  "_neden_elle": "Katalog buyuyup kucululuyor; sitenin vitrini bu yuzden sessizce degismemeli. Buradaki 24 id yayinlandiktan sonra o 24 illustrasyon herkese aciktir ve geri alinamaz.",
+  "_drift": "Burada YALNIZ id tutulur. Nadirlik/element/isim cards.js'ten okunur — ikinci bir kopya tutulmaz ki katalogla ayrisma imkansiz olsun.",
+
+  "_kurasyon": "24 kart = 6 common + 5 uncommon + 5 rare + 3 epic + 2 legendary + 1 mythic + 2 promo. Alti elementin HEPSI temsil edilir (ember 6, tide 5, umbra 5, bloom 4, radiant 4, all 1); 4 spell / 20 creature (katalog orani %21, burada %17).",
+
+  "_disarida_birakilanlar": "EL-012 (mythic, $3000) ve PR-015 (promo, $5000) KASITLI olarak disarida. Katalogun en tepesindeki iki kart oyunun icinde kalmali — kiosk'un en buyuk odulu EL-055 ($2200, 'all' elementi, gokkusagi cercevesi): gacha'yi anlamli kilacak kadar buyuk, tacin kendisi degil. EL-045 (legendary/radiant), EL-033/EL-054 (epic) ve kalan 13 promo da vitrin disi.",
+
+  "_baski_kipi": "Yalniz 'base' baski pisirilir. Gizli baskilar (ir/sir/hr/negative) AYRI illustrasyon dosyalari kullanir ve oyuna ozel surpriz olarak kalir. Foil/normal ayrimi pisirilmez — kiosk.js calisma aninda cardfx 2D katmaniyla bindirir, boylece kart basina TEK dosya yeter.",
+
+  "cards": [
+    "EL-002", "EL-004", "EL-016", "EL-025", "EL-035", "EL-046",
+    "EL-006", "EL-017", "EL-028", "EL-041", "EL-051",
+    "EL-009", "EL-019", "EL-030", "EL-043", "EL-053",
+    "EL-010", "EL-021", "EL-044",
+    "EL-011", "EL-034",
+    "EL-055",
+    "PR-005", "PR-013"
+  ]
+}
