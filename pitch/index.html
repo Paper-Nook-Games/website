@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minthaven — Publisher Pitch</title>
+<meta name="description" content="Minthaven: A TCG Life Sim — publisher pitch deck. A cozy life sim about the other side of the trading card.">
+
+<!-- Bu sayfa ARAMA MOTORLARINA KAPALI. Yayinci pitch'i herkese acik bir sayfa
+     degildir: baglantiyi e-postayla gonderirsin, Google'da cikmasi istenmez.
+     Sayfayi kamuya acmak istersen asagidaki robots satirini sil. -->
+<meta name="robots" content="noindex,nofollow">
+
+<meta property="og:title" content="Minthaven: A TCG Life Sim — Publisher Pitch">
+<meta property="og:description" content="A cozy life sim about the part of trading cards that games usually skip. Playable end to end today.">
+<!-- MUTLAK olmali; sayfa baska bir alt yola tasinirsa ikisini de guncelle. -->
+<meta property="og:url" content="https://papernookgames.com/pitch/">
+<meta property="og:image" content="https://papernookgames.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e2618">
+<link rel="icon" href="../assets/icon.png">
+
+<style>
+/* ============================================================
+   Minthaven — yayinci pitch deck'i
+   ../index.html'in TOKEN'LARINI aynen kullanir (playmat yesili,
+   krem, altin, Pixelify + Silkscreen, 4px piksel kenarlik). Amac
+   "ayri bir sayfa" degil, sitenin ayni elinden cikmis bir bolum
+   gibi durmasi.
+
+   FARK: acilis sayfasi tek viewport'tur, bu KAYDIRILAN bir
+   dokumandir. Bu yuzden slayt ritmi dikey bosluktan ve sag ust
+   kosedeki Silkscreen slayt numarasindan gelir; kart/kutu
+   yiginlarindan degil.
+
+   GORSELLER: her <figure class="shot"> icinde bir <img> ve onun
+   ALTINDA duran bir yer tutucu notu vardir. Dosya varsa resim
+   notu KAPATIR; yoksa img kendini siler ve not gorunur. Yani
+   media/ klasorune dogru adla dosya atmak yeterlidir, HTML'e
+   dokunmaya gerek yok.
+
+   PDF: Ctrl+P -> "Save as PDF", yatay. @media print her bolumu
+   ayri sayfaya dokuyor; deck'i e-postaya eklemek isteyen icin.
+   ============================================================ */
+
+@font-face{ font-family:'Pixelify'; src:url('../assets/fonts/PixelifySans-Variable.ttf') format('truetype');
+  font-weight:400 700; font-display:swap; }
+@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Regular.ttf') format('truetype');
+  font-weight:400; font-display:swap; }
+@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Bold.ttf') format('truetype');
+  font-weight:700; font-display:swap; }
+
+:root{
+  /* ../index.html ile AYNI palet — game/src/gfx/pixel.js PAL'den turer */
+  --mat:#0e2618; --mat-deep:#081a11; --mat-lift:#123020;
+  --etch:#4a9468;
+  --cream:#f5ead2;
+  --ink:#3f2832;
+  --gold:#feae34;
+  --dim:#9dbfa9;
+  --px:4px;
+  --col:1120px;          /* icerik kolonu */
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ background:var(--mat-deep); scroll-behavior:smooth; }
+body{
+  background:var(--mat-deep); color:var(--cream);
+  font-family:'Pixelify',ui-monospace,monospace;
+  font-size:clamp(15px,1.15vw,17px); line-height:1.62;
+  -webkit-font-smoothing:none; -webkit-text-size-adjust:100%;
+}
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+img{ image-rendering:pixelated; display:block; max-width:100%; height:auto; }
+a{ color:var(--gold); -webkit-tap-highlight-color:transparent; }
+
+/* playmat zemini + vinil taramasi — acilis sayfasindaki dokunun aynisi */
+body::before{
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:url('../assets/bg_playmat.png') center/cover no-repeat, var(--mat);
+}
+body::after{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px);
+  opacity:.5; mix-blend-mode:multiply;
+}
+
+/* --- ust serit ------------------------------------------------ */
+.bar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; gap:14px;
+  padding:9px clamp(12px,3vw,28px);
+  background:rgba(8,26,17,.94); backdrop-filter:blur(3px);
+  box-shadow:0 var(--px) 0 rgba(74,148,104,.5);
+}
+.bar .home{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px;
+  color:var(--dim); text-decoration:none; white-space:nowrap; }
+.bar .home:hover{ color:var(--gold); }
+.bar .tag{ font-family:'Silkscreen'; font-size:11px; letter-spacing:2px; color:var(--etch);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.bar .spacer{ flex:1; }
+.bar .cta{
+  font-family:'Silkscreen'; font-weight:700; font-size:11px; letter-spacing:1px;
+  background:var(--gold); color:var(--ink); text-decoration:none;
+  padding:9px 14px 8px; white-space:nowrap;
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink),3px 3px 0 rgba(0,0,0,.5);
+  transition:transform .06s steps(2), box-shadow .06s steps(2);
+}
+.bar .cta:hover{ transform:translate(2px,2px);
+  box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink); }
+@media (max-width:640px){ .bar .tag{ display:none; } }
+
+/* --- slayt --------------------------------------------------- */
+/* Bolum TAM GENISLIK (ayirici cizgi ve "lift" zemini kenardan kenara gitsin,
+   bolum bir kart gibi gorunmesin), icerik ise ORTALANMIS dar bir kolon.
+   Bu yuzden iki katman var: .slide zemin, .inner metin olcusu.
+   100vw ile break-out DENENDI ve birakildi: dikey kaydirma cubugu varken
+   100vw viewport'tan genis olur, `overflow-x:clip` bunu kokte kesmiyor ve
+   8 piksellik yatay kaydirma kaliyordu. */
+.slide{ width:100%; padding:clamp(48px,7vh,86px) clamp(28px,6vw,80px); }
+.slide + .slide{ box-shadow:inset 0 var(--px) 0 rgba(74,148,104,.22); }
+.slide.lift{ background:linear-gradient(180deg,rgba(18,48,32,.62),rgba(18,48,32,.22)); }
+.inner{ position:relative; max-width:var(--col); margin:0 auto; }
+
+/* sag ustteki slayt numarasi — deck hissini veren tek sey.
+   .inner'a gore konumlanir, viewport'a gore degil: icerikle hizali kalir. */
+.no{
+  position:absolute; right:0; top:calc(clamp(14px,2.4vh,26px) * -1);
+  font-family:'Silkscreen'; font-size:10px; letter-spacing:2px; color:rgba(74,148,104,.75);
+}
+
+/* --- basliklar ----------------------------------------------- */
+.kicker{ font-family:'Silkscreen'; font-weight:700; font-size:clamp(9px,1.5vw,11px);
+  letter-spacing:3px; color:var(--gold); margin-bottom:14px; }
+h2{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; line-height:1.35;
+  font-size:clamp(19px,2.9vw,31px); margin-bottom:16px; text-shadow:0 var(--px) 0 rgba(0,0,0,.45); }
+h3{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; font-size:clamp(12px,1.6vw,14px);
+  color:var(--gold); margin-bottom:9px; }
+.lede{ font-size:clamp(16px,1.5vw,20px); line-height:1.6; max-width:74ch; }
+p{ max-width:74ch; }
+p + p{ margin-top:.85em; }
+.dim{ color:var(--dim); }
+strong,b{ color:#fff8e6; font-weight:700; }
+
+/* ayrac — acilis sayfasindaki kesik cizgi + 45 derece altin kare */
+.rule{ display:flex; align-items:center; gap:10px; opacity:.8; margin:26px 0; max-width:520px; }
+.rule i{ flex:1; height:var(--px);
+  background:repeating-linear-gradient(90deg,var(--etch) 0 var(--px),transparent var(--px) calc(var(--px)*2)); }
+.rule b{ width:12px; height:12px; background:var(--gold); transform:rotate(45deg);
+  box-shadow:0 0 0 var(--px) var(--mat-deep); flex:0 0 auto; }
+
+/* --- kapak --------------------------------------------------- */
+.cover{ text-align:center; padding-top:clamp(30px,6vh,70px); }
+.cover .logo{ width:min(560px,92%); margin:0 auto clamp(16px,3vh,28px);
+  filter:drop-shadow(0 6px 0 rgba(0,0,0,.45)); }
+.cover .hook{ font-size:clamp(17px,2.3vw,27px); line-height:1.5; color:#fff8e6;
+  max-width:24ch; margin:0 auto; text-shadow:0 3px 0 rgba(0,0,0,.5); }
+.cover .rule{ margin:clamp(20px,3vh,32px) auto; }
+.cover .meta{ font-family:'Silkscreen'; font-size:clamp(9px,1.4vw,11px); letter-spacing:2px;
+  color:var(--dim); display:flex; gap:8px 22px; justify-content:center; flex-wrap:wrap; }
+
+/* --- gorsel yer tutucu --------------------------------------- */
+/* Ozellik gorselleri kolonun TAMAMINI kaplamaz: 16:9 bir kutu 1120px'te 630px
+   yuksekliginde olur ve metni ekrandan atar. 960 hem yeterince buyuk hem de
+   altindaki iki panelle ayni ekrana siğiyor. Fragman (.wide) istisna. */
+.shot{ margin:26px auto 0; max-width:960px; }
+.shot.wide{ margin-top:30px; max-width:none; }
+.ph{
+  position:relative; aspect-ratio:16/9; overflow:hidden;
+  background:rgba(8,26,17,.65);
+  border:var(--px) dashed rgba(74,148,104,.55);
+}
+.ph.filled{ border-style:solid; border-color:var(--ink); box-shadow:var(--px) var(--px) 0 rgba(0,0,0,.5); }
+.ph-img{ position:relative; z-index:2; width:100%; height:100%; object-fit:cover; }
+.ph-note{
+  position:absolute; inset:0; z-index:1; display:grid; align-content:center; justify-items:center;
+  gap:9px; padding:20px; text-align:center;
+}
+.ph-note .file{ font-family:'Silkscreen'; font-size:clamp(9px,1.3vw,11px); letter-spacing:1px;
+  color:var(--gold); word-break:break-all; }
+.ph-note .why{ font-size:clamp(12px,1.25vw,14px); color:var(--dim); max-width:52ch; line-height:1.55; }
+.ph-note .pill{ font-family:'Silkscreen'; font-size:9px; letter-spacing:2px; color:var(--mat-deep);
+  background:var(--etch); padding:4px 9px 3px; }
+figcaption{ font-size:13px; color:var(--dim); margin-top:9px; line-height:1.5; }
+
+/* --- izgaralar ----------------------------------------------- */
+.grid{ display:grid; gap:clamp(14px,2vw,22px); margin-top:26px; }
+.g2{ grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.g3{ grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+.g4{ grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+
+/* koyu panel — sayfanin varsayilan kutusu */
+.panel{
+  background:rgba(8,26,17,.6); padding:clamp(16px,2vw,22px);
+  box-shadow:inset 0 0 0 var(--px) rgba(74,148,104,.4), var(--px) var(--px) 0 rgba(0,0,0,.35);
+}
+.panel h3{ margin-bottom:7px; }
+.panel p{ font-size:14px; line-height:1.6; }
+.panel ul{ font-size:14px; line-height:1.6; }
+
+/* krem panel — SADECE vurgu icin (sayfada 3 taneden fazla olmasin) */
+.panel.cream{ background:var(--cream); color:var(--ink);
+  box-shadow:0 calc(var(--px)*-1) 0 var(--ink),0 var(--px) 0 var(--ink),
+             calc(var(--px)*-1) 0 0 var(--ink),var(--px) 0 0 var(--ink),var(--px) var(--px) 0 rgba(0,0,0,.5); }
+.panel.cream h3{ color:#8a4d1f; }
+.panel.cream .dim{ color:#6b5560; }
+
+ul{ list-style:none; }
+ul li{ position:relative; padding-left:17px; }
+ul li + li{ margin-top:.42em; }
+ul li::before{ content:''; position:absolute; left:2px; top:.62em;
+  width:7px; height:7px; background:var(--etch); transform:rotate(45deg); }
+.panel.cream ul li::before{ background:var(--gold); }
+
+/* --- kunye satirlari (Key Info / Technical) ------------------- */
+.spec{ display:grid; grid-template-columns:minmax(120px,190px) 1fr; gap:2px var(--px); }
+.spec dt{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px; color:var(--etch);
+  padding:9px 0 8px; }
+.spec dd{ padding:8px 0; font-size:14px; line-height:1.5;
+  box-shadow:inset 0 calc(var(--px)*-1) 0 rgba(74,148,104,.16); }
+.spec dt{ box-shadow:inset 0 calc(var(--px)*-1) 0 rgba(74,148,104,.16); }
+@media (max-width:520px){
+  .spec{ grid-template-columns:1fr; }
+  .spec dt{ padding-bottom:0; box-shadow:none; }
+}
+
+/* --- karsilastirma tablosu (pazar bosluğu) ------------------- */
+.vs{ display:grid; gap:12px; margin-top:24px; }
+.vs .row{ display:grid; grid-template-columns:1fr 1fr; gap:0;
+  box-shadow:inset 0 0 0 var(--px) rgba(74,148,104,.4); }
+.vs .a,.vs .b{ padding:15px 17px; }
+.vs .a{ background:rgba(8,26,17,.6); }
+.vs .b{ background:rgba(74,148,104,.13); box-shadow:inset var(--px) 0 0 rgba(74,148,104,.4); }
+.vs .who{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; color:var(--cream);
+  margin-bottom:6px; }
+.vs .b .who{ color:var(--gold); }
+.vs p{ font-size:13.5px; line-height:1.55; color:var(--dim); }
+@media (max-width:640px){
+  .vs .row{ grid-template-columns:1fr; }
+  .vs .b{ box-shadow:inset 0 var(--px) 0 rgba(74,148,104,.4); }
+}
+
+/* --- zaman cizelgesi ----------------------------------------- */
+.tl{ margin-top:26px; }
+.tl .item{ display:grid; grid-template-columns:130px 1fr; gap:0 20px; position:relative;
+  padding:0 0 20px 0; }
+.tl .item:last-child{ padding-bottom:0; }
+/* dikey cizgi: tarih kolonundan sonra gecer */
+.tl .item::before{ content:''; position:absolute; left:139px; top:11px; bottom:-9px; width:var(--px);
+  background:repeating-linear-gradient(180deg,rgba(74,148,104,.6) 0 var(--px),transparent var(--px) calc(var(--px)*2)); }
+.tl .item:last-child::before{ display:none; }
+.tl .when{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px; color:var(--dim);
+  text-align:right; padding-top:5px; }
+.tl .what{ padding-left:22px; position:relative; }
+.tl .what::before{ content:''; position:absolute; left:-9px; top:6px; width:14px; height:14px;
+  background:var(--etch); transform:rotate(45deg); box-shadow:0 0 0 var(--px) var(--mat-deep); }
+.tl .item.done .what::before{ background:var(--gold); }
+.tl .item.done .when{ color:var(--gold); }
+.tl .what b{ display:block; font-family:'Silkscreen'; font-size:12px; letter-spacing:.5px;
+  line-height:1.45; margin-bottom:3px; }
+.tl .what span{ font-size:13.5px; color:var(--dim); line-height:1.5; }
+@media (max-width:600px){
+  .tl .item{ grid-template-columns:1fr; gap:0; }
+  .tl .item::before{ left:5px; }
+  .tl .when{ text-align:left; padding:0 0 4px 22px; }
+}
+
+/* --- doldurulacak alan --------------------------------------- */
+/* Bilerek BOS birakilmis her deger bu isaretle gecer: yayinciya
+   "burasi konusulacak" der, bize de "doldurmayi unutma" der. */
+.fill{
+  font-family:'Silkscreen'; font-size:.86em; letter-spacing:1px;
+  color:var(--gold); background:rgba(254,174,52,.11);
+  padding:2px 7px 1px; white-space:nowrap;
+  box-shadow:inset 0 0 0 2px rgba(254,174,52,.45);
+}
+
+/* --- butce tablosu ------------------------------------------- */
+.money{ width:100%; border-collapse:collapse; margin-top:22px; font-size:14px; }
+.money th,.money td{ padding:11px 14px; text-align:left;
+  box-shadow:inset 0 calc(var(--px)*-1) 0 rgba(74,148,104,.2); }
+.money th{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px; color:var(--etch); font-weight:400; }
+.money td:last-child,.money th:last-child{ text-align:right; white-space:nowrap; }
+.money tr.total td{ box-shadow:inset 0 calc(var(--px)*-1) 0 rgba(254,174,52,.5),
+                                inset 0 var(--px) 0 rgba(254,174,52,.5); }
+.money tr.total td{ color:#fff8e6; font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; }
+.money .note{ color:var(--dim); font-size:12.5px; }
+.tablewrap{ overflow-x:auto; }
+
+/* --- buyuk ifade slaydi -------------------------------------- */
+.statement{ text-align:center; }
+.statement .big{ font-family:'Silkscreen'; font-weight:700; line-height:1.45;
+  font-size:clamp(20px,3.4vw,40px); color:var(--gold); text-shadow:0 var(--px) 0 rgba(0,0,0,.5);
+  max-width:20ch; margin:0 auto; }
+.statement p{ margin-left:auto; margin-right:auto; }
+
+/* --- kapanis ------------------------------------------------- */
+.foot{ text-align:center; padding-bottom:clamp(40px,8vh,80px); }
+.foot .studio{ font-family:'Silkscreen'; font-size:10px; letter-spacing:2px; color:var(--dim);
+  text-decoration:none; }
+.foot .studio:hover{ color:var(--gold); }
+
+/* ============================================================
+   PDF / BASKI — Ctrl+P, yatay, arka plan grafikleri acik.
+   Her slayt kendi sayfasina duser; deck'i ek olarak gondermek
+   isteyen icin.
+   ============================================================ */
+@media print{
+  @page{ size:landscape; margin:12mm; }
+  html,body{ background:#0e2618 !important; color:#f5ead2; font-size:11pt; }
+  body::before,body::after{ display:none; }
+  .bar{ display:none; }
+  .slide{ break-after:page; break-inside:avoid; padding:0 0 10mm;
+    box-shadow:none !important; background:none !important; }
+  .slide:last-child{ break-after:auto; }
+  .inner{ max-width:none; }
+  .no{ position:static; display:block; text-align:right; margin-bottom:6mm; }
+  .ph{ break-inside:avoid; }
+  a{ color:#feae34; text-decoration:none; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="home" href="../">&larr; MINTHAVEN</a>
+  <span class="tag">PUBLISHER PITCH</span>
+  <span class="spacer"></span>
+  <a class="cta" href="#play">PLAY THE BUILD</a>
+</header>
+
+
+<!-- =========================================================
+     01 — KAPAK
+     Wargroove deck'i de tek cumleyle aciyor. Kanca oyunun ilk
+     dakikasindan gelir: oyuncu kasabaya 100$ ve SIFIR kartla
+     tasinir. Tur, platform gibi kunye bilgisi kapakta durur ki
+     yayinci ilk ekranda "bu nedir" sorusunu cevaplasin.
+     ========================================================== -->
+<section class="slide cover">
+  <div class="inner">
+  <span class="no">01 / 15</span>
+  <img class="logo" src="../assets/logo.png" alt="Minthaven — A TCG Life Sim" width="1180" height="468">
+  <p class="hook">You moved to Minthaven with $100 and not a single card.</p>
+  <div class="rule"><i></i><b></b><i></i></div>
+  <div class="meta">
+    <span>LIFE SIM &middot; COLLECTION RPG &middot; CARD GAME</span>
+    <span>PC &middot; STEAM &middot; SWITCH TARGET</span>
+    <span>PREMIUM &middot; SINGLE PLAYER</span>
+  </div>
+  <div class="rule"><i></i><b></b><i></i></div>
+  <p class="dim" style="font-family:'Silkscreen';font-size:10px;letter-spacing:2px;margin:0 auto">
+    PAPERNOOK GAMES &middot; PITCH DECK <span class="fill">MONTH YEAR</span>
+  </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     02 — OYUNA GENEL BAKIS
+     Whitethorn'un "Game Overview" maddesi: kisa asansor
+     konusmasi + oyuncunun NE YAPTIGI. Uzun tutmuyoruz; asil is
+     06-08 arasindaki ozellik slaytlarinda.
+     ========================================================== -->
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">02 / 15</span>
+  <p class="kicker">THE PITCH</p>
+  <h2>A life sim about the other side of the card.</h2>
+
+  <p class="lede">
+    Games about trading cards are about <em>winning</em> with them. Minthaven is about
+    everything around that: tearing the pack open by hand, chasing a first print, arguing
+    about centering, grading the card you're scared to sleeve &mdash; and selling the one
+    you actually liked, because rent exists.
+  </p>
+
+  <div class="rule"><i></i><b></b><i></i></div>
+
+  <div class="grid g3">
+    <div class="panel">
+      <h3>WHAT YOU DO</h3>
+      <p>Wake up, read the market on your phone, walk into town, buy a pack, open it with
+      your own hands. Trade with people who remember you. Sit down and play a real card
+      game. Sleep, read the day's ledger, do it again.</p>
+    </div>
+    <div class="panel">
+      <h3>WHY IT'S DIFFERENT</h3>
+      <p>The card game inside the game is a genuine card game &mdash; 20-card decks,
+      2&ndash;5 minute matches, a tournament ladder. And the card market moves whether
+      you're watching or not.</p>
+    </div>
+    <div class="panel">
+      <h3>WHO IT'S FOR</h3>
+      <p>The Stardew audience that wants a warm daily loop with a goal, and the collector
+      audience raised on pack-opening videos who can't afford the real hobby.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     03 — OYNANABILIR BUILD
+     Whitethorn'un listesinde EN USTTEKI madde demo. Bu yuzden
+     deck'in ucuncu slaydinda, ozellikler baslamadan once.
+     Oyunun en buyuk avantaji burada: tarayicida aciliyor,
+     kurulum/hesap/launcher yok. Yayincinin denemesinin onunde
+     surtunme sifir.
+     ========================================================== -->
+<section class="slide" id="play">
+  <div class="inner">
+  <span class="no">03 / 15</span>
+  <p class="kicker">PLAYABLE BUILD</p>
+  <h2>Don't take our word for it &mdash; it opens in a browser.</h2>
+
+  <p class="lede">
+    The whole game is one self-contained HTML file. No installer, no account, no launcher,
+    no online check. Click the link, you're in the town in about four seconds.
+    A native Windows build is also available if you'd rather see it in a window.
+  </p>
+
+  <div class="grid g2">
+    <div class="panel cream">
+      <h3>PLAY IN BROWSER</h3>
+      <p><span class="fill">BUILD LINK</span></p>
+      <p class="dim" style="margin-top:10px">Works on any modern desktop browser. Nothing is
+      installed and nothing is uploaded &mdash; saves live in your browser.</p>
+    </div>
+    <div class="panel">
+      <h3>WINDOWS BUILD</h3>
+      <p><span class="fill">DOWNLOAD LINK</span> &middot; password <span class="fill">PASSWORD</span></p>
+      <p class="dim" style="margin-top:10px">Electron shell, gamepad supported, the same
+      code as the browser build.</p>
+    </div>
+  </div>
+
+  <div class="rule"><i></i><b></b><i></i></div>
+
+  <h3>IF YOU ONLY HAVE TWENTY MINUTES</h3>
+  <ul style="margin-top:8px">
+    <li><b>Minutes 0&ndash;5.</b> The guided first day: pick one of two starter decks, learn
+    the card game in a scripted tutorial duel.</li>
+    <li><b>Minutes 5&ndash;12.</b> Buy a pack at Marten's counter and open it. This is the
+    scene the game is built around &mdash; drag the foil, turn the cards one at a time.</li>
+    <li><b>Minutes 12&ndash;20.</b> Open the phone, read the market, then walk to a trader
+    and watch their face change as you move cards across the table.</li>
+  </ul>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     04 — FRAGMAN
+     Whitethorn'un ikinci maddesi: "Something in motion".
+     Fragman henuz cekilmedi; kutu bilerek buyuk ve tek.
+     ========================================================== -->
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">04 / 15</span>
+  <p class="kicker">GAMEPLAY VIDEO</p>
+  <h2>Ninety seconds of it moving.</h2>
+
+  <figure class="shot wide">
+    <div class="ph">
+      <img class="ph-img" src="media/00-trailer.gif" alt="Minthaven gameplay trailer"
+           onload="this.closest('.ph').classList.add('filled')" onerror="this.remove()">
+      <div class="ph-note">
+        <span class="pill">TRAILER</span>
+        <span class="file">media/00-trailer.gif &nbsp;/&nbsp; embed an MP4 or YouTube iframe here</span>
+        <span class="why">Cut order: pack tear &rarr; rarity glow &rarr; the hit &rarr; binder page
+        turn &rarr; a trade face &rarr; sitting down to duel &rarr; the town at dusk.
+        The first five seconds must say &ldquo;collector, not shopkeeper.&rdquo;</span>
+      </div>
+    </div>
+    <figcaption>Placeholder. Drop the file into <b>media/</b> with this name and it replaces the box.</figcaption>
+  </figure>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     05 — PAZAR BOSLUGU + KITLE
+     PRD 3'teki konumlandirma tablosunun kisaltilmis hali. Uc
+     kanit + uc fark. Persona'lar da buraya sikistirildi ki
+     "kim satin alir" sorusu ayri slayt istemesin.
+     ========================================================== -->
+<section class="slide">
+  <div class="inner">
+  <span class="no">05 / 15</span>
+  <p class="kicker">MARKET</p>
+  <h2>Three games proved the demand. None of them made this one.</h2>
+
+  <div class="vs">
+    <div class="row">
+      <div class="a">
+        <div class="who">TCG CARD SHOP SIMULATOR &middot; 2024</div>
+        <p>Proved that &ldquo;cards + simulation&rdquo; is a very large, very underserved
+        appetite.</p>
+      </div>
+      <div class="b">
+        <div class="who">WHAT IT LEFT ON THE TABLE</div>
+        <p>You play the shopkeeper. Its most common complaint is that you can't play the
+        cards. We put you on the collector's side of the counter &mdash; and the card game
+        is real.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="a">
+        <div class="who">POK&Eacute;MON TCG POCKET</div>
+        <p>Proved that the pack-opening ritual alone can carry an entire product.</p>
+      </div>
+      <div class="b">
+        <div class="who">WHAT IT LEFT ON THE TABLE</div>
+        <p>It's free-to-play gacha reaching for a real credit card. We keep the ritual and
+        attach it to a single-player economy you can never pay into.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="a">
+        <div class="who">STARDEW VALLEY</div>
+        <p>Proved the cozy daily loop with long-horizon goals, and built the audience that
+        still wants more of it.</p>
+      </div>
+      <div class="b">
+        <div class="who">WHAT IT LEFT ON THE TABLE</div>
+        <p>Crops. We swapped the farm for a binder: the same &ldquo;one more day&rdquo;
+        rhythm, aimed at a collection instead of a harvest.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"><i></i><b></b><i></i></div>
+
+  <div class="grid g3">
+    <div class="panel">
+      <h3>THE COLLECTOR</h3>
+      <p>Grew up on Pokémon cards, watches pack-opening videos, can't afford the real
+      hobby. Wants completion without guilt. Held by: the binder, set rewards, grading,
+      the display case.</p>
+    </div>
+    <div class="panel">
+      <h3>THE COMPETITOR</h3>
+      <p>Hearthstone and Marvel Snap in their history. Wants short, deep matches and
+      deckbuilding. Held by: the duel meta, rank, the World Championship.</p>
+    </div>
+    <div class="panel">
+      <h3>THE COZY PLAYER</h3>
+      <p>400 hours in Stardew, curious about cards but not committed. Held by: town life,
+      NPCs, decorating, fishing. <b>Can finish the game without ever duelling</b> &mdash;
+      collecting and trading are a complete path.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     06-08 — OZELLIKLER
+     Wargroove deck'i ozellikleri IKISERLI, GIF'li slaytlara
+     boluyor; ayni ritmi kullaniyoruz. Her slaytta bir buyuk
+     hareketli gorsel + iki kisa blok. Uc slayt = alti ozellik.
+     Detay kasten az: yayinci build'i acacak, kural kitabi
+     okumayacak.
+     ========================================================== -->
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">06 / 15</span>
+  <p class="kicker">FEATURES &mdash; THE RITUAL</p>
+  <h2>A pack is a ritual, not a button.</h2>
+
+  <figure class="shot">
+    <div class="ph">
+      <img class="ph-img" src="media/01-pack-hit.gif" alt="Tearing a pack open and hitting a full-art card"
+           onload="this.closest('.ph').classList.add('filled')" onerror="this.remove()">
+      <div class="ph-note">
+        <span class="pill">GIF &middot; 8&ndash;10s</span>
+        <span class="file">media/01-pack-hit.gif</span>
+        <span class="why">Sealed pack &rarr; foil dragged open with a torn edge &rarr; cards turned
+        one at a time &rarr; the rarity glow rising on the fourth card &rarr; a full-art hit
+        with a NEW stamp. Single take, no cuts.</span>
+      </div>
+    </div>
+  </figure>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>YOU OPEN IT, THE GAME DOESN'T</h3>
+      <p>You drag the foil apart yourself, then flip the cards one by one. The glow tells
+      you before the art does, and the sound tells you before the glow. Four pack types,
+      a guaranteed hit slot, and pity counters the game never mentions.</p>
+    </div>
+    <div class="panel">
+      <h3>RELOADING WON'T SAVE YOU</h3>
+      <p>Every pull is seeded to your save. What you opened is what you opened &mdash;
+      which is exactly what makes a good pull worth telling someone about.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="inner">
+  <span class="no">07 / 15</span>
+  <p class="kicker">FEATURES &mdash; THE OBJECT</p>
+  <h2>One finite set. Every creature is exactly one card.</h2>
+
+  <figure class="shot">
+    <div class="ph">
+      <img class="ph-img" src="media/02-cards.gif" alt="Full-art cards catching the foil light"
+           onload="this.closest('.ph').classList.add('filled')" onerror="this.remove()">
+      <div class="ph-note">
+        <span class="pill">GIF &middot; 8&ndash;10s</span>
+        <span class="file">media/02-cards.gif</span>
+        <span class="why">Four full-art cards side by side, tilting in turn so the foil layer
+        catches the light; the last one steps forward to show its First Print stamp.
+        Finished art only &mdash; no procedural placeholders in this shot.</span>
+      </div>
+    </div>
+  </figure>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>A SET YOU CAN ACTUALLY FINISH</h3>
+      <p>Elementa is a single set &mdash; 75 cards, five elements, six rarity tiers, no
+      seasonal drip. A binder page is a place you remember, not a row in a spreadsheet.</p>
+    </div>
+    <div class="panel">
+      <h3>CONDITION, CENTERING, GRADING</h3>
+      <p>Cards run Mint to Damaged, with a centering you can't see until you pay to find
+      out. $25 and three days at the lab buys a number that can triple the price &mdash;
+      and <b>a slabbed card cannot be played</b>. Cracking it back open is a decision,
+      not a menu item.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">08 / 15</span>
+  <p class="kicker">FEATURES &mdash; THE PEOPLE</p>
+  <h2>A price is something you can be wrong about.</h2>
+
+  <figure class="shot">
+    <div class="ph">
+      <img class="ph-img" src="media/03-market-trade.gif" alt="The market chart on the phone, and a trade in progress"
+           onload="this.closest('.ph').classList.add('filled')" onerror="this.remove()">
+      <div class="ph-note">
+        <span class="pill">GIF &middot; 8&ndash;10s</span>
+        <span class="file">media/03-market-trade.gif</span>
+        <span class="why">Phone opens to a 30-day price chart with a real wave and a news
+        event on the spike &rarr; cut to the trade table, cards moving across it while the
+        face opposite shifts from pleased to unimpressed.</span>
+      </div>
+    </div>
+  </figure>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>THE MARKET MOVES WITHOUT YOU</h3>
+      <p>Weekly waves, meta reports that lift a whole archetype overnight, news that guts
+      the card you were saving for Friday. And <b>nothing sells from the binder</b> &mdash;
+      every channel is a place you walk to, each paying differently, each open on
+      different days.</p>
+    </div>
+    <div class="panel">
+      <h3>PEOPLE REMEMBER</h3>
+      <p>Twelve traders, each with an element they overpay for and a habit you can learn.
+      Rip somebody off and it works. <b>Once.</b> The grudge turns up a few days later,
+      when you need them.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="inner">
+  <span class="no">09 / 15</span>
+  <p class="kicker">FEATURES &mdash; THE GAME AND THE TOWN</p>
+  <h2>And then you actually play the cards.</h2>
+
+  <figure class="shot">
+    <div class="ph">
+      <img class="ph-img" src="media/04-duel-town.gif" alt="Sitting down to a duel; the town at dusk"
+           onload="this.closest('.ph').classList.add('filled')" onerror="this.remove()">
+      <div class="ph-note">
+        <span class="pill">GIF &middot; 10&ndash;12s</span>
+        <span class="file">media/04-duel-town.gif</span>
+        <span class="why">Walk to the table &rarr; an NPC sits down opposite &rarr; coin flip
+        &rarr; opening hand &rarr; first creature into a slot, one attack. The cut from world
+        to duel must be unbroken &mdash; the point is that the card game lives inside the town.</span>
+      </div>
+    </div>
+  </figure>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>A REAL CARD GAME, NOT A MINIGAME</h3>
+      <p>20-card decks, three creature slots, an energy curve, seven keywords and a
+      five-element advantage circle. Matches run two to five minutes. No turn limit &mdash;
+      run out of deck and you lose. Four AI tiers building from six real archetypes, and a
+      ladder from the local Cup to the World Championship.</p>
+    </div>
+    <div class="panel">
+      <h3>A TOWN THAT KEEPS GOING</h3>
+      <p>Nine locations, twenty-five townsfolk on real routines, weather, and a light that
+      slides from morning to evening while you stand there deciding. Fish the lake,
+      decorate the house, chase gossip at the caf&eacute;, then read the day-end ledger
+      before you sleep.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     10 — ETIK CIZGI
+     Whitethorn'un kendi degerleriyle (erisilebilir, rahat,
+     somurusuz) dogrudan ortusen slayt. Tek cumle, buyuk punto.
+     PRD'nin USP #5'i ve mağaza sayfasinin da kapanisi.
+     ========================================================== -->
+<section class="slide lift statement">
+  <div class="inner">
+  <span class="no">10 / 15</span>
+  <p class="kicker">THE LINE WE DON'T CROSS</p>
+  <p class="big">There is no real money in this game.</p>
+  <div class="rule" style="margin:26px auto"><i></i><b></b><i></i></div>
+  <p class="lede" style="max-width:60ch">
+    Every pack, every pull and every wallet in Minthaven runs on money the player earned
+    inside the game. No microtransactions. No ads. No premium currency. No card a credit
+    card can reach.
+  </p>
+  <p style="max-width:60ch;margin-top:14px">
+    That isn't a missing feature &mdash; it's the argument the whole game is making, and
+    it's the reason a parent can hand this to a ten-year-old who wants to open packs.
+    <b>Premium, one purchase, done.</b>
+  </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     11 — BUGUN NE VAR
+     Deck'in en agir kozu. Bu bir konsept degil, calisan bir
+     oyun. Rakamlar depodan olculdu, elle yazilmadi.
+     ========================================================== -->
+<section class="slide">
+  <div class="inner">
+  <span class="no">11 / 15</span>
+  <p class="kicker">STATUS</p>
+  <h2>This isn't a concept. It's a finished game that needs finishing.</h2>
+
+  <p class="lede">
+    Every system in the design document is implemented and playable end to end today
+    &mdash; the pack ritual, the market, trading, grading, the duel engine, the tournament
+    ladder, the story lines, the town. What's left is production and polish, not design risk.
+  </p>
+
+  <div class="grid g2" style="margin-top:24px">
+    <div class="panel">
+      <h3>BUILT AND PLAYABLE</h3>
+      <ul>
+        <li>Full game, start to finish, in one file</li>
+        <li>75 cards in one set, five elements, six rarities</li>
+        <li>Nine locations, twenty-five townsfolk on routines</li>
+        <li>Six story lines, twenty-two achievements</li>
+        <li>Guided tutorial and first-day onboarding</li>
+        <li>Keyboard, mouse and gamepad</li>
+        <li><b>Ten languages at 100% coverage</b>, guarded by tests</li>
+        <li>Electron desktop shell and the Steam demo gate already in code</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>WHAT'S LEFT</h3>
+      <ul>
+        <li>Card illustration: three of seventy-five still to draw</li>
+        <li>Audio: the score is procedural today and wants recording</li>
+        <li>Store assets: capsules, screenshots and the trailer</li>
+        <li>Steamworks wiring: achievements, Cloud, Deck verification</li>
+        <li>Console porting, if we go there</li>
+      </ul>
+      <p class="dim" style="margin-top:12px">The whole remaining list is production work with
+      known shapes &mdash; which is exactly the part a publisher makes faster.</p>
+    </div>
+  </div>
+
+  <p class="dim" style="margin-top:20px;font-size:13.5px">
+    Verified by <b>65 automated test suites &mdash; 5,700+ assertions</b> covering pack odds,
+    pity, the market, trades, tournaments, saves, the duel rules and the map layout. One command
+    runs all of them.
+  </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     12 — ZAMAN CIZELGESI
+     Wargroove'un 7. slaydi. Gecmis tarihler GERCEK (depo
+     gecmisinden), ileri tarihler bilerek PLACEHOLDER: yayinciyla
+     birlikte kararlastirilacak seyler.
+     ========================================================== -->
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">12 / 15</span>
+  <p class="kicker">TIMELINE</p>
+  <h2>Where it's been, and where it's going.</h2>
+
+  <div class="tl">
+    <div class="item done">
+      <div class="when">JULY 2026</div>
+      <div class="what"><b>Development start</b>
+      <span>First commit. Design document complete before a line of code.</span></div>
+    </div>
+    <div class="item done">
+      <div class="when">AUGUST 2026</div>
+      <div class="what"><b>All systems playable</b>
+      <span>Every designed system implemented end to end. Onboarding, gamepad, town art
+      and the demo gate land in the same window.</span></div>
+    </div>
+    <div class="item done">
+      <div class="when">SEPTEMBER 2026</div>
+      <div class="what"><b>Ten languages at full coverage &middot; desktop shell</b>
+      <span>Localization closed and test-guarded; Electron build producing a Windows
+      executable.</span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>Card art complete &middot; store assets</b>
+      <span>Final illustrations, capsule set, screenshots and the trailer.
+      <span class="fill">DURATION</span></span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>Steam page live</b>
+      <span>Wishlist accumulation begins. Target: four to six weeks ahead of the demo.</span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>Free demo on Steam</b>
+      <span>The demo is content-gated, not day-gated: it ends after the player's first local
+      tournament result. Already implemented and tested.</span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>Steam Next Fest</b>
+      <span>One festival only, and it should be the one before launch.
+      <span class="fill">WHICH FEST</span></span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>Content lock &middot; beta &middot; certification</b>
+      <span><span class="fill">DURATION</span></span></div>
+    </div>
+    <div class="item">
+      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="what"><b>1.0 release</b>
+      <span>PC first. <span class="fill">PLATFORMS AT LAUNCH</span></span></div>
+    </div>
+  </div>
+
+  <p class="dim" style="margin-top:26px;font-size:13.5px">
+    Dates past September 2026 are deliberately open &mdash; they depend on the shape of the
+    deal, and we'd rather set them with you than present a schedule we'd have to renegotiate.
+  </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     13 — BUTCE
+     Wargroove deck'i bu slaytta rakamlari BILEREK $000,000.00
+     birakiyor ("kendi rakamini koy"). Ayni yaklasim: kalem
+     listesi gercek, rakamlar doldurulacak. Whitethorn ayrica
+     AYLIK BURN istiyor, o yuzden ayri satir olarak duruyor.
+     ========================================================== -->
+<section class="slide">
+  <div class="inner">
+  <span class="no">13 / 15</span>
+  <p class="kicker">BUDGET</p>
+  <h2>What it costs to finish.</h2>
+
+  <div class="tablewrap">
+    <table class="money">
+      <thead>
+        <tr><th>LINE ITEM</th><th>WHAT IT COVERS</th><th>COST</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Development</td>
+          <td class="note">Remaining production, Steamworks integration, platform work</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr>
+          <td>Art</td>
+          <td class="note">Final card illustrations, UI pass, capsules and store assets</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr>
+          <td>Audio</td>
+          <td class="note">Recorded score and Foley to replace the procedural set</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr>
+          <td>QA &amp; localisation</td>
+          <td class="note">Ten languages already at full coverage; QA pass and cert</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr>
+          <td>Porting</td>
+          <td class="note">Console, if in scope</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr>
+          <td>Marketing</td>
+          <td class="note">Trailer production, festivals, creator programme</td>
+          <td>$ 000,000.00</td>
+        </tr>
+        <tr class="total">
+          <td>TOTAL PROJECTED COST</td><td></td><td>$ 000,000.00</td>
+        </tr>
+        <tr class="total">
+          <td>INVESTMENT REQUIRED</td><td></td><td>$ 000,000.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g3" style="margin-top:26px">
+    <div class="panel">
+      <h3>MONTHLY BURN</h3>
+      <p><span class="fill">$ 0,000.00</span> / month across
+      <span class="fill">N</span> months.</p>
+    </div>
+    <div class="panel">
+      <h3>RUNWAY TODAY</h3>
+      <p><span class="fill">N MONTHS</span> self-funded.</p>
+    </div>
+    <div class="panel">
+      <h3>PRICE POINT</h3>
+      <p><span class="fill">$ 00.00</span> premium, one purchase.
+      Free demo. No DLC planned at launch.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     14 — NEDEN YAYINCI
+     Wargroove'un 8. slaydinin birebir karsiligi. Kisa, alti
+     kutu, iddiasiz. Yayinci bu slaytta kendi isini gorur.
+     ========================================================== -->
+<section class="slide lift">
+  <div class="inner">
+  <span class="no">14 / 15</span>
+  <p class="kicker">THE ASK</p>
+  <h2>Why we're looking for a publisher.</h2>
+
+  <p class="lede">
+    The design risk is spent. What's left is the part a solo developer is worst at and a
+    publisher is built for.
+  </p>
+
+  <div class="grid g3">
+    <div class="panel">
+      <h3>FUNDING</h3>
+      <p>Runway to finish art and audio properly instead of shipping the procedural
+      fallbacks.</p>
+    </div>
+    <div class="panel">
+      <h3>VISIBILITY</h3>
+      <p>Wishlist volume before the demo, festival placement, and creators who make
+      pack-opening content &mdash; the single best-matched audience this game has.</p>
+    </div>
+    <div class="panel">
+      <h3>PLATFORM RELATIONSHIPS</h3>
+      <p>Switch is the natural second home for this game. That door opens faster with a
+      publisher behind it.</p>
+    </div>
+    <div class="panel">
+      <h3>PORTING &amp; CERT</h3>
+      <p>Console porting and certification, which we have neither the hardware nor the
+      experience to do well.</p>
+    </div>
+    <div class="panel">
+      <h3>QA AT SCALE</h3>
+      <p>Automated coverage is strong; human coverage across devices and languages is not
+      something one person can produce.</p>
+    </div>
+    <div class="panel">
+      <h3>JUDGEMENT</h3>
+      <p>Pricing, launch timing, demo scope, and someone experienced to say
+      &ldquo;that's the wrong month.&rdquo;</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     15 — KUNYE + TEKNIK + EKIP + ILETISIM
+     Wargroove'un "Key Information" slaydi, Whitethorn'un
+     "Technical Information" ve "About You" maddeleriyle
+     birlestirildi. Deck'in birakilacak sayfasi: yayinci bunu
+     ekran goruntusu alip ekibiyle paylasir.
+     ========================================================== -->
+<section class="slide">
+  <div class="inner">
+  <span class="no">15 / 15</span>
+  <p class="kicker">KEY INFORMATION</p>
+  <h2>The one page to keep.</h2>
+
+  <div class="grid g2">
+    <div>
+      <h3 style="margin-top:6px">THE GAME</h3>
+      <dl class="spec">
+        <dt>TITLE</dt><dd>Minthaven: A TCG Life Sim</dd>
+        <dt>GENRE</dt><dd>Life sim &middot; collection RPG &middot; card game</dd>
+        <dt>PLAYERS</dt><dd>Single player, offline</dd>
+        <dt>PLATFORMS</dt><dd>PC (Steam) first &middot; Nintendo Switch target &middot; Mac and Linux in reach</dd>
+        <dt>BUSINESS MODEL</dt><dd>Premium, one purchase. No microtransactions, no ads, no premium currency</dd>
+        <dt>PRICE</dt><dd><span class="fill">$ 00.00</span> &middot; free demo</dd>
+        <dt>RATING TARGET</dt><dd>PEGI 7 / ESRB E10+</dd>
+        <dt>LANGUAGES</dt><dd>English, Türkçe, 简体中文, 繁體中文, Deutsch, Français, 한국어, Português&nbsp;(BR), Español, 日本語 &mdash; all at 100%</dd>
+        <dt>LENGTH</dt><dd>15&ndash;20 hours main content &middot; 60&ndash;80 to complete</dd>
+        <dt>RELEASE</dt><dd><span class="fill">MONTH YEAR</span></dd>
+      </dl>
+    </div>
+    <div>
+      <h3 style="margin-top:6px">TECHNICAL</h3>
+      <dl class="spec">
+        <dt>ENGINE</dt><dd>None. Custom HTML5 Canvas renderer in vanilla JavaScript &mdash; no framework, no bundler, zero runtime dependencies</dd>
+        <dt>DESKTOP</dt><dd>Electron 43 + electron-packager. Windows x64 building today; Linux and macOS are configuration, not engineering</dd>
+        <dt>THIRD PARTY</dt><dd>Cute Fantasy Premium tileset, commercially licensed. Everything else is original</dd>
+        <dt>SOURCE CONTROL</dt><dd>Git, private repository</dd>
+        <dt>BUILD OUTPUT</dt><dd>One self-contained HTML file with art embedded &mdash; runs offline, no install, no account</dd>
+        <dt>DETERMINISM</dt><dd>All randomness is seeded. Same save, same results &mdash; which is what makes the test suite meaningful</dd>
+        <dt>TESTS</dt><dd>65 suites, 5,700+ assertions, one command</dd>
+        <dt>SAVES</dt><dd>Three slots, autosave, export and import. Steam Cloud ready</dd>
+        <dt>ACCESSIBILITY</dt><dd>Text scaling, screen-shake and flash toggles, minigame auto-succeed, fast pack mode, full gamepad navigation</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="rule"><i></i><b></b><i></i></div>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>ABOUT US</h3>
+      <p><b>PaperNook Games</b> is a one-person studio. Minthaven is its first title:
+      design, code, art integration, localisation and tooling by a single developer, with
+      art and audio commissioned as budget allows.</p>
+      <p class="dim" style="margin-top:10px">Everything in this deck &mdash; the playable
+      build, ten languages, the test suite, the desktop shell &mdash; was produced by that
+      one person. <span class="fill">TRACK RECORD / PREVIOUS WORK</span></p>
+    </div>
+    <div class="panel cream">
+      <h3>CONTACT</h3>
+      <p><span class="fill">NAME</span><br>
+      <span class="fill">EMAIL</span></p>
+      <p class="dim" style="margin-top:12px">
+        Site: <b>papernookgames.com</b><br>
+        Steam page and press assets available on request.
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="slide foot">
+  <div class="inner">
+  <div class="rule" style="margin:0 auto 24px"><i></i><b></b><i></i></div>
+  <p class="dim" style="margin:0 auto 18px;max-width:44ch">
+    Thank you for reading. The fastest way to understand Minthaven is still to
+    <a href="#play">open the build</a> and tear one pack.
+  </p>
+  <a class="studio" href="https://papernookgames.com/" target="_blank" rel="noopener">
+    &copy; 2026 PAPERNOOK GAMES &middot; ALL RIGHTS RESERVED
+  </a>
+  </div>
+</section>
+
+</body>
+</html>
