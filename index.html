@@ -104,7 +104,10 @@ a{ -webkit-tap-highlight-color:transparent; }
              calc(var(--px)*-1) 0 0 var(--ink), var(--px) 0 0 var(--ink); }
 
 /* --- sosyal (mobilde en ust serit, masaustunde sag ust kose) -- */
-.social-row{ display:flex; gap:clamp(2px,1.2vw,8px); align-items:center; }
+.social-row{ display:flex; gap:clamp(2px,1.2vw,8px); align-items:center;
+  /* Dokuz ikon 360px'te 1px payla siginca daha dari tasiyordu; sarmalama
+     guvenlik agi. Genis duzende serit sag ustte ve yer bol, sarmalamaz. */
+  flex-wrap:wrap; justify-content:center; }
 .social{ display:inline-grid; place-items:center; width:clamp(34px,10vw,38px); height:38px;
   transition:transform .06s steps(2); }
 .social svg{ width:clamp(22px,6vw,26px); height:clamp(22px,6vw,26px); fill:var(--cream);
@@ -168,9 +171,15 @@ a{ -webkit-tap-highlight-color:transparent; }
   padding:8px 12px 7px; background:var(--cream); color:var(--ink); }
 .lang button + button{ box-shadow:inset 3px 0 0 var(--ink); }
 .lang button[aria-pressed="true"]{ background:var(--ink); color:var(--gold); }
-.studio{ font-family:'Silkscreen'; font-size:clamp(8px,2.2vw,10px); letter-spacing:1px;
+.studio,.mail{ font-family:'Silkscreen'; font-size:clamp(8px,2.2vw,10px); letter-spacing:1px;
   color:#9dbfa9; text-shadow:0 2px 0 #000; text-decoration:none; text-align:center; }
-.studio:hover{ color:var(--gold); }
+.studio:hover,.mail:hover{ color:var(--gold); }
+/* Adres OKUNUR yazilir (ikonun arkasina saklanmaz): kopyalayip yapistirmak,
+   sag tiklamaktan kolay. Yerel kisim altin, alan adi imza rengi. */
+.mail b{ font-weight:400; color:var(--cream); }
+.sign{ display:flex; flex-direction:column; align-items:center; gap:5px; }
+/* Genis duzen sarti sayfanin kendi kirilma noktasiyla AYNI olmali (bkz. .foot). */
+@media (min-width:880px) and (min-height:700px){ .sign{ align-items:flex-end; } }
 
 /* --- on plan: acik binder (sayfanin tek doygun ogesi) --------- */
 .fg{
@@ -226,6 +235,7 @@ a{ -webkit-tap-highlight-color:transparent; }
         <a class="social" href="https://www.instagram.com/papernookgames/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3Z"/><path fill-rule="evenodd" d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4Zm0 2A2.6 2.6 0 1 1 9.4 12 2.6 2.6 0 0 1 12 9.4Z"/><circle cx="17.1" cy="6.9" r="1.15"/></svg></a>
     <a class="social" href="https://www.threads.com/@papernookgames" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg class="line" viewBox="0 0 24 24"><path d="M15.4 5.5A7.7 7.7 0 1 0 18.6 15.3"/><circle cx="12" cy="12" r="3.2"/><path d="M15.2 8.8v4.5c0 2 2 2.9 3.4 2"/></svg></a>
     <a class="social" href="https://www.tiktok.com/@papernookgames" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24"><path d="M16.7 5.8A4.4 4.4 0 0 1 15.6 3h-3.4v13.6a2.6 2.6 0 1 1-2.6-2.6 2.8 2.8 0 0 1 .8.1v-3.5a6.4 6.4 0 0 0-.8-.1 6.1 6.1 0 1 0 6.1 6.1V9.4a7.7 7.7 0 0 0 4.5 1.4V7.4a4.5 4.5 0 0 1-3.5-1.6Z"/></svg></a>
+    <a class="social" href="mailto:papernookgames@gmail.com" aria-label="E-posta" title="papernookgames@gmail.com"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2Zm2 2.3V17h16V7.3l-8 5.2Zm.9-.3 7.1 4.6L19.1 7Z"/></svg></a>
   </nav>
 
   <!-- 2) orta kolon -->
@@ -278,9 +288,16 @@ a{ -webkit-tap-highlight-color:transparent; }
       <button type="button" data-lang="tr" aria-pressed="true">TR</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="studio" href="https://papernookgames.com/" target="_blank" rel="noopener">
-      &copy; 2026 PAPERNOOK GAMES &middot; <span data-i18n="rights">TUM HAKLARI SAKLIDIR</span>
-    </a>
+    <!-- Imza bloku: iletisim ustte, telif altta. Tek oge olarak durur ki genis
+         duzendeki `space-between` adresi ORTAYA (binder'in ustune) atmasin. -->
+    <div class="sign">
+      <a class="mail" href="mailto:papernookgames@gmail.com">
+        <span data-i18n="contact">ILETISIM</span> &middot; <b>papernookgames@gmail.com</b>
+      </a>
+      <a class="studio" href="https://papernookgames.com/" target="_blank" rel="noopener">
+        &copy; 2026 PAPERNOOK GAMES &middot; <span data-i18n="rights">TUM HAKLARI SAKLIDIR</span>
+      </a>
+    </div>
   </div>
 
   <!-- 5) on plan: sayfanin tek doygun ogesi, alt kenardan kirpilir -->
@@ -293,9 +310,11 @@ a{ -webkit-tap-highlight-color:transparent; }
 /* Iki dil, tek sayfa — oyunun kendisi de TR/EN (src/i18n.js). */
 const STR = {
   tr:{ press:'BASIN KITI', wiki:'WIKI', devlog:'GELISTIRME GUNLUGU', pitch:'PITCH DECK',
+       contact:'ILETISIM',
        wishlist:"STEAM'DE ISTEK LISTENE EKLE", trailer:'FRAGMANI IZLE', news:'HABER BULTENINE KATIL',
        rights:'TUM HAKLARI SAKLIDIR' },
   en:{ press:'PRESS KIT', wiki:'WIKI', devlog:'DEVLOG', pitch:'PITCH DECK',
+       contact:'CONTACT',
        wishlist:'WISHLIST ON STEAM', trailer:'WATCH THE TRAILER', news:'JOIN THE NEWSLETTER',
        rights:'ALL RIGHTS RESERVED' }
 };
