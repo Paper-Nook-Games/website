@@ -259,6 +259,18 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 .tl .what b{ display:block; font-family:'Silkscreen'; font-size:12px; letter-spacing:.5px;
   line-height:1.45; margin-bottom:3px; }
 .tl .what span{ font-size:13.5px; color:var(--dim); line-height:1.5; }
+/* On kalemlik cizelge 16:9'a sigsin diye: tarih kolonu genisledi (TBD WITH PUBLISHER
+   tek satira sigiyor), satir araligi ve punto bir tik kisildi. Dikey nokta cizgisi
+   kolon genisligi + 9px kuralina bagli -- ikisi birlikte degisir. */
+.tl.dense{ margin-top:20px; }
+.tl.dense .item{ grid-template-columns:158px 1fr; padding-bottom:11px; }
+.tl.dense .item::before{ left:167px; }
+.tl.dense .what b{ font-size:11.5px; margin-bottom:2px; }
+.tl.dense .what span{ font-size:12px; line-height:1.42; }
+/* Deck'in en guclu iki kaniti: baslik gold, govde yine cream/mint. Yeni oge yok. */
+.tl .item.key .what b{ color:var(--gold); }
+.tl.dense .item.key .what b{ font-size:12.5px; }
+@media (max-width:600px){ .tl.dense .item{ grid-template-columns:1fr; } }
 @media (max-width:600px){
   .tl .item{ grid-template-columns:1fr; gap:0; }
   .tl .item::before{ left:5px; }
@@ -830,62 +842,63 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
   <p class="kicker">TIMELINE</p>
   <h2>Where it's been, and where it's going.</h2>
 
-  <div class="tl">
+  <div class="tl dense">
     <div class="item done">
       <div class="when">JULY 2026</div>
       <div class="what"><b>Development start</b>
-      <span>First commit. Design document complete before a line of code.</span></div>
+      <span>First commit. Core design and production planning completed before implementation began.</span></div>
     </div>
     <div class="item done">
       <div class="when">AUGUST 2026</div>
-      <div class="what"><b>All systems playable</b>
-      <span>Every designed system implemented end to end. Onboarding, gamepad, town art
-      and the demo gate land in the same window.</span></div>
+      <div class="what"><b>Core systems playable</b>
+      <span>Main gameplay systems implemented end to end &mdash; onboarding, gamepad support, town flow, collection systems and the demo progression structure.</span></div>
     </div>
-    <div class="item done">
+    <div class="item done key">
       <div class="when">SEPTEMBER 2026</div>
-      <div class="what"><b>Ten languages at full coverage &middot; desktop shell</b>
-      <span>Localization closed and test-guarded; Electron build producing a Windows
-      executable.</span></div>
+      <div class="what"><b>Demo feature complete</b>
+      <span>Core gameplay, progression and the demo ending are implemented and fully playable. Remaining work is primarily the final art pass and presentation polish.</span></div>
+    </div>
+    <div class="item done key">
+      <div class="when">SEPTEMBER 2026</div>
+      <div class="what"><b>Steam store page approved</b>
+      <span>Approved by Valve and ready to publish. Kept private on purpose so the public reveal and positioning can still be coordinated with the publishing partner.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
-      <div class="what"><b>Card art complete &middot; store assets</b>
-      <span>Final illustrations, capsule set, screenshots and the trailer.
-      <span class="fill">DURATION</span></span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="what"><b>Final art &amp; store assets</b>
+      <span>Remaining card illustrations, UI polish, capsule art, screenshots, trailer and the final presentation pass.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
-      <div class="what"><b>Steam page live</b>
-      <span>Wishlist accumulation begins. Target: four to six weeks ahead of the demo.</span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="what"><b>Public Steam reveal</b>
+      <span>Steam page goes live and wishlist accumulation begins. Timing to be coordinated around the publishing and marketing strategy.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
-      <div class="what"><b>Free demo on Steam</b>
-      <span>The demo is content-gated, not day-gated: it ends after the player's first local
-      tournament result. Already implemented and tested.</span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="what"><b>Free demo release</b>
+      <span>The existing feature-complete demo is released publicly on Steam after the final art and polish pass.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
       <div class="what"><b>Steam Next Fest</b>
-      <span>One festival only, and it should be the one before launch.
-      <span class="fill">WHICH FEST</span></span></div>
+      <span>Participate in the most strategically suitable Steam Next Fest before launch.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
-      <div class="what"><b>Content lock &middot; beta &middot; certification</b>
-      <span><span class="fill">DURATION</span></span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="what"><b>Launch-ready build</b>
+      <span>Full commercial build prepared for release: content lock, balancing, QA, localisation verification, bug fixing and final platform-readiness work.</span></div>
     </div>
     <div class="item">
-      <div class="when"><span class="fill">MONTH YEAR</span></div>
-      <div class="what"><b>1.0 release</b>
-      <span>PC first. <span class="fill">PLATFORMS AT LAUNCH</span></span></div>
+      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="what"><b>Commercial release</b>
+      <span>PC first. The final release format &mdash; Early Access or directly 1.0 &mdash; will be aligned with the publishing partner based on demo performance, wishlist growth, creator response and launch strategy.</span></div>
     </div>
   </div>
 
-  <p class="dim" style="margin-top:26px;font-size:13.5px">
-    Dates past September 2026 are deliberately open &mdash; they depend on the shape of the
-    deal, and we'd rather set them with you than present a schedule we'd have to renegotiate.
+  <p class="dim" style="margin-top:20px;font-size:13px;max-width:none">
+    Dates and release strategy after September 2026 are intentionally flexible so the public
+    reveal, demo release, Next Fest participation, Early Access or 1.0 strategy, and commercial
+    launch can be coordinated with the publishing partner.
   </p>
   </div>
 </section>
@@ -902,7 +915,7 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 <section class="slide" id="budget">
   <div class="inner">
   <span class="no">13 / 15</span>
-  <p class="kicker">BUDGET</p>
+  <p class="kicker">FUNDING</p>
   <h2>Funding &amp; production needs.</h2>
 
   <div class="tablewrap">
