@@ -290,8 +290,13 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 /* Fon talebinin tek rakami: baslikttan sonraki en guclu odak. Yeni bir renk ya da
    sus degil -- ayni gold, sadece buyuk punto. */
 .money td.ask{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px;
-  font-size:clamp(22px,3.2vw,36px); color:var(--gold); line-height:1.2;
-  text-shadow:0 var(--px) 0 rgba(0,0,0,.5); padding-top:18px; padding-bottom:18px; }
+  font-size:clamp(20px,2.9vw,32px); color:var(--gold); line-height:1.2;
+  text-shadow:0 var(--px) 0 rgba(0,0,0,.5); padding-top:16px; padding-bottom:16px; }
+/* Alti satir 16:9'a sigsin diye satir yuksekligi ve govde puntosu bir tik kisildi.
+   Kontrast DUSURULMEDI: govde hala cream, ikincil metin hala mint. */
+.money.tight{ font-size:13.5px; }
+.money.tight th,.money.tight td{ padding:8px 14px; }
+.money.tight .note{ font-size:12px; }
 /* Rakam yerine "ayrica kapsamlanacak" diyen hucre. .fill DEGIL: .fill
    "doldurmayi unutma" demek, bunlar bilerek ve kalici olarak rakamsiz. */
 .money .tbd{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px;
@@ -901,7 +906,7 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
   <h2>What it costs to finish.</h2>
 
   <div class="tablewrap">
-    <table class="money">
+    <table class="money tight">
       <thead>
         <tr><th>LINE ITEM</th><th>WHAT IT COVERS</th><th>COST</th></tr>
       </thead>
@@ -912,9 +917,24 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
           <td class="ask">$24,000</td>
         </tr>
         <tr>
-          <td>External production costs</td>
-          <td class="note">Remaining art, audio, QA, localisation and launch-support needs</td>
-          <td><span class="tbd">SCOPED SEPARATELY</span></td>
+          <td>Art &amp; visual production</td>
+          <td class="note">Remaining card art, UI polish, capsule art and Steam store assets</td>
+          <td><span class="tbd">PUBLISHER SCOPED</span></td>
+        </tr>
+        <tr>
+          <td>Audio</td>
+          <td class="note">Final music, sound effects and audio polish</td>
+          <td><span class="tbd">PUBLISHER SCOPED</span></td>
+        </tr>
+        <tr>
+          <td>QA &amp; localisation</td>
+          <td class="note">QA pass, certification support and localisation</td>
+          <td><span class="tbd">PUBLISHER SCOPED</span></td>
+        </tr>
+        <tr>
+          <td>Marketing &amp; PR</td>
+          <td class="note">Trailer production, festivals, creator outreach, PR and launch campaign</td>
+          <td><span class="tbd">PUBLISHER SCOPED</span></td>
         </tr>
         <tr>
           <td>Porting</td>
@@ -937,8 +957,8 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
   </div>
 
   <div class="rule"><i></i><b></b><i></i></div>
-  <p class="askline">The $24K funding request is exclusively for developer runway. External
-  production, marketing, QA, localisation and porting costs are scoped separately with the
+  <p class="askline">The $24K funding request covers developer runway only. Art, audio, QA,
+  localisation, marketing and optional porting are expected to be scoped separately with the
   publishing partner.</p>
   </div>
 </section>
