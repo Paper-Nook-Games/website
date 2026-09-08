@@ -287,6 +287,22 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 .money .note{ color:var(--dim); font-size:12.5px; }
 .tablewrap{ overflow-x:auto; }
 
+/* Fon talebinin tek rakami: baslikttan sonraki en guclu odak. Yeni bir renk ya da
+   sus degil -- ayni gold, sadece buyuk punto. */
+.money td.ask{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px;
+  font-size:clamp(22px,3.2vw,36px); color:var(--gold); line-height:1.2;
+  text-shadow:0 var(--px) 0 rgba(0,0,0,.5); padding-top:18px; padding-bottom:18px; }
+/* Rakam yerine "ayrica kapsamlanacak" diyen hucre. .fill DEGIL: .fill
+   "doldurmayi unutma" demek, bunlar bilerek ve kalici olarak rakamsiz. */
+.money .tbd{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px;
+  color:var(--dim); line-height:1.6; display:inline-block; }
+/* Slaydi kapatan tek cumle -- govde metni, o yuzden cream. */
+.askline{ font-size:clamp(13px,1.35vw,15px); line-height:1.65; color:var(--cream);
+  max-width:82ch; }
+/* Iki kartin rakami: baslik gold, rakam cream. $24,000'in altinda kalir. */
+.panel p.figure{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px;
+  font-size:clamp(15px,1.9vw,21px); line-height:1.35; color:var(--cream); }
+
 /* --- buyuk ifade slaydi -------------------------------------- */
 .statement{ text-align:center; }
 .statement .big{ font-family:'Silkscreen'; font-weight:700; line-height:1.45;
@@ -872,12 +888,13 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 
 <!-- =========================================================
      13 — BUTCE
-     Wargroove deck'i bu slaytta rakamlari BILEREK $000,000.00
-     birakiyor ("kendi rakamini koy"). Ayni yaklasim: kalem
-     listesi gercek, rakamlar doldurulacak. Whitethorn ayrica
-     AYLIK BURN istiyor, o yuzden ayri satir olarak duruyor.
+     Tek rakam sorulur: gelistirici runway'i ($24.000 = 6 x $4.000).
+     Diger kalemler yayinciyla AYRICA kapsamlanir, bu yuzden burada
+     rakam TASIMAZLAR -- slayt bir tablo degil, bir talep. Whitethorn
+     aylik burn istiyor, o yuzden kendi kartinda duruyor. Fiyat /
+     ticari model bu slayta GIRMEZ (kendi slaydi var).
      ========================================================== -->
-<section class="slide">
+<section class="slide" id="budget">
   <div class="inner">
   <span class="no">13 / 15</span>
   <p class="kicker">BUDGET</p>
@@ -890,61 +907,39 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
       </thead>
       <tbody>
         <tr>
-          <td>Development</td>
-          <td class="note">Remaining production, Steamworks integration, platform work</td>
-          <td>$ 000,000.00</td>
+          <td>Developer runway</td>
+          <td class="note">Full-time solo development through the remaining production period</td>
+          <td class="ask">$24,000</td>
         </tr>
         <tr>
-          <td>Art</td>
-          <td class="note">Final card illustrations, UI pass, capsules and store assets</td>
-          <td>$ 000,000.00</td>
-        </tr>
-        <tr>
-          <td>Audio</td>
-          <td class="note">Recorded score and Foley to replace the procedural set</td>
-          <td>$ 000,000.00</td>
-        </tr>
-        <tr>
-          <td>QA &amp; localisation</td>
-          <td class="note">Ten languages already at full coverage; QA pass and cert</td>
-          <td>$ 000,000.00</td>
+          <td>External production costs</td>
+          <td class="note">Remaining art, audio, QA, localisation and launch-support needs</td>
+          <td><span class="tbd">SCOPED SEPARATELY</span></td>
         </tr>
         <tr>
           <td>Porting</td>
-          <td class="note">Console, if in scope</td>
-          <td>$ 000,000.00</td>
-        </tr>
-        <tr>
-          <td>Marketing</td>
-          <td class="note">Trailer production, festivals, creator programme</td>
-          <td>$ 000,000.00</td>
-        </tr>
-        <tr class="total">
-          <td>TOTAL PROJECTED COST</td><td></td><td>$ 000,000.00</td>
-        </tr>
-        <tr class="total">
-          <td>INVESTMENT REQUIRED</td><td></td><td>$ 000,000.00</td>
+          <td class="note">Console versions, only if pursued</td>
+          <td><span class="tbd">OPTIONAL /<br>SEPARATE BUDGET</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="grid g3" style="margin-top:26px">
+  <div class="grid g2" style="margin-top:26px">
     <div class="panel">
       <h3>MONTHLY BURN</h3>
-      <p><span class="fill">$ 0,000.00</span> / month across
-      <span class="fill">N</span> months.</p>
+      <p class="figure">$4,000 / month</p>
     </div>
     <div class="panel">
-      <h3>RUNWAY TODAY</h3>
-      <p><span class="fill">N MONTHS</span> self-funded.</p>
-    </div>
-    <div class="panel">
-      <h3>PRICE POINT</h3>
-      <p><span class="fill">$ 00.00</span> premium, one purchase.
-      Free demo. No DLC planned at launch.</p>
+      <h3>FUNDED RUNWAY</h3>
+      <p class="figure">6 months</p>
     </div>
   </div>
+
+  <div class="rule"><i></i><b></b><i></i></div>
+  <p class="askline">The $24K funding request is exclusively for developer runway. External
+  production, marketing, QA, localisation and porting costs are scoped separately with the
+  publishing partner.</p>
   </div>
 </section>
 
