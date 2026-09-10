@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Minthaven — Publisher Pitch</title>
-<meta name="description" content="Minthaven: A TCG Life Sim — publisher pitch deck. A cozy life sim about the other side of the trading card.">
+<title>Minthaven — Yayıncı Sunumu</title>
+<meta name="description" content="Minthaven: A TCG Life Sim — yayıncı sunum dosyası. Koleksiyon kartının öbür yüzünü anlatan sıcak bir yaşam simülasyonu.">
 
 <!-- Bu sayfa ARAMA MOTORLARINA KAPALI. Yayinci pitch'i herkese acik bir sayfa
      degildir: baglantiyi e-postayla gonderirsin, Google'da cikmasi istenmez.
      Sayfayi kamuya acmak istersen asagidaki robots satirini sil. -->
 <meta name="robots" content="noindex,nofollow">
 
-<meta property="og:title" content="Minthaven: A TCG Life Sim — Publisher Pitch">
-<meta property="og:description" content="A cozy life sim about the part of trading cards that games usually skip. Playable end to end today.">
+<meta property="og:title" content="Minthaven: A TCG Life Sim — Yayıncı Sunumu">
+<meta property="og:description" content="Koleksiyon kartlarının oyunların genelde atladığı kısmını anlatan sıcak bir yaşam simülasyonu. Bugün baştan sona oynanabilir.">
 <!-- MUTLAK olmali; sayfa baska bir alt yola tasinirsa ikisini de guncelle. -->
-<meta property="og:url" content="https://papernookgames.com/pitch/">
+<meta property="og:url" content="https://papernookgames.com/pitch/index-tr.html">
 <meta property="og:image" content="https://papernookgames.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0e2618">
@@ -30,13 +30,26 @@
    strateji notu YAZMA. O notlar private depoda
    docs/memory/systems/marketing-site.md icinde durur.
    ../index.html'in TOKEN'LARINI aynen kullanir (playmat yesili,
-   krem, altin, Pixelify + Silkscreen, 4px piksel kenarlik). Amac
+   krem, altin, 4px piksel kenarlik). TEK FARK yazi tipi -- bkz.
+   asagidaki TIPOGRAFI FARKI notu. Amac
    "ayri bir sayfa" degil, sitenin ayni elinden cikmis bir bolum
    gibi durmasi.
 
+   TURKCE SURUM (index-tr.html). EN surumu index.html.
+   IKISI BIRBIRINE BAGLANMAZ -- dil secici YOKTUR, baglanti
+   e-postayla hangi surum isteniyorsa o gonderilir.
+
+   TIPOGRAFI FARKI: EN surumu basliklarda Silkscreen kullanir.
+   Silkscreen'de i-noktasiz / I-noktali / g-yumusak / G-yumusak
+   GLIFLERI YOK (tarayicida olculdu). Turkce metinde bu harfler
+   kelime ortasinda yedek fonta duser ve kelime bozuk gorunur.
+   Bu yuzden TR surumunde tum baslik/etiket rolleri Pixelify'dir
+   -- o da piksel font ve Turkce destegi tam.
+   Buraya Silkscreen GERI KOYMA.
+
    FARK: acilis sayfasi tek viewport'tur, bu KAYDIRILAN bir
    dokumandir. Bu yuzden slayt ritmi dikey bosluktan ve sag ust
-   kosedeki Silkscreen slayt numarasindan gelir; kart/kutu
+   kosedeki slayt numarasindan gelir; kart/kutu
    yiginlarindan degil.
 
    GORSEL: tek bir sey var, o da gomulu gameplay videosu
@@ -50,10 +63,6 @@
 
 @font-face{ font-family:'Pixelify'; src:url('../assets/fonts/PixelifySans-Variable.ttf') format('truetype');
   font-weight:400 700; font-display:swap; }
-@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Regular.ttf') format('truetype');
-  font-weight:400; font-display:swap; }
-@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Bold.ttf') format('truetype');
-  font-weight:700; font-display:swap; }
 
 :root{
   /* ../index.html ile AYNI palet — game/src/gfx/pixel.js PAL'den turer */
@@ -98,14 +107,14 @@ body::after{
   background:rgba(8,26,17,.94); backdrop-filter:blur(3px);
   box-shadow:0 var(--px) 0 rgba(74,148,104,.5);
 }
-.bar .home{ font-family:'Silkscreen'; font-size:12px; letter-spacing:1px;
+.bar .home{ font-family:'Pixelify'; font-size:12px; letter-spacing:1px;
   color:var(--dim); text-decoration:none; white-space:nowrap; }
 .bar .home:hover{ color:var(--gold); }
-.bar .tag{ font-family:'Silkscreen'; font-size:12px; letter-spacing:2px; color:var(--etch);
+.bar .tag{ font-family:'Pixelify'; font-size:12px; letter-spacing:2px; color:var(--etch);
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .bar .spacer{ flex:1; }
 .bar .cta{
-  font-family:'Silkscreen'; font-weight:700; font-size:12px; letter-spacing:1px;
+  font-family:'Pixelify'; font-weight:700; font-size:12px; letter-spacing:1px;
   background:var(--gold); color:var(--ink); text-decoration:none;
   padding:9px 14px 8px; white-space:nowrap;
   box-shadow:0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink),3px 3px 0 rgba(0,0,0,.5);
@@ -131,15 +140,15 @@ body::after{
    .inner'a gore konumlanir, viewport'a gore degil: icerikle hizali kalir. */
 .no{
   position:absolute; right:0; top:calc(clamp(14px,2.4vh,26px) * -1);
-  font-family:'Silkscreen'; font-size:11px; letter-spacing:2px; color:rgba(74,148,104,.75);
+  font-family:'Pixelify'; font-size:11px; letter-spacing:2px; color:rgba(74,148,104,.75);
 }
 
 /* --- basliklar ----------------------------------------------- */
-.kicker{ font-family:'Silkscreen'; font-weight:700; font-size:clamp(10px,1.6vw,12px);
+.kicker{ font-family:'Pixelify'; font-weight:700; font-size:clamp(10px,1.6vw,12px);
   letter-spacing:3px; color:var(--gold); margin-bottom:14px; }
-h2{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; line-height:1.35;
+h2{ font-family:'Pixelify'; font-weight:700; letter-spacing:1px; line-height:1.35;
   font-size:clamp(19px,2.9vw,31px); margin-bottom:16px; text-shadow:0 var(--px) 0 rgba(0,0,0,.45); }
-h3{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; font-size:clamp(13px,1.7vw,15px);
+h3{ font-family:'Pixelify'; font-weight:700; letter-spacing:1px; font-size:clamp(13px,1.7vw,15px);
   color:var(--gold); margin-bottom:9px; }
 .lede{ font-size:clamp(17px,1.6vw,21px); line-height:1.65; max-width:70ch; }
 p{ max-width:74ch; }
@@ -161,7 +170,7 @@ strong,b{ color:#fff8e6; font-weight:700; }
 .cover .hook{ font-size:clamp(17px,2.3vw,27px); line-height:1.5; color:#fff8e6;
   max-width:24ch; margin:0 auto; text-shadow:0 3px 0 rgba(0,0,0,.5); }
 .cover .rule{ margin:clamp(20px,3vh,32px) auto; }
-.cover .meta{ font-family:'Silkscreen'; font-size:clamp(10px,1.5vw,12px); letter-spacing:2px;
+.cover .meta{ font-family:'Pixelify'; font-size:clamp(10px,1.5vw,12px); letter-spacing:2px;
   color:var(--dim); display:flex; gap:8px 22px; justify-content:center; flex-wrap:wrap; }
 
 /* --- video kabi ---------------------------------------------- */
@@ -227,7 +236,7 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 .vs .a,.vs .b{ padding:15px 17px; }
 .vs .a{ background:rgba(8,26,17,.6); }
 .vs .b{ background:rgba(74,148,104,.13); box-shadow:inset var(--px) 0 0 rgba(74,148,104,.4); }
-.vs .who{ font-family:'Silkscreen'; font-size:12px; letter-spacing:1px; color:var(--cream);
+.vs .who{ font-family:'Pixelify'; font-size:12px; letter-spacing:1px; color:var(--cream);
   margin-bottom:6px; }
 .vs .b .who{ color:var(--gold); }
 .vs p{ font-size:15.5px; line-height:1.65; color:var(--dim); }
@@ -245,14 +254,14 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 .tl .item::before{ content:''; position:absolute; left:139px; top:11px; bottom:-9px; width:var(--px);
   background:repeating-linear-gradient(180deg,rgba(74,148,104,.6) 0 var(--px),transparent var(--px) calc(var(--px)*2)); }
 .tl .item:last-child::before{ display:none; }
-.tl .when{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; color:var(--dim);
+.tl .when{ font-family:'Pixelify'; font-size:11px; letter-spacing:1px; color:var(--dim);
   text-align:right; padding-top:5px; }
 .tl .what{ padding-left:22px; position:relative; }
 .tl .what::before{ content:''; position:absolute; left:-9px; top:6px; width:14px; height:14px;
   background:var(--etch); transform:rotate(45deg); box-shadow:0 0 0 var(--px) var(--mat-deep); }
 .tl .item.done .what::before{ background:var(--gold); }
 .tl .item.done .when{ color:var(--gold); }
-.tl .what b{ display:block; font-family:'Silkscreen'; font-size:13px; letter-spacing:.5px;
+.tl .what b{ display:block; font-family:'Pixelify'; font-size:13px; letter-spacing:.5px;
   line-height:1.45; margin-bottom:3px; }
 .tl .what span{ font-size:15px; color:var(--dim); line-height:1.6; }
 /* On kalemlik cizelge 16:9'a sigsin diye: tarih kolonu genisledi (TBD WITH PUBLISHER
@@ -277,7 +286,7 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 /* Bilerek BOS birakilmis her deger bu isaretle gecer: yayinciya
    "burasi konusulacak" der, bize de "doldurmayi unutma" der. */
 .fill{
-  font-family:'Silkscreen'; font-size:.86em; letter-spacing:1px;
+  font-family:'Pixelify'; font-size:.86em; letter-spacing:1px;
   color:var(--gold); background:rgba(254,174,52,.11);
   padding:2px 7px 1px; white-space:nowrap;
   box-shadow:inset 0 0 0 2px rgba(254,174,52,.45);
@@ -288,7 +297,7 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 
 /* --- kapanis ------------------------------------------------- */
 .foot{ text-align:center; padding-bottom:clamp(40px,8vh,80px); }
-.foot .studio{ font-family:'Silkscreen'; font-size:11px; letter-spacing:2px; color:var(--dim);
+.foot .studio{ font-family:'Pixelify'; font-size:11px; letter-spacing:2px; color:var(--dim);
   text-decoration:none; }
 .foot .studio:hover{ color:var(--gold); }
 
@@ -334,15 +343,15 @@ ul li::before{ content:''; position:absolute; left:2px; top:.62em;
 </head>
 <body>
 
-<p class="print-warn">This PDF was exported with <b>background graphics turned off</b>,
-so it is missing its background and is hard to read. Re-export with
-Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
+<p class="print-warn">Bu PDF <b>arka plan grafikleri kapalıyken</b> alındı; zemini
+yok ve okunması zor. Ctrl+P &rarr; Daha fazla ayar &rarr; <b>Arka plan grafikleri</b>
+işaretli olacak şekilde yeniden alın.</p>
 
 <header class="bar">
   <a class="home" href="../">&larr; MINTHAVEN</a>
-  <span class="tag">PUBLISHER PITCH</span>
+  <span class="tag">YAYINCI SUNUMU</span>
   <span class="spacer"></span>
-  <a class="cta" href="https://store.steampowered.com/app/5167250/MINTHAVEN_A_TCG_Life_Sim/" target="_blank" rel="noopener">STEAM PAGE</a>
+  <a class="cta" href="https://store.steampowered.com/app/5167250/MINTHAVEN_A_TCG_Life_Sim/" target="_blank" rel="noopener">STEAM SAYFASI</a>
 </header>
 
 
@@ -357,16 +366,16 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
   <div class="inner">
   <span class="no">01 / 08</span>
   <img class="logo" src="../assets/logo.png" alt="Minthaven - A TCG Life Sim" width="1180" height="468">
-  <p class="hook">You moved to Minthaven with $100 and not a single card.</p>
+  <p class="hook">Minthaven'a yüz dolarla ve tek bir kartın olmadan taşındın.</p>
   <div class="rule"><i></i><b></b><i></i></div>
   <div class="meta">
-    <span>LIFE SIM &middot; COLLECTION RPG &middot; CARD GAME</span>
+    <span>YAŞAM SİMÜLASYONU &middot; KOLEKSİYON RPG &middot; KART OYUNU</span>
     <span>PC &middot; STEAM</span>
-    <span>PREMIUM &middot; SINGLE PLAYER</span>
+    <span>PREMIUM &middot; TEK OYUNCULU</span>
   </div>
   <div class="rule"><i></i><b></b><i></i></div>
-  <p class="dim" style="font-family:'Silkscreen';font-size:11px;letter-spacing:2px;margin:0 auto">
-    PAPERNOOK GAMES &middot; PUBLISHER PITCH DECK
+  <p class="dim" style="font-family:'Pixelify';font-size:11px;letter-spacing:2px;margin:0 auto">
+    PAPERNOOK GAMES &middot; YAYINCI SUNUM DOSYASI
   </p>
   </div>
 </section>
@@ -381,35 +390,36 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide lift">
   <div class="inner">
   <span class="no">02 / 08</span>
-  <p class="kicker">THE PITCH</p>
-  <h2>A life sim about the other side of the card.</h2>
+  <p class="kicker">SUNUM</p>
+  <h2>Kartın öbür yüzünü anlatan bir yaşam simülasyonu.</h2>
 
   <p class="lede">
-    Games about trading cards are about <em>winning</em> with them. Minthaven is about
-    everything around that: tearing the pack open by hand, chasing a first print, arguing
-    about centering, grading the card you're scared to sleeve &mdash; and selling the one
-    you actually liked, because you needed the money more.
+    Koleksiyon kartı oyunları o kartlarla <em>kazanmayı</em> anlatır. Minthaven ise
+    etrafındaki her şeyi: paketi kendi elinle yırtmayı, bir ilk baskının peşine düşmeyi,
+    kartın ortalanmasını tartışmayı, koruyucu poşete koymaya bile çekindiğin kartı
+    derecelendirmeye yollamayı &mdash; ve gerçekten sevdiğin kartı satmayı, çünkü paraya
+    daha çok ihtiyacın vardı.
   </p>
 
   <div class="rule"><i></i><b></b><i></i></div>
 
   <div class="grid g3">
     <div class="panel">
-      <h3>WHAT YOU DO</h3>
-      <p>Wake up, read the market on your phone, walk into town, buy a pack, open it with
-      your own hands. Trade with people who remember you. Sit down and play a real card
-      game. Sleep, read the day's ledger, do it again.</p>
+      <h3>NE YAPIYORSUN</h3>
+      <p>Uyan, telefonundan piyasayı oku, kasabaya in, bir paket al ve kendi ellerinle aç.
+      Seni hatırlayan insanlarla takas yap. Masaya otur, gerçek bir kart oyunu oyna. Uyu,
+      günün hesabını oku, ertesi gün yeniden başla.</p>
     </div>
     <div class="panel">
-      <h3>WHY IT'S DIFFERENT</h3>
-      <p>The card game inside the game is a genuine card game &mdash; 20-card decks,
-      2&ndash;5 minute matches, a tournament ladder. And the card market moves whether
-      you're watching or not.</p>
+      <h3>NEDEN FARKLI</h3>
+      <p>Oyunun içindeki kart oyunu gerçek bir kart oyunu: 20 kartlık desteler,
+      2&ndash;5 dakikalık maçlar, bir turnuva merdiveni. Ve kart piyasası sen bakmasan da
+      hareket ediyor.</p>
     </div>
     <div class="panel">
-      <h3>WHO IT'S FOR</h3>
-      <p>The Stardew audience that wants a warm daily loop with a goal, and the collector
-      audience raised on pack-opening videos who can't afford the real hobby.</p>
+      <h3>KİMİN İÇİN</h3>
+      <p>Hedefi olan sıcak bir günlük döngü isteyen Stardew kitlesi ve paket açma
+      videolarıyla büyüyen, gerçek hobiye parası yetmeyen koleksiyoncu kitlesi.</p>
     </div>
   </div>
   </div>
@@ -424,44 +434,44 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide">
   <div class="inner">
   <span class="no">03 / 08</span>
-  <p class="kicker">MARKET</p>
-  <h2>Three games proved the demand. None of them made this one.</h2>
+  <p class="kicker">PAZAR</p>
+  <h2>Üç oyun talebi kanıtladı. Hiçbiri bu oyunu yapmadı.</h2>
 
   <div class="vs">
     <div class="row">
       <div class="a">
         <div class="who">TCG CARD SHOP SIMULATOR &middot; 2024</div>
-        <p>Proved that &ldquo;cards + simulation&rdquo; is a very large, very underserved
-        appetite.</p>
+        <p>&ldquo;Kart + simülasyon&rdquo; iştahının çok büyük ve çok az doyurulmuş
+        olduğunu kanıtladı.</p>
       </div>
       <div class="b">
-        <div class="who">WHAT IT LEFT ON THE TABLE</div>
-        <p>You play the shopkeeper. Its most common complaint is that you can't play the
-        cards. Minthaven puts you on the collector's side of the counter &mdash; and the
-        card game is real.</p>
+        <div class="who">MASADA NE BIRAKTI</div>
+        <p>Dükkân sahibini oynuyorsun. En sık gelen şikâyeti kartları oynayamamak.
+        Minthaven seni tezgâhın koleksiyoncu tarafına geçiriyor &mdash; ve kart oyunu
+        gerçek.</p>
       </div>
     </div>
     <div class="row">
       <div class="a">
         <div class="who">POK&Eacute;MON TCG POCKET</div>
-        <p>Proved that the pack-opening ritual alone can carry an entire product.</p>
+        <p>Paket açma ritüelinin tek başına koca bir ürünü taşıyabildiğini kanıtladı.</p>
       </div>
       <div class="b">
-        <div class="who">WHAT IT LEFT ON THE TABLE</div>
-        <p>It's free-to-play gacha reaching for a real credit card. Minthaven keeps the
-        ritual and attaches it to a single-player economy you can never pay into.</p>
+        <div class="who">MASADA NE BIRAKTI</div>
+        <p>Gerçek bir kredi kartına uzanan free-to-play bir gacha. Minthaven ritüeli
+        koruyup onu, içine asla para yatıramayacağın tek oyunculu bir ekonomiye bağlıyor.</p>
       </div>
     </div>
     <div class="row">
       <div class="a">
         <div class="who">STARDEW VALLEY</div>
-        <p>Proved the cozy daily loop with long-horizon goals, and built the audience that
-        still wants more of it.</p>
+        <p>Uzun vadeli hedefleri olan sıcak günlük döngüyü kanıtladı ve hâlâ bunun
+        devamını isteyen kitleyi kurdu.</p>
       </div>
       <div class="b">
-        <div class="who">WHAT IT LEFT ON THE TABLE</div>
-        <p>Crops. Minthaven swaps the farm for a binder: the same &ldquo;one more day&rdquo;
-        rhythm, aimed at a collection instead of a harvest.</p>
+        <div class="who">MASADA NE BIRAKTI</div>
+        <p>Ekinler. Minthaven çiftliğin yerine bir klasör koyuyor: aynı &ldquo;bir gün
+        daha&rdquo; ritmi, hasat yerine bir koleksiyona yönelmiş.</p>
       </div>
     </div>
   </div>
@@ -481,43 +491,44 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide lift">
   <div class="inner">
   <span class="no">04 / 08</span>
-  <p class="kicker">FEATURES &mdash; THE RITUAL AND THE OBJECT</p>
-  <h2>A pack is a ritual, not a button.</h2>
+  <p class="kicker">ÖZELLİKLER &mdash; RİTÜEL VE NESNE</p>
+  <h2>Paket bir düğme değil, bir ritüel.</h2>
 
   <figure class="shot">
     <div class="embed">
       <iframe src="https://drive.google.com/file/d/175t2-z7NAWRM4sCrF_0h3ud_H_SQZM9x/preview"
-              title="Minthaven gameplay video"
+              title="Minthaven oynanış videosu"
               allow="autoplay; fullscreen" loading="lazy"></iframe>
     </div>
-    <p class="embed-print"><b>Gameplay video:</b> https://drive.google.com/file/d/175t2-z7NAWRM4sCrF_0h3ud_H_SQZM9x/view</p>
-    <figcaption>Gameplay video &mdash; plays here, or open it directly:
+    <p class="embed-print"><b>Oynanış videosu:</b> https://drive.google.com/file/d/175t2-z7NAWRM4sCrF_0h3ud_H_SQZM9x/view</p>
+    <figcaption>Oynanış videosu &mdash; burada oynar, ya da doğrudan aç:
       <a href="https://drive.google.com/file/d/175t2-z7NAWRM4sCrF_0h3ud_H_SQZM9x/view" target="_blank" rel="noopener">drive.google.com</a></figcaption>
   </figure>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>YOU OPEN IT, THE GAME DOESN'T</h3>
-      <p>You drag the foil apart yourself, then flip the cards one by one. The glow tells
-      you before the art does, and the sound tells you before the glow. Four pack types,
-      a guaranteed hit slot, and pity counters the game never mentions.</p>
+      <h3>PAKETİ SEN AÇIYORSUN, OYUN DEĞİL</h3>
+      <p>Folyoyu kendi elinle ayırıyor, sonra kartları tek tek çeviriyorsun. Parıltı sana
+      sanattan önce söylüyor, ses de parıltıdan önce. Dört paket türü, garantili bir isabet
+      yuvası ve oyunun asla bahsetmediği acıma sayaçları.</p>
     </div>
     <div class="panel">
-      <h3>RELOADING WON'T SAVE YOU</h3>
-      <p>Every pull is seeded to your save. What you opened is what you opened &mdash;
-      which is exactly what makes a good pull worth telling someone about.</p>
+      <h3>KAYDI GERİ YÜKLEMEK SENİ KURTARMAZ</h3>
+      <p>Her çekiliş kayıt dosyana bağlı. Ne açtıysan onu açtın &mdash; iyi bir çekilişi
+      birine anlatmaya değer kılan da tam olarak bu.</p>
     </div>
     <div class="panel">
-      <h3>A SET YOU CAN ACTUALLY FINISH</h3>
-      <p>Elementa is a single set &mdash; 75 cards, five elements, six rarity tiers, no
-      seasonal drip. A binder page is a place you remember, not a row in a spreadsheet.</p>
+      <h3>GERÇEKTEN BİTİREBİLECEĞİN BİR SERİ</h3>
+      <p>Elementa tek bir seri: 75 kart, beş element, altı nadirlik kademesi, sezonluk
+      damlama yok. Klasörün bir sayfası hatırladığın bir yer olur, tabloda bir satır
+      değil.</p>
     </div>
     <div class="panel">
-      <h3>CONDITION, CENTERING, GRADING</h3>
-      <p>Cards run Mint to Damaged, with a centering you can't see until you pay to find
-      out. $25 and three days at the lab buys a number that can triple the price &mdash;
-      and <b>a slabbed card cannot be played</b>. Cracking it back open is a decision,
-      not a menu item.</p>
+      <h3>DURUM, ORTALANMA, DERECELENDİRME</h3>
+      <p>Kartlar Mint'ten Damaged'a kadar değişir; ortalanmayı ise parasını ödeyene kadar
+      göremezsin. Laboratuvarda 25 dolar ve üç gün, fiyatı üçe katlayabilecek bir puan
+      satın alır &mdash; ve <b>kapsüllenmiş kart oynanamaz</b>. Kapsülü kırmak bir menü
+      seçeneği değil, bir karardır.</p>
     </div>
   </div>
   </div>
@@ -532,39 +543,38 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide">
   <div class="inner">
   <span class="no">05 / 08</span>
-  <p class="kicker">FEATURES &mdash; THE PEOPLE AND THE GAME</p>
-  <h2>A price is something you can be wrong about.</h2>
+  <p class="kicker">ÖZELLİKLER &mdash; İNSANLAR VE OYUN</p>
+  <h2>Fiyat, yanılabileceğin bir şeydir.</h2>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>THE MARKET MOVES WITHOUT YOU</h3>
-      <p>Weekly waves, meta reports that lift a whole archetype overnight, news that guts
-      the card you were saving for Friday. And <b>nothing sells from the binder</b> &mdash;
-      every channel is a place you walk to, each paying differently, each open on
-      different days.</p>
+      <h3>PİYASA SENSİZ DE HAREKET EDER</h3>
+      <p>Haftalık dalgalar, bütün bir arketipi bir gecede yukarı çeken meta raporları,
+      cuma için sakladığın kartı yerle bir eden haberler. Ve <b>klasörden hiçbir şey
+      satılmaz</b> &mdash; her kanal yürüyerek gittiğin bir yerdir, her biri farklı öder,
+      her biri farklı günlerde açıktır.</p>
     </div>
     <div class="panel">
-      <h3>PEOPLE REMEMBER</h3>
-      <p>Twelve traders, each with an element they overpay for and a habit you can learn.
-      Rip somebody off and it works. <b>Once.</b> The grudge turns up a few days later,
-      when you need them.</p>
+      <h3>İNSANLAR HATIRLAR</h3>
+      <p>On iki takasçı; her birinin fazla ödediği bir element ve öğrenebileceğin bir
+      alışkanlığı var. Birini kazıklarsan işe yarar. <b>Bir kez.</b> Kin birkaç gün sonra,
+      tam onlara ihtiyacın olduğunda ortaya çıkar.</p>
     </div>
   </div>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>A REAL CARD GAME, NOT A MINIGAME</h3>
-      <p>20-card decks, three creature slots, an energy curve, seven keywords and a
-      five-element advantage circle. Matches run two to five minutes. No turn limit &mdash;
-      run out of deck and you lose. Four AI tiers building from six real archetypes, and a
-      ladder from the local Cup to the World Championship.</p>
+      <h3>MİNİ OYUN DEĞİL, GERÇEK BİR KART OYUNU</h3>
+      <p>20 kartlık desteler, üç yaratık yuvası, bir enerji eğrisi, yedi anahtar kelime ve
+      beş elementli bir üstünlük çemberi. Maçlar iki ila beş dakika sürer. Tur sınırı yok
+      &mdash; desten biterse kaybedersin. Altı gerçek arketipten kurulan dört yapay zekâ
+      kademesi ve yerel Kupa'dan Dünya Şampiyonası'na uzanan bir merdiven.</p>
     </div>
     <div class="panel">
-      <h3>A TOWN THAT KEEPS GOING</h3>
-      <p>Nine locations, twenty-five townsfolk on real routines, weather, and a light that
-      slides from morning to evening while you stand there deciding. Fish the lake,
-      decorate the house, chase gossip at the caf&eacute;, then read the day-end ledger
-      before you sleep.</p>
+      <h3>KENDİ HÂLİNDE İŞLEYEN BİR KASABA</h3>
+      <p>Dokuz mekân, gerçek rutinleri olan yirmi beş kasabalı, hava durumu ve sen orada
+      karar vermeye çalışırken sabahtan akşama kayan bir ışık. Gölde balık tut, evi döşe,
+      kafede dedikodu kovala, sonra uyumadan önce günün hesabını oku.</p>
     </div>
   </div>
   </div>
@@ -582,44 +592,44 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide lift">
   <div class="inner">
   <span class="no">06 / 08</span>
-  <p class="kicker">STATUS</p>
-  <h2>This isn't a concept. The game is playable end-to-end; what remains is production, polish and launch preparation.</h2>
+  <p class="kicker">DURUM</p>
+  <h2>Bu bir konsept değil. Oyun baştan sona oynanabilir; kalan iş üretim, cila ve çıkış hazırlığı.</h2>
 
   <p class="lede">
-    Every system in the design document is implemented and playable end to end today
-    &mdash; the pack ritual, the market, trading, grading, the duel engine, the tournament
-    ladder, the story lines, the town. What's left is production and polish, not design risk.
+    Tasarım belgesindeki her sistem bugün uygulanmış ve baştan sona oynanabilir durumda
+    &mdash; paket ritüeli, piyasa, takas, derecelendirme, düello motoru, turnuva merdiveni,
+    hikâye hatları, kasaba. Geriye kalan üretim ve cila; tasarım riski değil.
   </p>
 
   <p class="lede" style="margin-top:14px">
-    The next milestone is the <b>Steam demo</b>: its scope, its gate and its ending are
-    already implemented in code, and the build is being prepared for release.
+    Sıradaki kilometre taşı <b>Steam demosu</b>: kapsamı, kapısı ve bitişi
+    kodda hâlihazırda uygulanmış durumda; build çıkışa hazırlanıyor.
   </p>
 
   <div class="grid g2" style="margin-top:24px">
     <div class="panel">
-      <h3>BUILT AND PLAYABLE</h3>
+      <h3>YAPILDI VE OYNANABİLİR</h3>
       <ul>
-        <li>Full game, start to finish, in one file</li>
-        <li>75 cards in one set, five elements, six rarities</li>
-        <li>Nine locations, twenty-five townsfolk on routines</li>
-        <li>Six story lines, twenty-two achievements</li>
-        <li>Guided tutorial and first-day onboarding</li>
-        <li>Keyboard, mouse and gamepad</li>
-        <li><b>Ten languages at 100% coverage</b>, guarded by tests</li>
-        <li><b>Steam store page approved by Valve and live</b> &mdash;
+        <li>Tek dosyada, baştan sona oyunun tamamı</li>
+        <li>Tek seride 75 kart, beş element, altı nadirlik</li>
+        <li>Dokuz mekân, rutinleri olan yirmi beş kasabalı</li>
+        <li>Altı hikâye hattı, yirmi iki başarım</li>
+        <li>Rehberli eğitim ve ilk gün tanıtımı</li>
+        <li>Klavye, fare ve oyun kolu</li>
+        <li><b>On dilde %100 kapsam</b>, testlerle korunuyor</li>
+        <li><b>Steam mağaza sayfası Valve tarafından onaylandı ve yayında</b> &mdash;
         <a href="https://store.steampowered.com/app/5167250/MINTHAVEN_A_TCG_Life_Sim/" target="_blank" rel="noopener">store.steampowered.com/app/5167250</a></li>
       </ul>
     </div>
     <div class="panel">
-      <h3>WHAT'S LEFT FOR THE DEMO</h3>
+      <h3>DEMO İÇİN NE KALDI</h3>
       <ul>
-        <li>Card art: AI-generated for now &mdash; the hand-drawn versions are still to come</li>
-        <li>Audio: the score is procedural today and wants recording</li>
-        <li>Steamworks wiring: achievements, Cloud, Deck verification</li>
+        <li>Kart görselleri: şu an yapay zekâ ile üretildi &mdash; el çizimi versiyonları kaldı</li>
+        <li>Ses: müzik bugün prosedürel, kaydedilmeyi bekliyor</li>
+        <li>Steamworks bağlantıları: başarımlar, Cloud, Deck doğrulaması</li>
       </ul>
-      <p class="dim" style="margin-top:12px">The whole remaining list is production work with
-      known shapes &mdash; which is exactly the part a publisher makes faster.</p>
+      <p class="dim" style="margin-top:12px">Kalan listenin tamamı şekli belli üretim işi
+      &mdash; yani tam olarak bir yayıncının hızlandırdığı kısım.</p>
     </div>
   </div>
   </div>
@@ -631,66 +641,66 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide lift" style="display:none">
   <div class="inner">
   <span class="no">&mdash;</span>
-  <p class="kicker">TIMELINE</p>
-  <h2>Where it's been, and where it's going.</h2>
+  <p class="kicker">ZAMAN ÇİZELGESİ</p>
+  <h2>Nereden geldi, nereye gidiyor.</h2>
 
   <div class="tl dense">
     <div class="item done">
-      <div class="when">JULY 2026</div>
-      <div class="what"><b>Development start</b>
-      <span>First commit. Core design and production planning completed before implementation began.</span></div>
+      <div class="when">TEMMUZ 2026</div>
+      <div class="what"><b>Geliştirme başlangıcı</b>
+      <span>İlk commit. Çekirdek tasarım ve üretim planlaması, uygulama başlamadan önce tamamlandı.</span></div>
     </div>
     <div class="item done">
-      <div class="when">AUGUST 2026</div>
-      <div class="what"><b>Core systems playable</b>
-      <span>Main gameplay systems implemented end to end &mdash; onboarding, gamepad support, town flow, collection systems and the demo progression structure.</span></div>
+      <div class="when">AĞUSTOS 2026</div>
+      <div class="what"><b>Çekirdek sistemler oynanabilir</b>
+      <span>Ana oynanış sistemleri baştan sona uygulandı &mdash; tanıtım akışı, oyun kolu desteği, kasaba akışı, koleksiyon sistemleri ve demo ilerleyiş yapısı.</span></div>
     </div>
     <div class="item done key">
-      <div class="when">SEPTEMBER 2026</div>
-      <div class="what"><b>Demo feature complete</b>
-      <span>Core gameplay, progression and the demo ending are implemented and fully playable. Remaining work is primarily the final art pass and presentation polish.</span></div>
+      <div class="when">EYLÜL 2026</div>
+      <div class="what"><b>Demo özellik olarak tamam</b>
+      <span>Çekirdek oynanış, ilerleyiş ve demo bitişi uygulanmış ve tamamen oynanabilir durumda. Kalan iş ağırlıklı olarak final sanat turu ve sunum cilası.</span></div>
     </div>
     <div class="item done key">
-      <div class="when">SEPTEMBER 2026</div>
-      <div class="what"><b>Steam store page approved</b>
-      <span>Approved by Valve and ready to publish. Kept private on purpose so the public reveal and positioning can still be coordinated with the publishing partner.</span></div>
+      <div class="when">EYLÜL 2026</div>
+      <div class="what"><b>Steam mağaza sayfası onaylandı</b>
+      <span>Valve tarafından onaylandı ve yayına hazır. Kamuya duyuru ve konumlandırma yayıncı ortakla birlikte kurgulanabilsin diye bilerek gizli tutuluyor.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
-      <div class="what"><b>Final art &amp; store assets</b>
-      <span>Remaining card illustrations, UI polish, capsule art, screenshots, trailer and the final presentation pass.</span></div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
+      <div class="what"><b>Final sanat ve mağaza materyalleri</b>
+      <span>Kalan kart illüstrasyonları, arayüz cilası, kapsül görselleri, ekran görüntüleri, fragman ve final sunum turu.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
-      <div class="what"><b>Public Steam reveal</b>
-      <span>Steam page goes live and wishlist accumulation begins. Timing to be coordinated around the publishing and marketing strategy.</span></div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
+      <div class="what"><b>Steam'de kamuya duyuru</b>
+      <span>Steam sayfası yayına açılır ve istek listesi birikimi başlar. Zamanlama, yayın ve pazarlama stratejisine göre belirlenecek.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
-      <div class="what"><b>Demo release</b>
-      <span>The existing feature-complete demo is released publicly on Steam after the final art and polish pass.</span></div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
+      <div class="what"><b>Demo yayını</b>
+      <span>Hâlihazırda özellik olarak tamamlanmış demo, final sanat ve cila turundan sonra Steam'de kamuya açılır.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
       <div class="what"><b>Steam Next Fest</b>
-      <span>Participate in the most strategically suitable Steam Next Fest before launch.</span></div>
+      <span>Çıkıştan önce stratejik olarak en uygun Steam Next Fest'e katılım.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
-      <div class="what"><b>Launch-ready build</b>
-      <span>Full commercial build prepared for release: content lock, balancing, QA, localisation verification, bug fixing and final platform-readiness work.</span></div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
+      <div class="what"><b>Çıkışa hazır build</b>
+      <span>Tam ticari build çıkışa hazırlanır: içerik kilidi, denge, QA, yerelleştirme doğrulaması, hata giderme ve final platform hazırlığı.</span></div>
     </div>
     <div class="item">
-      <div class="when">TBD WITH PUBLISHER</div>
-      <div class="what"><b>Commercial release</b>
-      <span>PC first. The final release format &mdash; Early Access or directly 1.0 &mdash; will be aligned with the publishing partner based on demo performance, wishlist growth, creator response and launch strategy.</span></div>
+      <div class="when">YAYINCIYLA BELİRLENECEK</div>
+      <div class="what"><b>Ticari çıkış</b>
+      <span>Önce PC. Nihai çıkış biçimi &mdash; Erken Erişim mi doğrudan 1.0 mı &mdash; demo performansı, istek listesi büyümesi, yaratıcı tepkisi ve çıkış stratejisine göre yayıncı ortakla birlikte belirlenecek.</span></div>
     </div>
   </div>
 
   <p class="dim" style="margin-top:20px;font-size:14.5px;max-width:none">
-    Dates and release strategy after September 2026 are intentionally flexible so the public
-    reveal, demo release, Next Fest participation, Early Access or 1.0 strategy, and commercial
-    launch can be coordinated with the publishing partner.
+    Eylül 2026 sonrasındaki tarihler ve çıkış stratejisi bilerek esnek bırakıldı; böylece
+    kamuya duyuru, demo yayını, Next Fest katılımı, Erken Erişim ya da 1.0 kararı ve ticari
+    çıkış yayıncı ortakla birlikte kurgulanabilir.
   </p>
   </div>
 </section>
@@ -707,50 +717,49 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide">
   <div class="inner">
   <span class="no">07 / 08</span>
-  <p class="kicker">THE ASK</p>
-  <h2>Why I'm looking for a publisher.</h2>
+  <p class="kicker">TALEP</p>
+  <h2>Neden bir yayıncı arıyorum.</h2>
 
   <p class="lede">
-    The design risk is spent. What's left is the part a solo developer is worst at and a
-    publisher is built for.
+    Tasarım riski harcandı. Geriye kalan, tek kişilik bir geliştiricinin en kötü olduğu ve
+    bir yayıncının tam da bunun için var olduğu kısım.
   </p>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>FUNDING</h3>
-      <p>Runway to finish art and audio properly instead of shipping the procedural
-      fallbacks.</p>
+      <h3>FİNANSMAN</h3>
+      <p>Prosedürel yedekleri yayınlamak yerine sanatı ve sesi düzgün bitirecek kaynak.</p>
     </div>
     <div class="panel">
-      <h3>VISIBILITY</h3>
-      <p>Wishlist volume before the demo, festival placement, and creators who make
-      pack-opening content &mdash; the single best-matched audience this game has.</p>
+      <h3>GÖRÜNÜRLÜK</h3>
+      <p>Demodan önce istek listesi hacmi, festival yerleşimi ve paket açma içeriği üreten
+      yaratıcılar &mdash; bu oyunun sahip olduğu en iyi eşleşen kitle.</p>
     </div>
   </div>
 
   <div class="rule"><i></i><b></b><i></i></div>
 
-  <h3>WHAT NEEDS FUNDING</h3>
+  <h3>NELERİN FİNANSMANA İHTİYACI VAR</h3>
   <ul style="margin-top:8px">
-    <li><b>Developer runway</b> &mdash; full-time solo development through the remaining
-    production period.</li>
-    <li><b>Art &amp; visual production</b> &mdash; the last card illustrations, UI polish,
-    capsule art and store assets.</li>
-    <li><b>Audio</b> &mdash; the score is procedural today; music and sound want recording.</li>
-    <li><b>QA &amp; localisation</b> &mdash; a human QA pass and localisation verification
-    across ten languages.</li>
-    <li><b>Marketing &amp; PR</b> &mdash; trailer production, festivals, creator outreach and
-    the launch campaign.</li>
+    <li><b>Geliştirici kaynağı</b> &mdash; kalan üretim süresi boyunca tam zamanlı, tek
+    kişilik geliştirme.</li>
+    <li><b>Sanat ve görsel üretim</b> &mdash; kalan kart illüstrasyonları, arayüz cilası,
+    kapsül görselleri ve mağaza materyalleri.</li>
+    <li><b>Ses</b> &mdash; müzik bugün prosedürel; müzik ve efektler kaydedilmeyi bekliyor.</li>
+    <li><b>QA ve yerelleştirme</b> &mdash; insan eliyle bir QA turu ve on dilde yerelleştirme
+    doğrulaması.</li>
+    <li><b>Pazarlama ve PR</b> &mdash; fragman yapımı, festivaller, yaratıcı iletişimi ve
+    çıkış kampanyası.</li>
   </ul>
 
-  <p class="askline" style="margin-top:18px">I have left figures out on purpose. What each of
-  these costs depends on how we scope it together, and I would rather agree on that with a
-  partner than commit to a number before the conversation.</p>
+  <p class="askline" style="margin-top:18px">Rakamları bilerek dışarıda bıraktım. Bunların her
+  birinin maliyeti kapsamı birlikte nasıl belirlediğimize bağlı; konuşma başlamadan bir sayıya
+  bağlanmaktansa bunu bir ortakla birlikte kararlaştırmayı tercih ederim.</p>
 
-  <p class="askline" style="margin-top:12px">The Steam demo comes first, then Next Fest,
-  then commercial release. <b>No release date is fixed on purpose</b> &mdash; the reveal, the
-  demo drop, Next Fest timing and the Early Access or 1.0 decision are all better planned with
-  a partner than announced before there is one.</p>
+  <p class="askline" style="margin-top:12px">Önce Steam demosu, sonra Next Fest, sonra
+  ticari çıkış. <b>Çıkış tarihi bilerek sabitlenmedi</b> &mdash; duyuru, demonun yayını, Next
+  Fest zamanlaması ve Erken Erişim mi 1.0 mı kararı; bir ortak yokken ilan edilmektense onunla
+  birlikte planlanması gereken şeyler.</p>
   </div>
 </section>
 
@@ -764,37 +773,37 @@ Ctrl+P &rarr; More settings &rarr; <b>Background graphics</b> ticked.</p>
 <section class="slide lift foot">
   <div class="inner" style="text-align:left">
   <span class="no">08 / 08</span>
-  <p class="kicker">ABOUT &amp; CONTACT</p>
-  <h2>Who made this, and how to reach me.</h2>
+  <p class="kicker">HAKKIMDA VE İLETİŞİM</p>
+  <h2>Bunu kim yaptı ve bana nasıl ulaşılır.</h2>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>ABOUT ME</h3>
-      <p><b>PaperNook Games</b> is a one-person studio, and Minthaven is its first title.
-      The design, code, art integration, localisation and tooling are all mine; art and
-      audio are commissioned as budget allows.</p>
+      <h3>HAKKIMDA</h3>
+      <p><b>PaperNook Games</b> tek kişilik bir stüdyo ve Minthaven ilk oyunu. Tasarım, kod,
+      sanat entegrasyonu, yerelleştirme ve araçlar bana ait; sanat ve ses bütçe elverdikçe
+      dışarıya yaptırılıyor.</p>
       <p class="dim" style="margin-top:10px">LinkedIn:
       <a href="https://www.linkedin.com/in/emre-dere-24317543/" target="_blank" rel="noopener">linkedin.com/in/emre-dere-24317543</a></p>
     </div>
     <div class="panel cream">
-      <h3>CONTACT</h3>
+      <h3>İLETİŞİM</h3>
       <p><b>Emre DERE</b><br>
       <b>papernookgames@gmail.com</b></p>
       <p class="dim" style="margin-top:12px">
         Site: <b>papernookgames.com</b><br>
         Steam: <b>store.steampowered.com/app/5167250</b><br>
-        Press assets available on request.
+        Basın materyalleri talep üzerine.
       </p>
     </div>
   </div>
 
   <div class="rule" style="margin:30px auto 20px"><i></i><b></b><i></i></div>
   <p class="dim" style="margin:0 auto 16px;max-width:52ch;text-align:center">
-    Thank you for reading. I am happy to go deeper on any part of Minthaven &mdash;
-    the systems, the numbers, or where it goes next.
+    Okuduğun için teşekkürler. Minthaven'ın herhangi bir kısmını daha derinlemesine
+    konuşmaktan memnuniyet duyarım &mdash; sistemler, rakamlar ya da bundan sonrası.
   </p>
   <a class="studio" style="display:block;text-align:center" href="https://papernookgames.com/" target="_blank" rel="noopener">
-    &copy; 2026 PAPERNOOK GAMES &middot; ALL RIGHTS RESERVED
+    &copy; 2026 PAPERNOOK GAMES &middot; TÜM HAKLARI SAKLIDIR
   </a>
   </div>
 </section>
