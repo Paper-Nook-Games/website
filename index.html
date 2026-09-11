@@ -196,6 +196,54 @@ a{ -webkit-tap-highlight-color:transparent; }
   background:radial-gradient(60% 100% at 50% 100%, rgba(0,0,0,.55), transparent 70%);
 }
 
+/* --- fragman penceresi (lightbox) ---------------------------- */
+/* Pencere `.page`'in DISINDA, dogrudan <body> altinda durur: `.page` hem
+   `overflow:hidden` hem de `.page > *{ position:relative; z-index:3 }`
+   tasiyor -- icine konsaydi kirpilir ve `fixed` konumu ezilirdi.
+   z-index 70: kiosk modali 60'ta (kiosk.css), bu onun da ustunde. */
+.tmodal{
+  position:fixed; inset:0; z-index:70;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(12px,4vw,28px);
+  background:rgba(8,26,17,.94);        /* --mat-deep, saydam */
+  animation:tfade .16s steps(3) both;
+}
+/* `display:flex` tarayicinin [hidden] kuralini ezer; geri getirmek sart. */
+.tmodal[hidden]{ display:none; }
+@keyframes tfade{ from{ opacity:0 } to{ opacity:1 } }
+@media (prefers-reduced-motion:reduce){ .tmodal{ animation:none; } }
+/* playmat taramasi burada da surer: pencere sayfanin parcasi gibi dursun */
+.tmodal::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px);
+  opacity:.5;
+}
+/* Genislik 16:9'un yani sira EKRAN YUKSEKLIGIYLE de sinirlanir (140px =
+   dis bosluk + baslik seridi + cerceve payi); yoksa alcak/yatay
+   pencerelerde video basligin ve ekranin altindan tasiyor. */
+.tdialog{
+  position:relative; display:flex; flex-direction:column; gap:8px;
+  width:min(1000px, 100%, calc((100dvh - 140px) * 16 / 9));
+}
+.tbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.ttitle{ font-family:'Silkscreen'; font-weight:700; letter-spacing:2px;
+  font-size:clamp(10px,3vw,13px); color:var(--cream); text-shadow:0 2px 0 #000; }
+.tclose{ font-family:'Silkscreen'; font-size:13px; line-height:1;
+  border:0; padding:9px 12px 8px; cursor:pointer; flex:0 0 auto; }
+.tframe{
+  position:relative; width:100%; aspect-ratio:16/9; background:#000;
+  /* .pxbox'in kenarlik dili, koyu zeminde okunsun diye ters cevrilmis:
+     ic 4px krem + dis 4px mur. Golgeler ONDEN ARKAYA cizildigi icin
+     krem arti yigini genis mur halkanin ustunde kalir. */
+  box-shadow:0 calc(var(--px)*-1) 0 var(--cream), 0 var(--px) 0 var(--cream),
+             calc(var(--px)*-1) 0 0 var(--cream), var(--px) 0 0 var(--cream),
+             0 0 0 calc(var(--px)*2) var(--ink),
+             0 10px 30px rgba(0,0,0,.6);
+}
+.tframe iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+/* Pencere acikken sayfa kaydirilmaz (mobilde .page akisi kayabiliyor). */
+html.tlock, body.tlock{ overflow:hidden; }
+
 /* dar/kisa ekranda .col seffaf sarmalayici: cocuklari .page akisina girer */
 .col{ display:contents; }
 
@@ -250,7 +298,10 @@ a{ -webkit-tap-highlight-color:transparent; }
         <svg viewBox="0 0 24 24"><path d="M12 21 3 12.5A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9 6.5Z"/></svg>
         <span data-i18n="wishlist">STEAM'DE ISTEK LISTENE EKLE</span>
       </a>
-      <a class="ribbon" href="#">
+      <!-- href GERCEK YouTube adresi olarak kalir: JS calismazsa, orta tikta ya da
+           "yeni sekmede ac"ta serit duz link gibi davranir. Tiklamayi asagidaki
+           script yakalayip yerinde pencere acar. -->
+      <a class="ribbon" id="trailerLink" href="https://youtu.be/2hdGG4VW39A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M4 3h16v14H4Zm4 18h8v-2H8Z"/></svg>
         <span data-i18n="trailer">FRAGMANI IZLE</span>
       </a>
@@ -306,21 +357,38 @@ a{ -webkit-tap-highlight-color:transparent; }
 
 </div>
 
+<!-- Fragman penceresi: kabuk isaretlemede DURUR (i18n ve odak icin), ama
+     <iframe> ICI BOSTUR — video ogesi ancak pencere acilinca yaratilir,
+     kapaninca silinir. Bkz. asagidaki openTrailer/closeTrailer. -->
+<div class="tmodal" id="trailerModal" hidden>
+  <div class="tdialog" role="dialog" aria-modal="true" aria-labelledby="trailerTitle">
+    <div class="tbar">
+      <span class="ttitle" id="trailerTitle" data-i18n="trailerTitle">FRAGMAN</span>
+      <button class="tclose pxbox" id="trailerClose" type="button" data-i18n-label="close">&#10005;</button>
+    </div>
+    <div class="tframe" id="trailerFrame"></div>
+  </div>
+</div>
+
 <script>
 /* Iki dil, tek sayfa — oyunun kendisi de TR/EN (src/i18n.js). */
 const STR = {
   tr:{ press:'BASIN KITI', wiki:'WIKI', devlog:'GELISTIRME GUNLUGU', pitch:'PITCH DECK',
        contact:'ILETISIM',
        wishlist:"STEAM'DE ISTEK LISTENE EKLE", trailer:'FRAGMANI IZLE', news:'HABER BULTENINE KATIL',
+       trailerTitle:'FRAGMAN', close:'KAPAT',
        rights:'TUM HAKLARI SAKLIDIR' },
   en:{ press:'PRESS KIT', wiki:'WIKI', devlog:'DEVLOG', pitch:'PITCH DECK',
        contact:'CONTACT',
        wishlist:'WISHLIST ON STEAM', trailer:'WATCH THE TRAILER', news:'JOIN THE NEWSLETTER',
+       trailerTitle:'TRAILER', close:'CLOSE',
        rights:'ALL RIGHTS RESERVED' }
 };
 function setLang(l){
   document.documentElement.lang = l;
   for(const el of document.querySelectorAll('[data-i18n]')) el.textContent = STR[l][el.dataset.i18n];
+  /* Gorunmeyen metinler (aria-label gibi) ayri gecer: textContent yazilamaz. */
+  for(const el of document.querySelectorAll('[data-i18n-label]')) el.setAttribute('aria-label', STR[l][el.dataset.i18nLabel]);
   for(const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang===l));
   try{ localStorage.setItem('mh_lang', l); }catch(e){}
 }
@@ -332,6 +400,54 @@ try{
         : ((navigator.language || '').toLowerCase().startsWith('tr') ? 'tr' : 'en');
 }catch(e){}
 setLang(start);
+
+/* --- Fragman penceresi --------------------------------------- */
+/* Iki kural pencerenin tamamini belirliyor:
+   1) iframe SAYFA ACILISINDA YARATILMAZ — yoksa herkes siteyi acar acmaz
+      YouTube'a istek atmis olurdu. Video ogesi yalniz acilista dogar.
+   2) Kapanista iframe DOM'DAN SILINIR. `src`i bosaltmak yetmiyor: oynatici
+      arka planda ses calmaya devam edebiliyor. */
+const TRAILER_SRC = 'https://www.youtube-nocookie.com/embed/2hdGG4VW39A?autoplay=1&rel=0';
+const tLink  = document.getElementById('trailerLink');
+const tModal = document.getElementById('trailerModal');
+const tFrame = document.getElementById('trailerFrame');
+
+function openTrailer(){
+  if(!tModal.hidden) return;
+  const f = document.createElement('iframe');
+  f.src = TRAILER_SRC;
+  f.title = STR[document.documentElement.lang] ? STR[document.documentElement.lang].trailerTitle : 'TRAILER';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  tFrame.appendChild(f);
+  tModal.hidden = false;
+  document.documentElement.classList.add('tlock');
+  document.body.classList.add('tlock');
+  addEventListener('keydown', onTrailerKey);
+  document.getElementById('trailerClose').focus({ preventScroll:true });
+}
+function closeTrailer(){
+  if(tModal.hidden) return;
+  tModal.hidden = true;
+  tFrame.replaceChildren();                 /* iframe tamamen gider */
+  document.documentElement.classList.remove('tlock');
+  document.body.classList.remove('tlock');
+  removeEventListener('keydown', onTrailerKey);
+  tLink.focus({ preventScroll:true });       /* odak serit butona doner */
+}
+function onTrailerKey(e){ if(e.key === 'Escape') closeTrailer(); }
+
+tLink.addEventListener('click', e=>{
+  /* Ctrl/Cmd/Shift/Alt ya da sol tik disi: tarayicinin kendi "yeni sekmede ac"
+     davranisini BOZMA, link YouTube'a gitsin. */
+  if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  openTrailer();
+});
+document.getElementById('trailerClose').onclick = closeTrailer;
+/* Yalniz perdenin KENDISINE tiklaninca kapanir; video/baslik uzeri sayilmaz. */
+tModal.addEventListener('click', e=>{ if(e.target === tModal) closeTrailer(); });
 </script>
 
 <!-- Kiosk: pool.js URETILIR (build_kiosk.py), kiosk.js elle yazilir.
