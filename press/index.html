@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minthaven — Press Kit</title>
+<meta name="description" content="Minthaven: A TCG Life Sim — press kit. Fact sheet, descriptions, features, trailer and downloadable screenshots, key art, logo and icon.">
+
+<!-- Bu sayfa ARAMA MOTORLARINA KAPALI. Sitenin tamami su an noindex; basin
+     kiti tek basina acik kalmamali. Siteyi arama motorlarina acacagin gun
+     asagidaki iki satiri diger sayfalarla BIRLIKTE sil. -->
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+
+<meta property="og:title" content="Minthaven: A TCG Life Sim — Press Kit">
+<meta property="og:description" content="Fact sheet, ready-to-paste descriptions, features, trailer and downloadable art for Minthaven: A TCG Life Sim.">
+<!-- MUTLAK olmali; sayfa baska bir alt yola tasinirsa ikisini de guncelle. -->
+<meta property="og:url" content="https://papernookgames.com/press/">
+<meta property="og:image" content="https://papernookgames.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e2618">
+<link rel="icon" href="../assets/icon.png">
+
+<style>
+/* ============================================================
+   Minthaven — basin kiti (press kit)
+
+   !! BU DOSYA PUBLIC BIR DEPOYA (Paper-Nook-Games/website) GIDER.
+   Yorumlar dahil her sey "kaynagi goruntule" ile okunabilir. Buraya
+   pazarlik pozisyonu, kaldirilmis rakam ya da ic strateji notu YAZMA.
+   O notlar private depoda docs/memory/systems/marketing-site.md'de durur.
+
+   TOKEN'LAR ../index.html ile BIREBIR AYNI (playmat yesili, krem,
+   altin, Pixelify + Silkscreen, 4px piksel kenarlik). Amac "ayri bir
+   sayfa" degil, sitenin ayni elinden cikmis bir bolum gibi durmasi.
+   Duzen: tam genislik bolum + ortalanmis .inner kolonu.
+
+   METIN ELLE YAZILIR ve baska bir metinden TURETILMISTIR; kaynagi
+   degisirse burasi elle guncellenmek zorundadir -- paylasilan sablon ya
+   da partial YOK. Hangi metnin nereden geldigi private depodaki
+   docs/memory/systems/marketing-site.md'de yaziyor.
+
+   TURKCE + SILKSCREEN: Silkscreen'de i-noktasiz (U+0131), I-noktali
+   (U+0130), g-yumusak (U+011F) ve G-yumusak (U+011E) glifleri YOK.
+   Bu yuzden Silkscreen ile dizilen her etiket/baslik TR'de de ASCII
+   BUYUK HARF yazilir (BASIN KITI, KUNYE, EKRAN GORUNTULERI). Govde
+   metni Pixelify'dir ve orada TAM DIAKRITIKLI duzgun Turkce yazilir.
+   Bu ayrimi bozma.
+   ============================================================ */
+
+@font-face{ font-family:'Pixelify'; src:url('../assets/fonts/PixelifySans-Variable.ttf') format('truetype');
+  font-weight:400 700; font-display:swap; }
+@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Regular.ttf') format('truetype');
+  font-weight:400; font-display:swap; }
+@font-face{ font-family:'Silkscreen'; src:url('../assets/fonts/Silkscreen-Bold.ttf') format('truetype');
+  font-weight:700; font-display:swap; }
+
+:root{
+  /* ../index.html ile AYNI palet — game/src/gfx/pixel.js PAL'den turer */
+  --mat:#0e2618; --mat-deep:#081a11; --mat-lift:#123020;
+  --etch:#4a9468;
+  --cream:#f5ead2;
+  --ink:#3f2832;
+  --gold:#feae34;
+  --dim:#9dbfa9;
+  --px:4px;
+  --col:1120px;          /* icerik kolonu */
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ background:var(--mat-deep); scroll-behavior:smooth; }
+body{
+  background:var(--mat-deep); color:var(--cream);
+  font-family:'Pixelify',ui-monospace,monospace;
+  font-size:clamp(16px,1.2vw,18px); line-height:1.7;
+  -webkit-font-smoothing:none; -webkit-text-size-adjust:100%;
+}
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+img{ image-rendering:pixelated; display:block; max-width:100%; height:auto; }
+a{ color:var(--gold); -webkit-tap-highlight-color:transparent; }
+strong,b{ color:#fff8e6; font-weight:700; }
+
+/* playmat zemini + vinil taramasi — acilis sayfasindaki dokunun aynisi */
+body::before{
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:url('../assets/bg_playmat.png') center/cover no-repeat, var(--mat);
+}
+body::after{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px);
+  opacity:.5; mix-blend-mode:multiply;
+}
+
+/* --- ortak piksel kenarlik (../index.html .pxbox) ------------- */
+.pxbox{
+  background:var(--cream); color:var(--ink); text-decoration:none;
+  box-shadow:0 calc(var(--px)*-1) 0 var(--ink), 0 var(--px) 0 var(--ink),
+             calc(var(--px)*-1) 0 0 var(--ink), var(--px) 0 0 var(--ink),
+             var(--px) var(--px) 0 rgba(0,0,0,.5);
+  transition:transform .06s steps(2), box-shadow .06s steps(2), background .1s;
+}
+.pxbox:hover{ background:var(--gold); transform:translate(2px,2px);
+  box-shadow:0 calc(var(--px)*-1) 0 var(--ink), 0 var(--px) 0 var(--ink),
+             calc(var(--px)*-1) 0 0 var(--ink), var(--px) 0 0 var(--ink); }
+@media (prefers-reduced-motion:reduce){ .pxbox{ transition:none; } }
+
+/* --- ust serit ------------------------------------------------ */
+.bar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; gap:12px;
+  padding:9px clamp(12px,3vw,28px);
+  background:rgba(8,26,17,.94); backdrop-filter:blur(3px);
+  box-shadow:0 var(--px) 0 rgba(74,148,104,.5);
+}
+.bar .home{ font-family:'Silkscreen'; font-size:12px; letter-spacing:1px;
+  color:var(--dim); text-decoration:none; white-space:nowrap; }
+.bar .home:hover{ color:var(--gold); }
+.bar .tag{ font-family:'Silkscreen'; font-size:12px; letter-spacing:2px; color:var(--etch);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.bar .spacer{ flex:1; }
+@media (max-width:560px){ .bar .tag{ display:none; } }
+
+/* dil dugmeleri — ../index.html .lang deseninin aynisi */
+.lang{ display:flex; flex:0 0 auto;
+  box-shadow:0 -3px 0 var(--ink), 0 3px 0 var(--ink), -3px 0 0 var(--ink), 3px 0 0 var(--ink),
+             3px 3px 0 rgba(0,0,0,.45); }
+.lang button{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; border:0; cursor:pointer;
+  padding:8px 12px 7px; background:var(--cream); color:var(--ink); }
+.lang button + button{ box-shadow:inset 3px 0 0 var(--ink); }
+.lang button[aria-pressed="true"]{ background:var(--ink); color:var(--gold); }
+
+/* --- bolum ---------------------------------------------------- */
+/* Bolum TAM GENISLIK (ayirici cizgi ve "lift" zemini kenardan kenara gitsin),
+   icerik ise ORTALANMIS dar bir kolon. 100vw ile break-out KULLANILMAZ:
+   dikey kaydirma cubugu varken viewport'tan genis olur ve
+   `overflow-x:clip` bunu kokte kesmiyor. */
+.slide{ width:100%; padding:clamp(38px,6vh,68px) clamp(16px,6vw,80px); }
+.slide + .slide{ box-shadow:inset 0 var(--px) 0 rgba(74,148,104,.22); }
+.slide.lift{ background:linear-gradient(180deg,rgba(18,48,32,.62),rgba(18,48,32,.22)); }
+.inner{ position:relative; max-width:var(--col); margin:0 auto; }
+
+/* --- basliklar ----------------------------------------------- */
+.kicker{ font-family:'Silkscreen'; font-weight:700; font-size:clamp(10px,1.6vw,12px);
+  letter-spacing:3px; color:var(--gold); margin-bottom:14px; }
+h2{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; line-height:1.35;
+  font-size:clamp(17px,2.6vw,27px); margin-bottom:16px; text-shadow:0 var(--px) 0 rgba(0,0,0,.45); }
+h3{ font-family:'Silkscreen'; font-weight:700; letter-spacing:1px; font-size:clamp(12px,1.7vw,14px);
+  color:var(--gold); margin-bottom:9px; }
+p{ max-width:74ch; }
+p + p{ margin-top:.85em; }
+.dim{ color:var(--dim); }
+
+/* ayrac — acilis sayfasindaki kesik cizgi + 45 derece altin kare */
+.rule{ display:flex; align-items:center; gap:10px; opacity:.8; margin:26px 0; max-width:520px; }
+.rule i{ flex:1; height:var(--px);
+  background:repeating-linear-gradient(90deg,var(--etch) 0 var(--px),transparent var(--px) calc(var(--px)*2)); }
+.rule b{ width:12px; height:12px; background:var(--gold); transform:rotate(45deg);
+  box-shadow:0 0 0 var(--px) var(--mat-deep); flex:0 0 auto; }
+
+/* --- kapak ---------------------------------------------------- */
+.cover{ text-align:center; }
+.cover .logo{ width:min(430px,88%); margin:0 auto clamp(14px,3vh,24px);
+  filter:drop-shadow(0 6px 0 rgba(0,0,0,.45)); }
+.cover .hook{ font-size:clamp(17px,2.2vw,25px); line-height:1.5; color:#fff8e6;
+  max-width:26ch; margin:0 auto; text-shadow:0 3px 0 rgba(0,0,0,.5); }
+.cover .meta{ font-family:'Silkscreen'; font-size:clamp(10px,1.5vw,12px); letter-spacing:2px;
+  color:var(--dim); display:flex; gap:8px 22px; justify-content:center; flex-wrap:wrap; }
+.cover .rule{ margin:clamp(18px,3vh,28px) auto; }
+
+/* --- paneller / izgaralar ------------------------------------ */
+.grid{ display:grid; gap:clamp(14px,2vw,22px); margin-top:24px; }
+.g2{ grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); }
+.panel{
+  background:rgba(8,26,17,.6); padding:clamp(14px,2vw,22px);
+  box-shadow:inset 0 0 0 var(--px) rgba(74,148,104,.4), var(--px) var(--px) 0 rgba(0,0,0,.35);
+}
+.panel p{ font-size:16.5px; line-height:1.7; }
+/* krem panel — SADECE vurgu icin. strong/b varsayilan olarak neredeyse
+   BEYAZ (#fff8e6); krem zeminde kayboluyor, koyu murekkebe cekilmek ZORUNDA. */
+.panel.cream{ background:var(--cream); color:var(--ink);
+  box-shadow:0 calc(var(--px)*-1) 0 var(--ink),0 var(--px) 0 var(--ink),
+             calc(var(--px)*-1) 0 0 var(--ink),var(--px) 0 0 var(--ink),var(--px) var(--px) 0 rgba(0,0,0,.5); }
+.panel.cream h3{ color:#8a4d1f; }
+.panel.cream .dim{ color:#6b5560; }
+.panel.cream b,.panel.cream strong{ color:var(--ink); }
+.panel.cream a{ color:#8a4d1f; }
+/* Uzun adresler (Steam magaza yolu) dar ekranda kutudan TASIYOR; olculdu:
+   360px'te 9px yatay kaydirma. Kelime ortasindan kirilmalarina izin ver. */
+.panel a{ overflow-wrap:anywhere; }
+
+/* --- kunye tablosu ------------------------------------------- */
+.facts{ display:grid; grid-template-columns:minmax(120px,168px) 1fr; gap:0;
+  margin-top:24px; box-shadow:inset 0 0 0 var(--px) rgba(74,148,104,.4); }
+.facts dt{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; color:var(--gold);
+  padding:11px 14px 9px; background:rgba(8,26,17,.6); }
+.facts dd{ padding:11px 16px 9px; font-size:16.5px; line-height:1.55;
+  background:rgba(74,148,104,.1); overflow-wrap:anywhere; }
+.facts dt,.facts dd{ box-shadow:inset 0 var(--px) 0 rgba(74,148,104,.22); }
+.facts dt:first-of-type,.facts dt:first-of-type + dd{ box-shadow:none; }
+@media (max-width:560px){
+  .facts{ grid-template-columns:1fr; }
+  .facts dt{ padding-bottom:2px; box-shadow:inset 0 var(--px) 0 rgba(74,148,104,.22); }
+  .facts dd{ padding-top:4px; background:rgba(8,26,17,.6); box-shadow:none; }
+}
+
+/* --- kopyalanabilir metin bloklari --------------------------- */
+.copyblock + .copyblock{ margin-top:16px; }
+.cbhead{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:9px; }
+.cblabel{ font-family:'Silkscreen'; font-size:11px; letter-spacing:2px; color:var(--gold); }
+.cbtn{
+  font-family:'Silkscreen'; font-size:10px; letter-spacing:1px; line-height:1;
+  border:0; cursor:pointer; padding:9px 12px 8px; margin-left:auto; flex:0 0 auto;
+}
+.copyblock p{ font-size:16.5px; line-height:1.7; max-width:78ch; }
+/* Duz, kopyalanabilir adres satiri (fragman URL'i) */
+.url{ font-size:16px; color:var(--cream); overflow-wrap:anywhere; max-width:none;
+  background:rgba(8,26,17,.6); padding:10px 13px 9px;
+  box-shadow:inset 0 0 0 2px rgba(74,148,104,.4); }
+
+/* --- ozellikler ---------------------------------------------- */
+.feat h3{ margin-bottom:6px; }
+.feat p{ font-size:16.5px; line-height:1.7; color:var(--cream); }
+
+/* --- serit buton (fragman / tumunu indir) -------------------- */
+/* ../index.html'in ahsap tabelasi 9-slice olarak buraya da gelir. */
+.ribbon{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  min-height:52px; padding:4px 18px;
+  color:var(--ink); text-decoration:none; text-align:center;
+  font-family:'Silkscreen'; font-weight:700; letter-spacing:1px;
+  font-size:clamp(10px,2.4vw,13px);
+  border-style:solid; border-width:14px 15px;
+  border-image:url('../assets/sign.png') 15 16 fill stretch;
+  filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));
+  transition:transform .06s steps(2), filter .06s steps(2);
+  cursor:pointer;
+}
+.ribbon:hover{ border-image-source:url('../assets/sign_hover.png');
+  transform:translate(2px,2px); filter:none; }
+.ribbon svg{ width:16px; height:16px; fill:currentColor; flex:0 0 auto; }
+/* `display:inline-flex` tarayicinin [hidden] kuralini ezer; geri getirilmeli. */
+.ribbon[hidden]{ display:none; }
+@media (prefers-reduced-motion:reduce){ .ribbon{ transition:none; } }
+
+/* --- gorsel izgarasi ----------------------------------------- */
+.shots{ display:grid; gap:clamp(14px,2.2vw,24px); margin-top:24px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.shot{ display:flex; flex-direction:column; gap:10px; }
+.shotframe{ display:block; background:var(--mat-deep);
+  border:var(--px) solid var(--ink); box-shadow:var(--px) var(--px) 0 rgba(0,0,0,.5); }
+/* Kucultulerek gosterilen ekran goruntusunde `pixelated` piksel atlatiyor;
+   onizlemeler zaten 960 px'e pisirildi, tarayici duzgun kucultsun. */
+.shotframe img{ width:100%; image-rendering:auto; }
+/* Ikon 184 px'lik bir asset; izgara hucresi kadar (~350 px) GERILIRSE
+   yumusayip yalan soyler. Kendi olcusunde dursun. */
+.shot.tight .shotframe{ max-width:184px; }
+/* Etiket bloku SOLDA, indirme dugmesi HEP SAGDA. Duz flex + `margin-left:auto`
+   denendi: uzun adlarda (PAKET ACMA / DOWNLOAD PNG) dugme alt satira dusuyor ve
+   izgara satir satir kayiyordu. Iki kolonlu grid'de ad/olcu kendi icinde sarar,
+   dugmenin yeri degismez. */
+.shotcap{ display:grid; grid-template-columns:1fr auto; align-items:center; gap:4px 12px; }
+.shotlabel{ display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 9px; }
+.shotname{ font-family:'Silkscreen'; font-size:11px; letter-spacing:1px; color:var(--cream); }
+.shotmeta{ font-size:14.5px; color:var(--dim); }
+.dl{ font-family:'Silkscreen'; font-size:10px; letter-spacing:1px; line-height:1;
+  padding:8px 11px 7px; flex:0 0 auto; }
+
+/* --- gorsel grubu alt basligi -------------------------------- */
+/* Ekran goruntusu / tanitim gorseli / marka ayrimi GORSEL olmali:
+   tanitim gorsellerinin uzerinde baslik yazisi var, gazeteci onlari
+   ekran goruntusu sanmamali. */
+.subhead{ font-family:'Silkscreen'; font-weight:700; font-size:clamp(11px,1.6vw,13px);
+  letter-spacing:2px; color:var(--cream); margin:34px 0 0; padding-bottom:9px;
+  box-shadow:inset 0 calc(var(--px)*-1) 0 rgba(74,148,104,.4); }
+.subnote{ font-size:15.5px; color:var(--dim); margin-top:12px; }
+
+/* --- klipler -------------------------------------------------- */
+.clips{ display:grid; gap:clamp(14px,2.2vw,24px); margin-top:24px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+/* Klip sayisi TAM DORT: genis ekranda 2x2 durur. auto-fit ucuncu kolonu acinca
+   dorduncu klip alt satirda tek basina kaliyordu; ayrica iki kolonda video
+   buyuyor, 1170x658 kaynak icin daha dogru. */
+@media (min-width:900px){ .clips{ grid-template-columns:repeat(2,1fr); } }
+.clip{ display:flex; flex-direction:column; gap:10px; }
+.clipframe{ position:relative; width:100%; aspect-ratio:16/9; cursor:pointer;
+  background:var(--mat-deep); border:var(--px) solid var(--ink);
+  box-shadow:var(--px) var(--px) 0 rgba(0,0,0,.5); }
+.clipframe video{ position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; display:block; image-rendering:auto; background:#000; }
+/* Kapak dugmesi oynarken de ODAKLANABILIR kalir (gizlenmez, saydamlasir):
+   klavyeyle duraklatabilmek gerekiyor. */
+.clipplay{ position:absolute; inset:0; display:grid; place-items:center; padding:0;
+  border:0; cursor:pointer; background:rgba(8,26,17,.34);
+  transition:opacity .12s steps(2); }
+/* Ikonun ARKASINA kendi zemini konur. Tile'in tamamindaki %34'luk perde yetmiyor:
+   "kart efektleri" klibinin posteri parlak yesil ve krem ucgen orada okunmuyordu
+   (diger uc posterin koyu olmasi kusuru gizliyordu). Kutu sayfanin 4px piksel
+   dilinde; ::before ile svg AYNI izgara hucresine konur ki ust uste binsinler. */
+.clipplay::before{ content:''; width:74px; height:74px;
+  background:rgba(8,26,17,.82); box-shadow:0 0 0 var(--px) var(--ink); }
+.clipplay::before, .clipplay svg{ grid-area:1/1; place-self:center; }
+.clipplay svg{ width:52px; height:52px; fill:var(--cream);
+  filter:drop-shadow(0 3px 0 rgba(0,0,0,.6)); }
+.clipframe:hover .clipplay svg{ fill:var(--gold); }
+.clipplay .ico-pause{ display:none; }
+.clipframe.playing .clipplay{ opacity:0; background:transparent; }
+.clipframe.playing:hover .clipplay,
+.clipframe.playing .clipplay:focus-visible{ opacity:1; }
+.clipframe.playing .ico-play{ display:none; }
+.clipframe.playing .ico-pause{ display:block; }
+@media (prefers-reduced-motion:reduce){ .clipplay{ transition:none; } }
+.clipdesc{ font-size:15.5px; line-height:1.6; color:var(--dim); }
+
+/* --- sosyal ikonlar (../index.html ile ayni) ----------------- */
+.social-row{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-top:18px; }
+.social{ display:inline-grid; place-items:center; width:38px; height:38px;
+  transition:transform .06s steps(2); }
+.social svg{ width:24px; height:24px; fill:var(--cream);
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.6)); }
+.social:hover{ transform:translateY(-3px); }
+.social:hover svg{ fill:var(--gold); }
+.social svg.line{ fill:none; stroke:var(--cream); stroke-width:1.9;
+  stroke-linecap:round; stroke-linejoin:round; }
+.social:hover svg.line{ fill:none; stroke:var(--gold); }
+@media (prefers-reduced-motion:reduce){ .social{ transition:none; } }
+
+/* --- altbilgi ------------------------------------------------- */
+.foot{ text-align:center; padding-bottom:clamp(40px,8vh,80px); }
+.foot .studio{ font-family:'Silkscreen'; font-size:11px; letter-spacing:2px; color:var(--dim);
+  text-decoration:none; }
+.foot .studio:hover{ color:var(--gold); }
+
+/* --- fragman penceresi (lightbox) ---------------------------- */
+/* ../index.html'deki pencerenin aynisi. Pencere .slide agacinin DISINDA,
+   dogrudan <body> altinda durur; icine konsaydi bolum zemini ve konum
+   baglami `fixed`i ezerdi. */
+.tmodal{
+  position:fixed; inset:0; z-index:70;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(12px,4vw,28px);
+  background:rgba(8,26,17,.94);
+  animation:tfade .16s steps(3) both;
+}
+/* `display:flex` tarayicinin [hidden] kuralini ezer; geri getirmek sart. */
+.tmodal[hidden]{ display:none; }
+@keyframes tfade{ from{ opacity:0 } to{ opacity:1 } }
+@media (prefers-reduced-motion:reduce){ .tmodal{ animation:none; } }
+.tmodal::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px);
+  opacity:.5;
+}
+/* Genislik 16:9'un yani sira EKRAN YUKSEKLIGIYLE de sinirlanir (140px =
+   dis bosluk + baslik seridi + cerceve payi). */
+.tdialog{
+  position:relative; display:flex; flex-direction:column; gap:8px;
+  width:min(1000px, 100%, calc((100dvh - 140px) * 16 / 9));
+}
+.tbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.ttitle{ font-family:'Silkscreen'; font-weight:700; letter-spacing:2px;
+  font-size:clamp(10px,3vw,13px); color:var(--cream); text-shadow:0 2px 0 #000; }
+.tclose{ font-family:'Silkscreen'; font-size:13px; line-height:1;
+  border:0; padding:9px 12px 8px; cursor:pointer; flex:0 0 auto; }
+.tframe{
+  position:relative; width:100%; aspect-ratio:16/9; background:#000;
+  box-shadow:0 calc(var(--px)*-1) 0 var(--cream), 0 var(--px) 0 var(--cream),
+             calc(var(--px)*-1) 0 0 var(--cream), var(--px) 0 0 var(--cream),
+             0 0 0 calc(var(--px)*2) var(--ink),
+             0 10px 30px rgba(0,0,0,.6);
+}
+.tframe iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+html.tlock, body.tlock{ overflow:hidden; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="home" href="../">&larr; MINTHAVEN</a>
+  <span class="tag" data-i18n="tag">BASIN KITI</span>
+  <span class="spacer"></span>
+  <div class="lang">
+    <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+
+<!-- 01 - KAPAK ------------------------------------------------- -->
+<!-- Baslikta basin kitinin KENDI seffaf logosunun onizlemesi kullanilir
+     (media/thumbs/minthaven-logo.webp, 38 KB) -- tam boyutlu PNG ile birebir
+     ayni gorsel, ama sayfa acilisinda 415 KB daha az iniyor. Indirilebilir
+     hali asagida MARKA VE MAGAZA grubunda. -->
+<section class="slide cover">
+  <div class="inner">
+    <img class="logo" src="media/thumbs/minthaven-logo.webp" alt="Minthaven — A TCG Life Sim" width="960" height="381">
+    <p class="hook" data-i18n="hook">Minthaven'a yüz dolarla ve tek bir kartın olmadan taşındın.</p>
+    <div class="rule"><i></i><b></b><i></i></div>
+    <div class="meta">
+      <span data-i18n="metaGenre">YASAM SIMULASYONU &middot; KOLEKSIYON RPG &middot; KART OYUNU</span>
+      <span>PC &middot; STEAM</span>
+      <span data-i18n="metaModel">TEK OYUNCULU</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- 02 - KUNYE ------------------------------------------------- -->
+<section class="slide lift">
+  <div class="inner">
+    <p class="kicker" data-i18n="kFacts">KUNYE</p>
+    <h2 data-i18n="hFacts">TEK BAKISTA MINTHAVEN</h2>
+    <dl class="facts">
+      <dt data-i18n="fGame">OYUN</dt>          <dd>Minthaven: A TCG Life Sim</dd>
+      <dt data-i18n="fDev">GELISTIRICI</dt>    <dd data-i18n="vDev">Paper Nook Games — tek kişilik stüdyo, Emre DERE</dd>
+      <dt data-i18n="fPub">YAYINCI</dt>        <dd data-i18n="vPub">Açıklanmadı (TBA)</dd>
+      <dt data-i18n="fRel">CIKIS</dt>          <dd data-i18n="vRel">Tarih açıklanmadı (TBA)</dd>
+      <dt data-i18n="fPlat">PLATFORM</dt>      <dd>PC (Steam)</dd>
+      <dt data-i18n="fGenre">TUR</dt>          <dd data-i18n="vGenre">Yaşam simülasyonu · Koleksiyon RPG'si · Kart oyunu</dd>
+      <dt data-i18n="fPlayers">OYUNCU</dt>     <dd data-i18n="vPlayers">Tek oyuncu</dd>
+      <dt data-i18n="fLangs">DILLER</dt>       <dd data-i18n="vLangs">10 dil</dd>
+      <dt data-i18n="fSite">SITE</dt>          <dd><a href="https://papernookgames.com/" target="_blank" rel="noopener">papernookgames.com</a></dd>
+      <dt>STEAM</dt>                           <dd><a href="https://store.steampowered.com/app/5167250/MINTHAVEN_A_TCG_Life_Sim/" target="_blank" rel="noopener">store.steampowered.com/app/5167250</a></dd>
+      <dt data-i18n="fMail">ILETISIM</dt>      <dd><a href="mailto:papernookgames@gmail.com">papernookgames@gmail.com</a></dd>
+    </dl>
+  </div>
+</section>
+
+
+<!-- 03 - ACIKLAMA ---------------------------------------------- -->
+<!-- Basinin kopyala-yapistir yapacagi uc uzunluk. Paragraflar BILEREK duz metindir (inline <b>/<em> yok): setLang()
+     bunlari textContent ile yaziyor ve kopyalanan sey de duz metin olmali. -->
+<section class="slide">
+  <div class="inner">
+    <p class="kicker" data-i18n="kDesc">ACIKLAMA</p>
+    <h2 data-i18n="hDesc">HAZIR METINLER</h2>
+
+    <div class="copyblock">
+      <div class="cbhead">
+        <span class="cblabel" data-i18n="lOne">TEK CUMLE</span>
+        <button class="cbtn pxbox" type="button" data-copy="desc1" data-i18n="copy">KOPYALA</button>
+      </div>
+      <p id="desc1" data-i18n="desc1">Minthaven: A TCG Life Sim, kartın öbür yüzünü anlatan sıcak bir yaşam simülasyonu: kasabaya yüz dolarla ve tek bir kartın olmadan taşınıyorsun, sonrası paketler, takaslar, derecelendirme ve gerçek bir kart oyunu.</p>
+    </div>
+
+    <div class="copyblock">
+      <div class="cbhead">
+        <span class="cblabel" data-i18n="lShort">KISA PARAGRAF</span>
+        <button class="cbtn pxbox" type="button" data-copy="desc2" data-i18n="copy">KOPYALA</button>
+      </div>
+      <p id="desc2" data-i18n="desc2">Koleksiyon kartı oyunları o kartlarla kazanmayı anlatır. Minthaven ise etrafındaki her şeyi: paketi kendi elinle yırtmayı, bir ilk baskının peşine düşmeyi, kartın ortalanmasını tartışmayı, koruyucu poşete koymaya bile çekindiğin kartı derecelendirmeye yollamayı — ve gerçekten sevdiğin kartı satmayı, çünkü paraya daha çok ihtiyacın vardı.</p>
+    </div>
+
+    <div class="copyblock">
+      <div class="cbhead">
+        <span class="cblabel" data-i18n="lLong">UZUN PARAGRAF</span>
+        <button class="cbtn pxbox" type="button" data-copy="desc3" data-i18n="copy">KOPYALA</button>
+      </div>
+      <p id="desc3" data-i18n="desc3">Koleksiyon kartı oyunları o kartlarla kazanmayı anlatır. Minthaven ise etrafındaki her şeyi: paketi kendi elinle yırtmayı, bir ilk baskının peşine düşmeyi, kartın ortalanmasını tartışmayı, koruyucu poşete koymaya bile çekindiğin kartı derecelendirmeye yollamayı — ve gerçekten sevdiğin kartı satmayı, çünkü paraya daha çok ihtiyacın vardı. Uyanıyor, telefonundan piyasayı okuyor, kasabaya iniyor, bir paket alıp kendi ellerinle açıyorsun. Seni hatırlayan insanlarla takas yapıyor, masaya oturup gerçek bir kart oyunu oynuyor, sonra uyumadan önce günün hesabını okuyorsun. Kart dükkânı, derecelendirme laboratuvarı, postane, turnuva salonu, kafe, konak ve kendi evin girilebilir; dışarıda gerçek rutinleri olan 33 isimli kasabalı, aralarında 12 kart takasçısı, hava durumu ve sen bakmasan da hareket eden bir kart piyasası var.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 04 - OZELLIKLER -------------------------------------------- -->
+<!-- Basliklar Silkscreen oldugu icin KISA ve ASCII tutuldu; anlatim
+     Pixelify govdesinde, tam diakritikli. -->
+<section class="slide lift">
+  <div class="inner">
+    <p class="kicker" data-i18n="kFeat">OZELLIKLER</p>
+    <h2 data-i18n="hFeat">OYUNUN TASIDIGI ALTI SEY</h2>
+    <div class="grid g2">
+      <div class="panel feat">
+        <h3 data-i18n="f1t">RITUEL</h3>
+        <p data-i18n="f1">Paket bir düğme değil, bir ritüel: folyoyu kendi elinle ayırıyor, kartları tek tek çeviriyorsun. Dört satın alınabilir paket türü, garantili bir isabet yuvası ve oyunun asla bahsetmediği acıma sayaçları.</p>
+      </div>
+      <div class="panel feat">
+        <h3 data-i18n="f2t">TEK SERI</h3>
+        <p data-i18n="f2">Elementa tek bir seri: 57 kart, beş element, dört nadirlik kademesi, sezonluk damlama yok. Paketlerin dışında ayrıca 18 promo kart var. Gerçekten bitirebileceğin bir seri.</p>
+      </div>
+      <div class="panel feat">
+        <h3 data-i18n="f3t">DERECELENDIRME</h3>
+        <p data-i18n="f3">Kartlar Mint'ten Damaged'a kadar değişir; ortalanmayı ise parasını ödeyene kadar göremezsin. Laboratuvarda 25 dolar ve üç gün, fiyatı üçe katlayabilecek bir puan satın alır — ve kapsüllenmiş kart oynanamaz.</p>
+      </div>
+      <div class="panel feat">
+        <h3 data-i18n="f4t">PIYASA</h3>
+        <p data-i18n="f4">Haftalık dalgalar, bütün bir arketipi bir gecede yukarı çeken meta raporları, cuma için sakladığın kartı yerle bir eden haberler. Ve klasörden hiçbir şey satılmaz — her kanal yürüyerek gittiğin bir yerdir.</p>
+      </div>
+      <div class="panel feat">
+        <h3 data-i18n="f5t">INSANLAR</h3>
+        <p data-i18n="f5">On iki takasçı; her birinin fazla ödediği bir element ve öğrenebileceğin bir alışkanlığı var. Birini kazıklarsan işe yarar. Bir kez. Kin birkaç gün sonra, tam onlara ihtiyacın olduğunda ortaya çıkar.</p>
+      </div>
+      <div class="panel feat">
+        <h3 data-i18n="f6t">KART OYUNU</h3>
+        <p data-i18n="f6">20 kartlık desteler, üç yaratık yuvası, yedi anahtar kelime ve beş elementli bir üstünlük çemberi. Yerel Kupa'dan Dünya Şampiyonası'na uzanan bir merdiven var.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 05 - FRAGMAN ----------------------------------------------- -->
+<section class="slide">
+  <div class="inner">
+    <p class="kicker" data-i18n="kTrailer">FRAGMAN</p>
+    <h2 data-i18n="hTrailer">OYNANIS FRAGMANI</h2>
+    <!-- href GERCEK YouTube adresi olarak kalir: JS calismazsa, orta tikta ya da
+         "yeni sekmede ac"ta serit duz link gibi davranir. Tiklamayi asagidaki
+         script yakalayip yerinde pencere acar. -->
+    <a class="ribbon" id="trailerLink" href="https://youtu.be/2hdGG4VW39A" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 3h16v14H4Zm4 18h8v-2H8Z"/></svg>
+      <span data-i18n="watch">FRAGMANI IZLE</span>
+    </a>
+    <p class="dim" style="margin-top:18px" data-i18n="embedNote">Kendi yazına gömmek için doğrudan adres:</p>
+    <div class="cbhead" style="margin-top:9px">
+      <p class="url" id="ytUrl">https://www.youtube.com/watch?v=2hdGG4VW39A</p>
+      <button class="cbtn pxbox" type="button" data-copy="ytUrl" data-i18n="copy">KOPYALA</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- 06 - KLIPLER ----------------------------------------------- -->
+<!-- KLIPLER SAYFA ACILISINDA TEK BYTE INDIRMEZ. Dort klip otomatik oynasaydi
+     her ziyaretciye ~8.5 MB inerdi -- daha hicbir seye tiklamadan. Bu yuzden
+     <video> `src` TASIMAZ: yol `data-src`te durur ve ANCAK ilk tiklamada
+     atanir. `preload="none"` tek basina yeterli degil (tarayici yine de
+     metadata icin uzanabiliyor); tasiyicinin bos olmasi kesin cozum.
+     Fragman penceresindeki disiplinin aynisi. -->
+<section class="slide lift">
+  <div class="inner">
+    <p class="kicker" data-i18n="kClips">KLIPLER</p>
+    <h2 data-i18n="hClips">OYNANIS KLIPLERI</h2>
+    <p class="dim" data-i18n="clipNote">Klipler sessiz ve döngüseldir; hiçbiri sen tıklamadan indirilmez.</p>
+
+    <div class="clips">
+      <figure class="clip">
+        <div class="clipframe">
+          <video poster="media/thumbs/minthaven-card-effect.webp" data-src="media/clips/minthaven-card-effect.mp4"
+                 loop muted playsinline preload="none" width="960" height="540"></video>
+          <button class="clipplay" type="button" data-i18n-label="play" aria-label="OYNAT">
+            <svg class="ico-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8Z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6Zm8 0h4v16h-4Z"/></svg>
+          </button>
+        </div>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="c1">KART EFEKTLERI</span>
+          <span class="shotmeta">1170&times;658 &middot; 3.07 MB</span></span>
+          <a class="dl pxbox" href="media/clips/minthaven-card-effect.mp4" download><span data-i18n="dlmp4">MP4 INDIR</span></a>
+        </figcaption>
+        <p class="clipdesc" data-i18n="c1d">Kart yüzeylerindeki foil ve prizma efektleri; oyunun kendi shader'ıyla çiziliyor.</p>
+      </figure>
+
+      <figure class="clip">
+        <div class="clipframe">
+          <video poster="media/thumbs/minthaven-duel.webp" data-src="media/clips/minthaven-duel.mp4"
+                 loop muted playsinline preload="none" width="960" height="540"></video>
+          <button class="clipplay" type="button" data-i18n-label="play" aria-label="OYNAT">
+            <svg class="ico-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8Z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6Zm8 0h4v16h-4Z"/></svg>
+          </button>
+        </div>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="c2">DUELLO</span>
+          <span class="shotmeta">1170&times;658 &middot; 1.12 MB</span></span>
+          <a class="dl pxbox" href="media/clips/minthaven-duel.mp4" download><span data-i18n="dlmp4">MP4 INDIR</span></a>
+        </figcaption>
+        <p class="clipdesc" data-i18n="c2d">Düellodan bir kesit: yaratık yuvaları, enerji eğrisi ve element üstünlüğü.</p>
+      </figure>
+
+      <figure class="clip">
+        <div class="clipframe">
+          <video poster="media/thumbs/minthaven-showcase.webp" data-src="media/clips/minthaven-showcase.mp4"
+                 loop muted playsinline preload="none" width="960" height="540"></video>
+          <button class="clipplay" type="button" data-i18n-label="play" aria-label="OYNAT">
+            <svg class="ico-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8Z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6Zm8 0h4v16h-4Z"/></svg>
+          </button>
+        </div>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="c3">VITRIN</span>
+          <span class="shotmeta">1170&times;658 &middot; 1.88 MB</span></span>
+          <a class="dl pxbox" href="media/clips/minthaven-showcase.mp4" download><span data-i18n="dlmp4">MP4 INDIR</span></a>
+        </figcaption>
+        <p class="clipdesc" data-i18n="c3d">Teşhir dolabı: koleksiyonun görünen yüzü.</p>
+      </figure>
+
+      <figure class="clip">
+        <div class="clipframe">
+          <video poster="media/thumbs/minthaven-trade.webp" data-src="media/clips/minthaven-trade.mp4"
+                 loop muted playsinline preload="none" width="960" height="540"></video>
+          <button class="clipplay" type="button" data-i18n-label="play" aria-label="OYNAT">
+            <svg class="ico-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8Z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6Zm8 0h4v16h-4Z"/></svg>
+          </button>
+        </div>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="c4">TAKAS</span>
+          <span class="shotmeta">1170&times;658 &middot; 2.50 MB</span></span>
+          <a class="dl pxbox" href="media/clips/minthaven-trade.mp4" download><span data-i18n="dlmp4">MP4 INDIR</span></a>
+        </figcaption>
+        <p class="clipdesc" data-i18n="c4d">Bir takasçıyla takas; her takasçının fazla ödediği bir element var.</p>
+      </figure>
+    </div>
+
+    <!-- Sikistirilmamis GIF'ler toplu indirme klasorunde. Drive baglantisi
+         gelene kadar bu satir da TUMUNU INDIR dugmesiyle AYNI mekanizmayla
+         gizli kalir: olmayan bir klasoru vaat etmeyelim. -->
+    <p class="dim" id="gifNote" style="margin-top:20px" data-i18n="gifNote" hidden>Bu kliplerin sıkıştırılmamış orijinal GIF sürümleri Drive klasöründe.</p>
+  </div>
+</section>
+
+
+<!-- 07 - GORSELLER --------------------------------------------- -->
+<!-- Sayfada gosterilen sey media/thumbs/*.webp (uzun kenar 960 px); indirilen
+     sey media/ altindaki tam cozunurluklu dosya. Boyut ve cozunurluk etiketleri
+     OLCULMUS gercek degerlerdir, tahmin degil. Izgara UC GRUBA ayrilir; ayrim
+     gazeteci icindir: tanitim gorsellerinin uzerinde baslik yazisi var, onlar
+     ekran goruntusu DEGIL. -->
+<section class="slide lift">
+  <div class="inner">
+    <p class="kicker" data-i18n="kImg">GORSELLER</p>
+    <h2 data-i18n="hImg">EKRAN GORUNTULERI VE MARKA GORSELLERI</h2>
+    <p class="dim" data-i18n="imgNote">Önizlemeler küçültülmüştür; her görselin tam çözünürlüklü hâli indirilebilir.</p>
+
+    <div class="shots">
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-01-card-shop.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-01-card-shop.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i1">KART DUKKANI</span>
+          <span class="shotmeta">1920&times;1080 &middot; 250 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-01-card-shop.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-02-showcase.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-02-showcase.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i2">TESHIR DOLABI</span>
+          <span class="shotmeta">1920&times;1080 &middot; 302 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-02-showcase.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-03-card-show.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-03-card-show.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i3">KART FUARI</span>
+          <span class="shotmeta">1920&times;1080 &middot; 395 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-03-card-show.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-04-binder.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-04-binder.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i4">KLASOR</span>
+          <span class="shotmeta">1920&times;1080 &middot; 284 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-04-binder.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-05-trade.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-05-trade.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i5">TAKAS</span>
+          <span class="shotmeta">1920&times;1080 &middot; 204 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-05-trade.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-06-duel.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-06-duel.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i6">DUELLO</span>
+          <span class="shotmeta">1920&times;1080 &middot; 465 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-06-duel.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="shotframe" href="media/minthaven-screenshot-07-starter-deck.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-07-starter-deck.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <figcaption class="shotcap">
+          <span class="shotlabel"><span class="shotname" data-i18n="i7">BASLANGIC DESTESI</span>
+          <span class="shotmeta">1920&times;1080 &middot; 116 KB</span></span>
+          <a class="dl pxbox" href="media/minthaven-screenshot-07-starter-deck.jpg" download><span data-i18n="dljpg">JPG INDIR</span></a>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="rule"><i></i><b></b><i></i></div>
+    <!-- Drive klasoru: dugme HICBIR SEY INDIRMEZ, yeni sekmede klasoru acar.
+         Etiket ve ikon bunu soylemek zorunda -- onceden "TUMUNU INDIR" yaziyordu
+         ve tiklayan indirme bekliyordu. Ikon da bu yuzden "disari acilir" glifi.
+         DRIVE_URL bos oldugu surece dugme hic gorunmez (asagidaki script). -->
+    <a class="ribbon" id="driveBtn" href="#" target="_blank" rel="noopener" hidden>
+      <svg viewBox="0 0 24 24"><path d="M5 5h6v2H7v10h10v-4h2v6H5Zm9-2h7v7h-2V6.4l-7.3 7.3-1.4-1.4L17.6 5H14Z"/></svg>
+      <span data-i18n="driveOpen">DRIVE'DA GORUNTULE</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- 08 - KULLANIM IZNI ----------------------------------------- -->
+<section class="slide">
+  <div class="inner">
+    <p class="kicker" data-i18n="kPerm">KULLANIM IZNI</p>
+    <h2 data-i18n="hPerm">BU GORSELLERI SERBESTCE KULLANABILIRSIN</h2>
+    <div class="panel cream" style="max-width:74ch">
+      <p data-i18n="perm">Bu sayfadaki ekran görüntüleri, key art, logo ve fragman; Minthaven hakkındaki haber, inceleme, video ve yayınlarda — para kazandıranlar dahil — ayrıca izin almadan serbestçe kullanılabilir. Lütfen Paper Nook Games'i kaynak gösterin; bu sitedeki diğer her şeyin hakları © 2026 Paper Nook Games'e aittir.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 09 - STUDYO + ILETISIM ------------------------------------- -->
+<section class="slide lift foot">
+  <div class="inner" style="text-align:left">
+    <p class="kicker" data-i18n="kAbout">STUDYO VE ILETISIM</p>
+    <h2 data-i18n="hAbout">BUNU KIM YAPTI, NASIL ULASILIR</h2>
+
+    <div class="grid g2">
+      <div class="panel">
+        <h3 data-i18n="aStudio">STUDYO</h3>
+        <p data-i18n="about">Paper Nook Games tek kişilik bir stüdyo ve Minthaven ilk oyunu. Tasarım, kod, sanat entegrasyonu, yerelleştirme ve araçlar bana ait.</p>
+        <nav class="social-row" aria-label="Sosyal medya">
+          <a class="social" href="https://discord.gg/tesU3PdTz" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg viewBox="0 0 24 24"><path d="M19.3 5.3A16 16 0 0 0 15.4 4l-.3.5a12 12 0 0 1 3.3 1.6 11 11 0 0 0-9-1 11 11 0 0 0-1.8.5A12 12 0 0 1 11 4l-.3-.5A16 16 0 0 0 6.7 5.3C3.9 9.4 3.2 13.4 3.6 17.3A16 16 0 0 0 8.3 20l1-1.6a10 10 0 0 1-1.7-.8l.4-.3a11 11 0 0 0 10 0l.4.3a10 10 0 0 1-1.7.8l1 1.6a16 16 0 0 0 4.7-2.7c.5-4.5-.7-8.5-3.1-12ZM9.4 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm5.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a>
+          <a class="social" href="https://x.com/PaperNookGames" target="_blank" rel="noopener" aria-label="X" title="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2L4.6 21H1.4l7.5-8.6L1 3h6.7l4.6 5.7L17.5 3Zm-1.1 16h1.8L7.7 4.8H5.8L16.4 19Z"/></svg></a>
+          <a class="social" href="https://www.youtube.com/@papernookgames" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.2 12c0 1.6.1 3.2.3 4.8a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.2-1.6.3-3.2.3-4.8s-.1-3.2-.3-4.8ZM9.9 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg></a>
+          <a class="social" href="https://bsky.app/profile/papernookgames.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24"><path d="M5.6 3.5C8.4 5.6 11.4 9.9 12 12.2c.6-2.3 3.6-6.6 6.4-8.7 2-1.5 5.3-2.7 5.3 1.1 0 .8-.4 6.4-.7 7.3-.9 3.2-4.1 4-7 3.5 5 .9 6.3 3.7 3.6 6.5-5.2 5.3-7.5-1.3-8.1-3-.1-.3-.2-.5-.2-.3 0-.2-.1 0-.2.3-.6 1.7-2.9 8.3-8.1 3-2.7-2.8-1.4-5.6 3.6-6.5-2.9.5-6.1-.3-7-3.5-.3-.9-.7-6.5-.7-7.3 0-3.8 3.3-2.6 5.3-1.1Z"/></svg></a>
+          <a class="social" href="https://www.reddit.com/r/MINTHAVENTCG/" target="_blank" rel="noopener" aria-label="Reddit" title="Reddit"><svg viewBox="0 0 24 24"><path d="M22 11.8a2.3 2.3 0 0 0-3.9-1.6 11.3 11.3 0 0 0-5.7-1.8l1-4.5 3.2.7a1.7 1.7 0 1 0 .2-1.4l-3.8-.8a.7.7 0 0 0-.8.5l-1.2 5.5a11.3 11.3 0 0 0-5.7 1.8A2.3 2.3 0 1 0 2.9 14a4.5 4.5 0 0 0 0 .7c0 3.5 4.1 6.4 9.1 6.4s9.1-2.9 9.1-6.4a4.5 4.5 0 0 0 0-.7 2.3 2.3 0 0 0 .9-2.2ZM7.7 13.4a1.7 1.7 0 1 1 1.7 1.7 1.7 1.7 0 0 1-1.7-1.7Zm7.8 4.5a5.9 5.9 0 0 1-3.5.9 5.9 5.9 0 0 1-3.5-.9.6.6 0 0 1 .8-.9 4.8 4.8 0 0 0 2.7.6 4.8 4.8 0 0 0 2.7-.6.6.6 0 1 1 .8.9Zm-.9-2.8a1.7 1.7 0 1 1 1.7-1.7 1.7 1.7 0 0 1-1.7 1.7Z"/></svg></a>
+          <a class="social" href="https://www.instagram.com/papernookgames/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3Z"/><path fill-rule="evenodd" d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4Zm0 2A2.6 2.6 0 1 1 9.4 12 2.6 2.6 0 0 1 12 9.4Z"/><circle cx="17.1" cy="6.9" r="1.15"/></svg></a>
+          <a class="social" href="https://www.threads.com/@papernookgames" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg class="line" viewBox="0 0 24 24"><path d="M15.4 5.5A7.7 7.7 0 1 0 18.6 15.3"/><circle cx="12" cy="12" r="3.2"/><path d="M15.2 8.8v4.5c0 2 2 2.9 3.4 2"/></svg></a>
+          <a class="social" href="https://www.tiktok.com/@papernookgames" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24"><path d="M16.7 5.8A4.4 4.4 0 0 1 15.6 3h-3.4v13.6a2.6 2.6 0 1 1-2.6-2.6 2.8 2.8 0 0 1 .8.1v-3.5a6.4 6.4 0 0 0-.8-.1 6.1 6.1 0 1 0 6.1 6.1V9.4a7.7 7.7 0 0 0 4.5 1.4V7.4a4.5 4.5 0 0 1-3.5-1.6Z"/></svg></a>
+        </nav>
+      </div>
+      <div class="panel cream">
+        <h3 data-i18n="aContact">ILETISIM</h3>
+        <p><b>Emre DERE</b><br>
+        <b><a href="mailto:papernookgames@gmail.com">papernookgames@gmail.com</a></b></p>
+        <p class="dim" style="margin-top:12px">
+          <span data-i18n="aSite">Site</span>: <b><a href="https://papernookgames.com/" target="_blank" rel="noopener">papernookgames.com</a></b><br>
+          Steam: <b><a href="https://store.steampowered.com/app/5167250/MINTHAVEN_A_TCG_Life_Sim/" target="_blank" rel="noopener">store.steampowered.com/app/5167250</a></b>
+        </p>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:30px auto 20px"><i></i><b></b><i></i></div>
+    <a class="studio" style="display:block;text-align:center" href="https://papernookgames.com/" target="_blank" rel="noopener">
+      &copy; 2026 PAPER NOOK GAMES &middot; <span data-i18n="rights">TUM HAKLARI SAKLIDIR</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- Fragman penceresi: kabuk isaretlemede DURUR (i18n ve odak icin), ama
+     <iframe> ICI BOSTUR — video ogesi ancak pencere acilinca yaratilir,
+     kapaninca silinir. Bkz. asagidaki openTrailer/closeTrailer. -->
+<div class="tmodal" id="trailerModal" hidden>
+  <div class="tdialog" role="dialog" aria-modal="true" aria-labelledby="trailerTitle">
+    <div class="tbar">
+      <span class="ttitle" id="trailerTitle" data-i18n="trailerTitle">FRAGMAN</span>
+      <button class="tclose pxbox" id="trailerClose" type="button" data-i18n-label="close">&#10005;</button>
+    </div>
+    <div class="tframe" id="trailerFrame"></div>
+  </div>
+</div>
+
+<script>
+/* Toplu indirme klasoru (herkese acik, adi "Press Kit"). Sayfada bu tek satira
+   bagli IKI sey var: "TUMUNU INDIR" dugmesi ve kliplerin altindaki GIF satiri.
+   Bosaltilirsa ikisi de kendiliginden gizlenir -- olmayan bir klasoru vaat
+   etmemek icin. `?usp=sharing` eki bilerek yok, gereksiz. */
+const DRIVE_URL = 'https://drive.google.com/drive/folders/1vx3gXc8gTJg6gHr8O1aHsTYL_o_jMBtM';
+
+/* Iki dil, tek sayfa — ../index.html'in STR + setLang() kalibinin aynisi.
+   localStorage anahtari da AYNI (`mh_lang`): acilis sayfasinda secilen dil
+   burada da gecerli olsun. */
+const STR = {
+  tr:{ tag:'BASIN KITI',
+       hook:"Minthaven'a yüz dolarla ve tek bir kartın olmadan taşındın.",
+       metaGenre:'YASAM SIMULASYONU · KOLEKSIYON RPG · KART OYUNU',
+       metaModel:'TEK OYUNCULU',
+
+       kFacts:'KUNYE', hFacts:'TEK BAKISTA MINTHAVEN',
+       fGame:'OYUN', fDev:'GELISTIRICI', fPub:'YAYINCI', fRel:'CIKIS', fPlat:'PLATFORM',
+       fGenre:'TUR', fPlayers:'OYUNCU', fLangs:'DILLER', fSite:'SITE',
+       fMail:'ILETISIM',
+       vDev:'Paper Nook Games — tek kişilik stüdyo, Emre DERE',
+       vPub:'Açıklanmadı (TBA)', vRel:'Tarih açıklanmadı (TBA)',
+       vGenre:"Yaşam simülasyonu · Koleksiyon RPG'si · Kart oyunu",
+       vPlayers:'Tek oyuncu', vLangs:'10 dil',
+
+       kDesc:'ACIKLAMA', hDesc:'HAZIR METINLER',
+       lOne:'TEK CUMLE', lShort:'KISA PARAGRAF', lLong:'UZUN PARAGRAF',
+       copy:'KOPYALA', copied:'KOPYALANDI',
+       desc1:'Minthaven: A TCG Life Sim, kartın öbür yüzünü anlatan sıcak bir yaşam simülasyonu: kasabaya yüz dolarla ve tek bir kartın olmadan taşınıyorsun, sonrası paketler, takaslar, derecelendirme ve gerçek bir kart oyunu.',
+       desc2:'Koleksiyon kartı oyunları o kartlarla kazanmayı anlatır. Minthaven ise etrafındaki her şeyi: paketi kendi elinle yırtmayı, bir ilk baskının peşine düşmeyi, kartın ortalanmasını tartışmayı, koruyucu poşete koymaya bile çekindiğin kartı derecelendirmeye yollamayı — ve gerçekten sevdiğin kartı satmayı, çünkü paraya daha çok ihtiyacın vardı.',
+       desc3:'Koleksiyon kartı oyunları o kartlarla kazanmayı anlatır. Minthaven ise etrafındaki her şeyi: paketi kendi elinle yırtmayı, bir ilk baskının peşine düşmeyi, kartın ortalanmasını tartışmayı, koruyucu poşete koymaya bile çekindiğin kartı derecelendirmeye yollamayı — ve gerçekten sevdiğin kartı satmayı, çünkü paraya daha çok ihtiyacın vardı. Uyanıyor, telefonundan piyasayı okuyor, kasabaya iniyor, bir paket alıp kendi ellerinle açıyorsun. Seni hatırlayan insanlarla takas yapıyor, masaya oturup gerçek bir kart oyunu oynuyor, sonra uyumadan önce günün hesabını okuyorsun. Kart dükkânı, derecelendirme laboratuvarı, postane, turnuva salonu, kafe, konak ve kendi evin girilebilir; dışarıda gerçek rutinleri olan 33 isimli kasabalı, aralarında 12 kart takasçısı, hava durumu ve sen bakmasan da hareket eden bir kart piyasası var.',
+
+       kFeat:'OZELLIKLER', hFeat:'OYUNUN TASIDIGI ALTI SEY',
+       f1t:'RITUEL',
+       f1:'Paket bir düğme değil, bir ritüel: folyoyu kendi elinle ayırıyor, kartları tek tek çeviriyorsun. Dört satın alınabilir paket türü, garantili bir isabet yuvası ve oyunun asla bahsetmediği acıma sayaçları.',
+       f2t:'TEK SERI',
+       f2:'Elementa tek bir seri: 57 kart, beş element, dört nadirlik kademesi, sezonluk damlama yok. Paketlerin dışında ayrıca 18 promo kart var. Gerçekten bitirebileceğin bir seri.',
+       f3t:'DERECELENDIRME',
+       f3:"Kartlar Mint'ten Damaged'a kadar değişir; ortalanmayı ise parasını ödeyene kadar göremezsin. Laboratuvarda 25 dolar ve üç gün, fiyatı üçe katlayabilecek bir puan satın alır — ve kapsüllenmiş kart oynanamaz.",
+       f4t:'PIYASA',
+       f4:'Haftalık dalgalar, bütün bir arketipi bir gecede yukarı çeken meta raporları, cuma için sakladığın kartı yerle bir eden haberler. Ve klasörden hiçbir şey satılmaz — her kanal yürüyerek gittiğin bir yerdir.',
+       f5t:'INSANLAR',
+       f5:'On iki takasçı; her birinin fazla ödediği bir element ve öğrenebileceğin bir alışkanlığı var. Birini kazıklarsan işe yarar. Bir kez. Kin birkaç gün sonra, tam onlara ihtiyacın olduğunda ortaya çıkar.',
+       f6t:'KART OYUNU',
+       f6:"20 kartlık desteler, üç yaratık yuvası, yedi anahtar kelime ve beş elementli bir üstünlük çemberi. Yerel Kupa'dan Dünya Şampiyonası'na uzanan bir merdiven var.",
+
+       kTrailer:'FRAGMAN', hTrailer:'OYNANIS FRAGMANI', watch:'FRAGMANI IZLE',
+       embedNote:'Kendi yazına gömmek için doğrudan adres:',
+       trailerTitle:'FRAGMAN', close:'KAPAT',
+
+       kClips:'KLIPLER', hClips:'OYNANIS KLIPLERI', play:'OYNAT',
+       clipNote:'Klipler sessiz ve döngüseldir; hiçbiri sen tıklamadan indirilmez.',
+       c1:'KART EFEKTLERI', c2:'DUELLO', c3:'VITRIN', c4:'TAKAS',
+       c1d:"Kart yüzeylerindeki foil ve prizma efektleri; oyunun kendi shader'ıyla çiziliyor.",
+       c2d:'Düellodan bir kesit: yaratık yuvaları, enerji eğrisi ve element üstünlüğü.',
+       c3d:'Teşhir dolabı: koleksiyonun görünen yüzü.',
+       c4d:'Bir takasçıyla takas; her takasçının fazla ödediği bir element var.',
+       gifNote:'Bu kliplerin sıkıştırılmamış orijinal GIF sürümleri Drive klasöründe.',
+
+       kImg:'GORSELLER', hImg:'EKRAN GORUNTULERI',
+       imgNote:'Önizlemeler küçültülmüştür; her görselin tam çözünürlüklü hâli indirilebilir.',
+       i1:'KART DUKKANI', i2:'TESHIR DOLABI', i3:'KART FUARI', i4:'KLASOR',
+       i5:'TAKAS', i6:'DUELLO', i7:'BASLANGIC DESTESI',
+       dljpg:'JPG INDIR', dlmp4:'MP4 INDIR', driveOpen:"DRIVE'DA GORUNTULE",
+
+       kPerm:'KULLANIM IZNI', hPerm:'BU GORSELLERI SERBESTCE KULLANABILIRSIN',
+       perm:"Bu sayfadaki ekran görüntüleri, key art, logo ve fragman; Minthaven hakkındaki haber, inceleme, video ve yayınlarda — para kazandıranlar dahil — ayrıca izin almadan serbestçe kullanılabilir. Lütfen Paper Nook Games'i kaynak gösterin; bu sitedeki diğer her şeyin hakları © 2026 Paper Nook Games'e aittir.",
+
+       kAbout:'STUDYO VE ILETISIM', hAbout:'BUNU KIM YAPTI, NASIL ULASILIR',
+       aStudio:'STUDYO', aContact:'ILETISIM', aSite:'Site',
+       about:'Paper Nook Games tek kişilik bir stüdyo ve Minthaven ilk oyunu. Tasarım, kod, sanat entegrasyonu, yerelleştirme ve araçlar bana ait.',
+       rights:'TUM HAKLARI SAKLIDIR' },
+
+  en:{ tag:'PRESS KIT',
+       hook:'You moved to Minthaven with $100 and not a single card.',
+       metaGenre:'LIFE SIM · COLLECTION RPG · CARD GAME',
+       metaModel:'SINGLE PLAYER',
+
+       kFacts:'FACT SHEET', hFacts:'MINTHAVEN AT A GLANCE',
+       fGame:'GAME', fDev:'DEVELOPER', fPub:'PUBLISHER', fRel:'RELEASE', fPlat:'PLATFORM',
+       fGenre:'GENRE', fPlayers:'PLAYERS', fLangs:'LANGUAGES', fSite:'SITE',
+       fMail:'CONTACT',
+       vDev:'Paper Nook Games — one-person studio, Emre DERE',
+       vPub:'Not announced (TBA)', vRel:'Date not announced (TBA)',
+       vGenre:'Life sim · Collection RPG · Card game',
+       vPlayers:'Single player', vLangs:'10 languages',
+
+       kDesc:'DESCRIPTION', hDesc:'READY-TO-PASTE COPY',
+       lOne:'ONE SENTENCE', lShort:'SHORT PARAGRAPH', lLong:'LONG PARAGRAPH',
+       copy:'COPY', copied:'COPIED',
+       desc1:'Minthaven: A TCG Life Sim is a cozy life sim about the other side of the trading card: you move to town with $100 and not a single card, and everything after that is packs, trades, grading and a real card game.',
+       desc2:"Games about trading cards are about winning with them. Minthaven is about everything around that: tearing the pack open by hand, chasing a first print, arguing about centering, grading the card you're scared to sleeve — and selling the one you actually liked, because you needed the money more.",
+       desc3:"Games about trading cards are about winning with them. Minthaven is about everything around that: tearing the pack open by hand, chasing a first print, arguing about centering, grading the card you're scared to sleeve — and selling the one you actually liked, because you needed the money more. You wake up, read the market on your phone, walk into town, buy a pack and open it with your own hands. You trade with people who remember you, sit down and play a real card game, then read the day's ledger before you sleep. The card shop, the grading lab, the post office, the tournament hall, the café, the manor and your own house are all places you walk into; outside them are 33 named townsfolk on real routines, twelve of them card traders, weather, and a card market that moves whether you are watching or not.",
+
+       kFeat:'FEATURES', hFeat:'THE SIX THINGS THE GAME CARRIES',
+       f1t:'THE RITUAL',
+       f1:'A pack is a ritual, not a button: you drag the foil apart yourself and flip the cards one by one. Four purchasable pack types, a guaranteed hit slot, and pity counters the game never mentions.',
+       f2t:'ONE SET',
+       f2:'Elementa is a single set — 57 cards, five elements, four rarity tiers, no seasonal drip. Another 18 promo cards live outside the packs. A set you can actually finish.',
+       f3t:'GRADING',
+       f3:"Cards run Mint to Damaged, with a centering you can't see until you pay to find out. $25 and three days at the lab buys a number that can triple the price — and a slabbed card cannot be played.",
+       f4t:'THE MARKET',
+       f4:'Weekly waves, meta reports that lift a whole archetype overnight, news that guts the card you were saving for Friday. And nothing sells from the binder — every channel is a place you walk to.',
+       f5t:'THE PEOPLE',
+       f5:'Twelve traders, each with an element they overpay for and a habit you can learn. Rip somebody off and it works. Once. The grudge turns up a few days later, when you need them.',
+       f6t:'THE CARD GAME',
+       f6:'20-card decks, three creature slots, seven keywords and a five-element advantage circle, with a ladder from the local Cup to the World Championship.',
+
+       kTrailer:'TRAILER', hTrailer:'GAMEPLAY TRAILER', watch:'WATCH THE TRAILER',
+       embedNote:'Direct address, for embedding in your own piece:',
+       trailerTitle:'TRAILER', close:'CLOSE',
+
+       kClips:'CLIPS', hClips:'GAMEPLAY CLIPS', play:'PLAY',
+       clipNote:'The clips are silent and looping; none of them downloads until you click.',
+       c1:'CARD EFFECTS', c2:'DUEL', c3:'SHOWCASE', c4:'TRADE',
+       c1d:"Foil and prism finishes on card faces, drawn by the game's own shader.",
+       c2d:'A slice of a duel: creature slots, the energy curve and element advantage.',
+       c3d:'The display case — the visible face of a collection.',
+       c4d:'Trading with one of the traders, each of whom overpays for an element.',
+       gifNote:'The original, uncompressed GIF versions of these clips are in the Drive folder.',
+
+       kImg:'IMAGES', hImg:'SCREENSHOTS',
+       imgNote:'Previews are downscaled; the full-resolution file of every image is downloadable.',
+       i1:'CARD SHOP', i2:'DISPLAY CASE', i3:'CARD SHOW', i4:'THE BINDER',
+       i5:'TRADE', i6:'DUEL', i7:'STARTER DECK',
+       dljpg:'DOWNLOAD JPG', dlmp4:'DOWNLOAD MP4', driveOpen:'VIEW ON GOOGLE DRIVE',
+
+       kPerm:'PERMISSION', hPerm:'YOU MAY USE THIS ART FREELY',
+       perm:'The screenshots, key art, logo and trailer on this page may be used freely in news, reviews, videos and streams about Minthaven, including monetised ones, without asking for further permission. Please credit Paper Nook Games; everything else on this site remains © 2026 Paper Nook Games.',
+
+       kAbout:'STUDIO & CONTACT', hAbout:'WHO MADE THIS, AND HOW TO REACH ME',
+       aStudio:'STUDIO', aContact:'CONTACT', aSite:'Site',
+       about:'Paper Nook Games is a one-person studio, and Minthaven is its first title. The design, code, art integration, localisation and tooling are all mine.',
+       rights:'ALL RIGHTS RESERVED' }
+};
+
+function setLang(l){
+  document.documentElement.lang = l;
+  for(const el of document.querySelectorAll('[data-i18n]')) el.textContent = STR[l][el.dataset.i18n];
+  /* Gorunmeyen metinler (aria-label gibi) ayri gecer: textContent yazilamaz. */
+  for(const el of document.querySelectorAll('[data-i18n-label]')) el.setAttribute('aria-label', STR[l][el.dataset.i18nLabel]);
+  for(const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang===l));
+  try{ localStorage.setItem('mh_lang', l); }catch(e){}
+}
+for(const b of document.querySelectorAll('.lang button')) b.onclick = ()=> setLang(b.dataset.lang);
+let start = 'tr';
+try{
+  const saved = localStorage.getItem('mh_lang');
+  start = (saved === 'tr' || saved === 'en') ? saved
+        : ((navigator.language || '').toLowerCase().startsWith('tr') ? 'tr' : 'en');
+}catch(e){}
+setLang(start);
+
+/* --- toplu indirme dugmesi ----------------------------------- */
+/* DRIVE_URL bos oldugu surece dugme TAMAMEN gizli kalir: sayfada kirik ya da
+   olu bir buton gorunmez. Klasor olusturulup adres yukaridaki sabite
+   yazildiginda dugme kendiliginden gorunur olur, baska hicbir sey degismez. */
+const driveBtn = document.getElementById('driveBtn');
+if(DRIVE_URL){
+  driveBtn.href = DRIVE_URL;
+  driveBtn.hidden = false;
+  /* GIF satiri ayni kapiya bagli: klasor yokken "indirme klasorunde" demek
+     olmayan bir seyi vaat etmek olurdu. */
+  document.getElementById('gifNote').hidden = false;
+}
+
+/* --- klipler: TIKLAYINCA yuklenir ---------------------------- */
+/* Video ogesi isaretlemede `src` TASIMAZ; yol `data-src`te durur. Dort klip
+   otomatik inseydi sayfayi acan herkese ~8.5 MB giderdi. Ilk tiklamada
+   tasiyici doldurulur, sonrakiler yalniz oynat/duraklat yapar. */
+for(const frame of document.querySelectorAll('.clipframe')){
+  const v = frame.querySelector('video');
+  frame.addEventListener('click', ()=>{
+    if(!v.getAttribute('src')) v.setAttribute('src', v.dataset.src);
+    if(v.paused){
+      v.play().then(()=> frame.classList.add('playing'), ()=>{});
+    }else{
+      v.pause();
+      frame.classList.remove('playing');
+    }
+  });
+  /* Kaynagi kendiliginden biten/duraklayan klip kapagi geri getirir. */
+  v.addEventListener('pause', ()=> frame.classList.remove('playing'));
+  v.addEventListener('playing', ()=> frame.classList.add('playing'));
+}
+
+/* --- kopyala dugmeleri --------------------------------------- */
+/* Kopyalanan metin kaynagin KENDI textContent'idir, yani o anki dilde gelir:
+   ayri bir "kopya metni" sozlugu tutulmaz, ikisi ayrisamaz. */
+function flash(btn){
+  const l = document.documentElement.lang;
+  btn.textContent = STR[l] ? STR[l].copied : 'COPIED';
+  clearTimeout(btn._t);
+  btn._t = setTimeout(()=>{ btn.textContent = STR[document.documentElement.lang].copy; }, 1400);
+}
+function legacyCopy(text){
+  /* Guvenli baglam degilse (ornegin duz http) clipboard API yok; sessiz yedek. */
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly','');
+  ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try{ ok = document.execCommand('copy'); }catch(e){}
+  ta.remove();
+  return ok;
+}
+for(const btn of document.querySelectorAll('[data-copy]')){
+  btn.addEventListener('click', ()=>{
+    const src = document.getElementById(btn.dataset.copy);
+    if(!src) return;
+    const text = src.textContent.trim().replace(/\s+/g,' ');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(()=>flash(btn), ()=>{ if(legacyCopy(text)) flash(btn); });
+    }else if(legacyCopy(text)){
+      flash(btn);
+    }
+  });
+}
+
+/* --- Fragman penceresi --------------------------------------- */
+/* Iki kural pencerenin tamamini belirliyor:
+   1) iframe SAYFA ACILISINDA YARATILMAZ — yoksa herkes sayfayi acar acmaz
+      YouTube'a istek atmis olurdu. Video ogesi yalniz acilista dogar.
+   2) Kapanista iframe DOM'DAN SILINIR. `src`i bosaltmak yetmiyor: oynatici
+      arka planda ses calmaya devam edebiliyor. */
+const TRAILER_SRC = 'https://www.youtube-nocookie.com/embed/2hdGG4VW39A?autoplay=1&rel=0';
+const tLink  = document.getElementById('trailerLink');
+const tModal = document.getElementById('trailerModal');
+const tFrame = document.getElementById('trailerFrame');
+
+function openTrailer(){
+  if(!tModal.hidden) return;
+  const f = document.createElement('iframe');
+  f.src = TRAILER_SRC;
+  f.title = STR[document.documentElement.lang] ? STR[document.documentElement.lang].trailerTitle : 'TRAILER';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  tFrame.appendChild(f);
+  tModal.hidden = false;
+  document.documentElement.classList.add('tlock');
+  document.body.classList.add('tlock');
+  addEventListener('keydown', onTrailerKey);
+  document.getElementById('trailerClose').focus({ preventScroll:true });
+}
+function closeTrailer(){
+  if(tModal.hidden) return;
+  tModal.hidden = true;
+  tFrame.replaceChildren();                 /* iframe tamamen gider */
+  document.documentElement.classList.remove('tlock');
+  document.body.classList.remove('tlock');
+  removeEventListener('keydown', onTrailerKey);
+  tLink.focus({ preventScroll:true });       /* odak serit butona doner */
+}
+function onTrailerKey(e){ if(e.key === 'Escape') closeTrailer(); }
+
+tLink.addEventListener('click', e=>{
+  /* Ctrl/Cmd/Shift/Alt ya da sol tik disi: tarayicinin kendi "yeni sekmede ac"
+     davranisini BOZMA, link YouTube'a gitsin. */
+  if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  openTrailer();
+});
+document.getElementById('trailerClose').onclick = closeTrailer;
+/* Yalniz perdenin KENDISINE tiklaninca kapanir; video/baslik uzeri sayilmaz. */
+tModal.addEventListener('click', e=>{ if(e.target === tModal) closeTrailer(); });
+</script>
+</body>
+</html>
