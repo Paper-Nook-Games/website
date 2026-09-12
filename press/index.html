@@ -369,6 +369,8 @@ p + p{ margin-top:.85em; }
              0 10px 30px rgba(0,0,0,.6);
 }
 .tframe iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+/* Gorsel penceresi ayni kutuyu kullanir; kare 16:9 cerceveye SIGDIRILIR, kirpilmaz. */
+.tframe img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; }
 html.tlock, body.tlock{ overflow:hidden; }
 </style>
 </head>
@@ -388,8 +390,7 @@ html.tlock, body.tlock{ overflow:hidden; }
 <!-- 01 - KAPAK ------------------------------------------------- -->
 <!-- Baslikta basin kitinin KENDI seffaf logosunun onizlemesi kullanilir
      (media/thumbs/minthaven-logo.webp, 38 KB) -- tam boyutlu PNG ile birebir
-     ayni gorsel, ama sayfa acilisinda 415 KB daha az iniyor. Indirilebilir
-     hali asagida MARKA VE MAGAZA grubunda. -->
+     ayni gorsel, ama sayfa acilisinda 415 KB daha az iniyor. -->
 <section class="slide cover">
   <div class="inner">
     <img class="logo" src="media/thumbs/minthaven-logo.webp" alt="Minthaven — A TCG Life Sim" width="960" height="381">
@@ -624,7 +625,7 @@ html.tlock, body.tlock{ overflow:hidden; }
 
     <div class="shots">
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-01-card-shop.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-01-card-shop.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-01-card-shop.jpg"><img src="media/thumbs/minthaven-screenshot-01-card-shop.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i1">KART DUKKANI</span>
           <span class="shotmeta">1920&times;1080 &middot; 250 KB</span></span>
@@ -632,7 +633,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-02-showcase.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-02-showcase.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-02-showcase.jpg"><img src="media/thumbs/minthaven-screenshot-02-showcase.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i2">TESHIR DOLABI</span>
           <span class="shotmeta">1920&times;1080 &middot; 302 KB</span></span>
@@ -640,7 +641,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-03-card-show.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-03-card-show.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-03-card-show.jpg"><img src="media/thumbs/minthaven-screenshot-03-card-show.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i3">KART FUARI</span>
           <span class="shotmeta">1920&times;1080 &middot; 395 KB</span></span>
@@ -648,7 +649,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-04-binder.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-04-binder.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-04-binder.jpg"><img src="media/thumbs/minthaven-screenshot-04-binder.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i4">KLASOR</span>
           <span class="shotmeta">1920&times;1080 &middot; 284 KB</span></span>
@@ -656,7 +657,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-05-trade.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-05-trade.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-05-trade.jpg"><img src="media/thumbs/minthaven-screenshot-05-trade.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i5">TAKAS</span>
           <span class="shotmeta">1920&times;1080 &middot; 204 KB</span></span>
@@ -664,7 +665,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-06-duel.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-06-duel.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-06-duel.jpg"><img src="media/thumbs/minthaven-screenshot-06-duel.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i6">DUELLO</span>
           <span class="shotmeta">1920&times;1080 &middot; 465 KB</span></span>
@@ -672,7 +673,7 @@ html.tlock, body.tlock{ overflow:hidden; }
         </figcaption>
       </figure>
       <figure class="shot">
-        <a class="shotframe" href="media/minthaven-screenshot-07-starter-deck.jpg" download aria-hidden="true" tabindex="-1"><img src="media/thumbs/minthaven-screenshot-07-starter-deck.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <a class="shotframe" href="media/minthaven-screenshot-07-starter-deck.jpg"><img src="media/thumbs/minthaven-screenshot-07-starter-deck.webp" alt="" width="960" height="540" loading="lazy"></a>
         <figcaption class="shotcap">
           <span class="shotlabel"><span class="shotname" data-i18n="i7">BASLANGIC DESTESI</span>
           <span class="shotmeta">1920&times;1080 &middot; 116 KB</span></span>
@@ -759,6 +760,21 @@ html.tlock, body.tlock{ overflow:hidden; }
   </div>
 </div>
 
+<!-- Gorsel penceresi: fragmanla AYNI kabuk ve ayni siniflar, ikisi ayri
+     gorunmesin diye. <img> ICI BOSTUR -- tam boyutlu dosya ancak tiklaninca
+     istenir, kapanista DOM'dan silinir. Cerceveye tiklamak BUYUTUR; indirme
+     yalniz "JPG INDIR" dugmesindedir (once cerceve de indiriyordu ve
+     tiklayan buyutme bekliyordu). -->
+<div class="tmodal" id="imgModal" hidden>
+  <div class="tdialog" role="dialog" aria-modal="true" aria-labelledby="imgTitle">
+    <div class="tbar">
+      <span class="ttitle" id="imgTitle"></span>
+      <button class="tclose pxbox" id="imgClose" type="button" data-i18n-label="close">&#10005;</button>
+    </div>
+    <div class="tframe" id="imgFrame"></div>
+  </div>
+</div>
+
 <script>
 /* Toplu indirme klasoru (herkese acik, adi "Press Kit"). Sayfada bu tek satira
    bagli IKI sey var: "TUMUNU INDIR" dugmesi ve kliplerin altindaki GIF satiri.
@@ -822,7 +838,7 @@ const STR = {
        imgNote:'Önizlemeler küçültülmüştür; her görselin tam çözünürlüklü hâli indirilebilir.',
        i1:'KART DUKKANI', i2:'TESHIR DOLABI', i3:'KART FUARI', i4:'KLASOR',
        i5:'TAKAS', i6:'DUELLO', i7:'BASLANGIC DESTESI',
-       dljpg:'JPG INDIR', dlmp4:'MP4 INDIR', driveOpen:"DRIVE'DA GORUNTULE",
+       dljpg:'JPG INDIR', dlmp4:'MP4 INDIR', driveOpen:"DRIVE'DA GORUNTULE", zoom:'BUYUT',
 
        kPerm:'KULLANIM IZNI', hPerm:'BU GORSELLERI SERBESTCE KULLANABILIRSIN',
        perm:"Bu sayfadaki ekran görüntüleri, key art, logo ve fragman; Minthaven hakkındaki haber, inceleme, video ve yayınlarda — para kazandıranlar dahil — ayrıca izin almadan serbestçe kullanılabilir. Lütfen Paper Nook Games'i kaynak gösterin; bu sitedeki diğer her şeyin hakları © 2026 Paper Nook Games'e aittir.",
@@ -884,7 +900,7 @@ const STR = {
        imgNote:'Previews are downscaled; the full-resolution file of every image is downloadable.',
        i1:'CARD SHOP', i2:'DISPLAY CASE', i3:'CARD SHOW', i4:'THE BINDER',
        i5:'TRADE', i6:'DUEL', i7:'STARTER DECK',
-       dljpg:'DOWNLOAD JPG', dlmp4:'DOWNLOAD MP4', driveOpen:'VIEW ON GOOGLE DRIVE',
+       dljpg:'DOWNLOAD JPG', dlmp4:'DOWNLOAD MP4', driveOpen:'VIEW ON GOOGLE DRIVE', zoom:'ENLARGE',
 
        kPerm:'PERMISSION', hPerm:'YOU MAY USE THIS ART FREELY',
        perm:'The screenshots, key art, logo and trailer on this page may be used freely in news, reviews, videos and streams about Minthaven, including monetised ones, without asking for further permission. Please credit Paper Nook Games; everything else on this site remains © 2026 Paper Nook Games.',
@@ -900,6 +916,12 @@ function setLang(l){
   for(const el of document.querySelectorAll('[data-i18n]')) el.textContent = STR[l][el.dataset.i18n];
   /* Gorunmeyen metinler (aria-label gibi) ayri gecer: textContent yazilamaz. */
   for(const el of document.querySelectorAll('[data-i18n-label]')) el.setAttribute('aria-label', STR[l][el.dataset.i18nLabel]);
+  /* Cerceve baglantisinin adi karenin KENDI adindan gelir; hepsine ayni
+     "BUYUT" demek ekran okuyucuda yedi ayni baglanti demek olurdu. */
+  for(const a of document.querySelectorAll('.shotframe')){
+    const n = a.closest('.shot').querySelector('.shotname');
+    a.setAttribute('aria-label', (n ? n.textContent + ' - ' : '') + STR[l].zoom);
+  }
   for(const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang===l));
   try{ localStorage.setItem('mh_lang', l); }catch(e){}
 }
@@ -1026,6 +1048,54 @@ tLink.addEventListener('click', e=>{
 document.getElementById('trailerClose').onclick = closeTrailer;
 /* Yalniz perdenin KENDISINE tiklaninca kapanir; video/baslik uzeri sayilmaz. */
 tModal.addEventListener('click', e=>{ if(e.target === tModal) closeTrailer(); });
+
+/* --- Gorsel penceresi ----------------------------------------- */
+/* Fragman penceresiyle AYNI iki kural: (1) tam boyutlu kare sayfa acilisinda
+   ISTENMEZ, ancak tiklaninca yaratilir; (2) kapanista DOM'dan SILINIR.
+   `href` gercek dosya adresi kalir: JS calismazsa, orta tikta ya da
+   Ctrl/Cmd ile cerceve duz link gibi davranir ve kareyi acar. */
+const iModal = document.getElementById('imgModal');
+const iFrame = document.getElementById('imgFrame');
+const iTitle = document.getElementById('imgTitle');
+let   iOpener = null;
+
+function openImg(href, name, opener){
+  if(!iModal.hidden) return;
+  const im = document.createElement('img');
+  im.src = href;
+  im.alt = name || '';
+  iFrame.appendChild(im);
+  iTitle.textContent = name || '';
+  iOpener = opener;
+  iModal.hidden = false;
+  document.documentElement.classList.add('tlock');
+  document.body.classList.add('tlock');
+  addEventListener('keydown', onImgKey);
+  document.getElementById('imgClose').focus({ preventScroll:true });
+}
+function closeImg(){
+  if(iModal.hidden) return;
+  iModal.hidden = true;
+  iFrame.replaceChildren();
+  document.documentElement.classList.remove('tlock');
+  document.body.classList.remove('tlock');
+  removeEventListener('keydown', onImgKey);
+  if(iOpener) iOpener.focus({ preventScroll:true });
+  iOpener = null;
+}
+function onImgKey(e){ if(e.key === 'Escape') closeImg(); }
+
+for(const a of document.querySelectorAll('.shotframe')){
+  a.addEventListener('click', e=>{
+    if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    const n = a.closest('.shot').querySelector('.shotname');
+    openImg(a.getAttribute('href'), n ? n.textContent : '', a);
+  });
+}
+document.getElementById('imgClose').onclick = closeImg;
+/* Yalniz perdenin KENDISINE tiklaninca kapanir; gorsel/baslik uzeri sayilmaz. */
+iModal.addEventListener('click', e=>{ if(e.target === iModal) closeImg(); });
 </script>
 </body>
 </html>
