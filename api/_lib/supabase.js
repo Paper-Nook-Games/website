@@ -18,7 +18,8 @@ function getSupabaseEnv() {
   const url = String(process.env.SUPABASE_URL || '').trim();
   const key = String(process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim();
   if (!url || !key || !/^https?:\/\//i.test(url)) return null;
-  return { url: url.replace(/\/+$/, ''), key };
+  // Panelden "/rest/v1/" ekiyle girilen URL de kabul edilir; ek kod tarafinda eklenir.
+  return { url: url.replace(/\/+$/, '').replace(/\/rest\/v1$/i, ''), key };
 }
 
 function authHeaders(env) {
