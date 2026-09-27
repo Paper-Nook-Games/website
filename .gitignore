@@ -1,0 +1,9 @@
+# Yerel ortam / secret dosyalari asla commit edilmez
+.env
+.env.*
+!.env.example
+
+# Vercel CLI yerel baglanti klasoru
+.vercel
+
+node_modules/

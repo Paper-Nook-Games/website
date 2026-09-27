@@ -1,0 +1,7 @@
+# Vercel deployment'ina gerekmeyen, yalniz repo icin olan dosyalar
+tests/
+supabase/
+docs/
+.github/
+.env
+.env.*
